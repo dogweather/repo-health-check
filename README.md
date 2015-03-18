@@ -22,6 +22,8 @@ Code which will be able to;
 
 ## Automated Signals
 
+Quantitative measurements which can determine qualitative assessments.
+
 * # of active branches
   * merged
   * unmerged
