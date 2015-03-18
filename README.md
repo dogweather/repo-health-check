@@ -6,7 +6,7 @@
 
 * A developer looking for an open source library wants to compare management styles of a few alternatives.
 * A developer thinking about contributing to a project wants to know if it's worth it.
-* A job candidate wants to know how a respective employer manages their projects.
+* A job candidate wants to know how a prospective employer manages their projects.
 
 
 ## Objectives
