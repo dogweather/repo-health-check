@@ -17,7 +17,7 @@ Code which will be able to;
 * Determine: does Project _accept_ help?
 * Rate a project:
   * Is it well managed?
-    * What exactly will this mean?
+    * (What exactly will this mean?)
 
 
 ## Automated Signals
@@ -37,3 +37,4 @@ Quantitative measurements which can determine qualitative assessments.
 * # of stars
 * # of forks
 * # of subscribers
+* ratio of # of tags to # of tags in use
