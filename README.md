@@ -1,5 +1,5 @@
 # ducking-octo-dangerzone
-**Analyze a GitHub project: Well managed? Accepts help? Wants help?**
+**Analyze a GitHub project: Is it well managed? Does it want help? Does it _accept_ help?**
 
 ## Objectives
 
