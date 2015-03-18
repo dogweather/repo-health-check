@@ -23,9 +23,15 @@ Code which will be able to;
 ## Automated Signals
 
 * # of active branches
+  * merged
+  * unmerged
 * # of stale branches
+  * merged
+  * unmerged
 * # of open pull requests
+  * proportion open:closed pull requests
 * # of open issues
+  * proportion open:closed issues
 * # of stars
 * # of forks
 * # of subscribers
