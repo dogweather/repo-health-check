@@ -1,6 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/dogweather/ducking-octo-dangerzone/badges/gpa.svg)](https://codeclimate.com/github/dogweather/ducking-octo-dangerzone)
-
-[![Build Status](https://travis-ci.org/dogweather/ducking-octo-dangerzone.svg?branch=master)](https://travis-ci.org/dogweather/ducking-octo-dangerzone)
+[![Code Climate](https://codeclimate.com/github/dogweather/ducking-octo-dangerzone/badges/gpa.svg)](https://codeclimate.com/github/dogweather/ducking-octo-dangerzone) [![Build Status](https://travis-ci.org/dogweather/ducking-octo-dangerzone.svg?branch=master)](https://travis-ci.org/dogweather/ducking-octo-dangerzone)
 
 
 # ducking-octo-dangerzone
