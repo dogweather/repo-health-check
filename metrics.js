@@ -20,4 +20,26 @@ var Metrics = {};
     throw new RangeError('Rating must be between 0 and 11');
   };
 
+  Metrics.effectiveness = function(
+    merged_pull_requests,
+    proposed_pull_requests,
+    closed_issues,
+    new_issues) {
+    var score = average(
+      Metrics.ratio(merged_pull_requests, proposed_pull_requests),
+      Metrics.ratio(closed_issues, new_issues)
+    );
+  };
+
+  // Scale a ratio to the range 0–10.
+  Metrics.scaled = function(ratio) {
+    if (ratio === Infinity) return 10;
+    return ratio;
+  };
+
+
+  function average(a, b) {
+    return (a + b) / 2;
+  }
+
 }());
