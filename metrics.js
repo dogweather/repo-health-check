@@ -3,8 +3,17 @@ var Metrics = Metrics || {};
 (function() {
   'use strict';
 
-  Metrics.ratio = function(x, y) {
-    return x / y;
+  Metrics.effectiveness = function(merged_prs, proposed_prs, closed_issues, new_issues) {
+    return (0.66 * Metrics.pr_effectiveness(merged_prs, proposed_prs)) +
+           (0.34 * Metrics.issue_effectiveness(closed_issues, new_issues));
+  };
+
+  Metrics.pr_effectiveness = function(merged_prs, proposed_prs) {
+    return Metrics.scaled(Metrics.ratio(merged_prs, proposed_prs));
+  };
+
+  Metrics.issue_effectiveness = function(closed_issues, new_issues) {
+    return Metrics.scaled(Metrics.ratio(closed_issues, new_issues));
   };
 
   Metrics.effectiveness_desc = function(rating) {
@@ -20,11 +29,8 @@ var Metrics = Metrics || {};
     throw new RangeError('Rating must be between 0 and 11');
   };
 
-  Metrics.effectiveness = function(merged_prs, proposed_prs, closed_issues, new_issues) {
-    var pr_effectiveness    = Metrics.scaled(Metrics.ratio(merged_prs, proposed_prs));
-    var issue_effectiveness = Metrics.scaled(Metrics.ratio(closed_issues, new_issues));
-
-    return (0.66 * pr_effectiveness) + (0.34 * issue_effectiveness);
+  Metrics.ratio = function(x, y) {
+    return x / y;
   };
 
   // Scale a ratio to the range 0–10.
