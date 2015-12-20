@@ -1,0 +1,668 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    
+    
+    <title>Pulse · boto/boto · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="boto/boto" name="twitter:title" /><meta content="For the latest version of boto, see https://github.com/boto/boto3 -- Python interface to Amazon Web Services" name="twitter:description" /><meta content="https://avatars0.githubusercontent.com/u/327752?v=3&amp;s=400" name="twitter:image:src" />
+      <meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="https://avatars0.githubusercontent.com/u/327752?v=3&amp;s=400" property="og:image" /><meta content="boto/boto" property="og:title" /><meta content="https://github.com/boto/boto" property="og:url" /><meta content="For the latest version of boto, see https://github.com/boto/boto3 -- Python interface to Amazon Web Services" property="og:description" />
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="pulse" data-pjax-transient>
+
+    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="47C1C76E:4489:17B20D30:56765EB4" name="octolytics-dimension-request_id" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/repositories/pulse" data-pjax-transient="true" name="analytics-location" />
+<meta content="Rails, view, repositories#pulse" data-pjax-transient="true" name="analytics-event" />
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+        <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+        <meta name="expected-hostname" content="github.com">
+
+      <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <meta content="fcde803e87af43ea1cbf1af84e1b4de6c5046cb3" name="form-nonce" />
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-9b9bb5f0e51c6691245fd21719e65aee31f1f33ce4fd41c446dddc1ceb37cbad.css" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2-327ccd956b7110b749a5feef7e1110bd8a7f0074044affc068d39ff982377ae0.css" media="all" rel="stylesheet" />
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="ac089033e2e3b15782c37f0126e2b632">
+
+      
+  <meta name="description" content="For the latest version of boto, see https://github.com/boto/boto3 -- Python interface to Amazon Web Services">
+  <meta name="go-import" content="github.com/boto/boto git https://github.com/boto/boto.git">
+
+  <meta content="327752" name="octolytics-dimension-user_id" /><meta content="boto" name="octolytics-dimension-user_login" /><meta content="771016" name="octolytics-dimension-repository_id" /><meta content="boto/boto" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="771016" name="octolytics-dimension-repository_network_root_id" /><meta content="boto/boto" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/boto/boto/commits/develop.atom" rel="alternate" title="Recent Commits to boto:develop" type="application/atom+xml">
+
+  </head>
+
+
+  <body class="logged_out   env-production  vis-public">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+
+    
+    
+    
+
+
+
+      
+      <div class="header header-logged-out" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions" role="navigation">
+        <a class="btn btn-primary" href="/join" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+      <a class="btn" href="/login?return_to=%2Fboto%2Fboto%2Fpulse" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+    </div>
+
+    <div class="site-search repo-scope js-site-search" role="search">
+      <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/boto/boto/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/boto/boto/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <label class="js-chromeless-input-container form-control">
+    <div class="scope-badge">This repository</div>
+    <input type="text"
+      class="js-site-search-focus js-site-search-field is-clearable chromeless-input"
+      data-hotkey="s"
+      name="q"
+      placeholder="Search"
+      aria-label="Search this repository"
+      data-global-scope-placeholder="Search GitHub"
+      data-repo-scope-placeholder="Search"
+      tabindex="1"
+      autocapitalize="off">
+  </label>
+</form>
+    </div>
+
+      <ul class="header-nav left" role="navigation">
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/explore" data-ga-click="(Logged out) Header, go to explore, text:explore">Explore</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/features" data-ga-click="(Logged out) Header, go to features, text:features">Features</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://enterprise.github.com/" data-ga-click="(Logged out) Header, go to enterprise, text:enterprise">Enterprise</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/pricing" data-ga-click="(Logged out) Header, go to pricing, text:pricing">Pricing</a>
+          </li>
+      </ul>
+
+  </div>
+</div>
+
+
+
+    <div id="start-of-content" class="accessibility-aid"></div>
+
+      <div id="js-flash-container">
+</div>
+
+
+    <div role="main" class="main-content">
+        <div itemscope itemtype="http://schema.org/WebPage">
+    <div id="js-repo-pjax-container" class="context-loader-container js-repo-nav-next" data-pjax-container>
+      
+<div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+  <div class="container repohead-details-container">
+
+    
+
+<ul class="pagehead-actions">
+
+  <li>
+      <a href="/login?return_to=%2Fboto%2Fboto"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <span class="octicon octicon-eye"></span>
+    Watch
+  </a>
+  <a class="social-count" href="/boto/boto/watchers">
+    321
+  </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fboto%2Fboto"
+    class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+    aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star "></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="/boto/boto/stargazers">
+      5,268
+    </a>
+
+  </li>
+
+  <li>
+      <a href="/login?return_to=%2Fboto%2Fboto"
+        class="btn btn-sm btn-with-count tooltipped tooltipped-n"
+        aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked "></span>
+        Fork
+      </a>
+
+    <a href="/boto/boto/network" class="social-count">
+      1,930
+    </a>
+  </li>
+</ul>
+
+    <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public ">
+  <span class="octicon octicon-repo "></span>
+  <span class="author"><a href="/boto" class="url fn" itemprop="url" rel="author"><span itemprop="title">boto</span></a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong><a href="/boto/boto" data-pjax="#js-repo-pjax-container">boto</a></strong>
+
+  <span class="page-context-loader">
+    <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
+  </span>
+
+</h1>
+
+  </div>
+  <div class="container">
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax js-octicon-loaders"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <a href="/boto/boto" aria-label="Code" class="js-selected-navigation-item reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /boto/boto">
+    <span class="octicon octicon-code "></span>
+    Code
+</a>
+    <a href="/boto/boto/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /boto/boto/issues">
+      <span class="octicon octicon-issue-opened "></span>
+      Issues
+      <span class="counter">679</span>
+</a>
+  <a href="/boto/boto/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /boto/boto/pulls">
+    <span class="octicon octicon-git-pull-request "></span>
+    Pull requests
+    <span class="counter">333</span>
+</a>
+
+  <a href="/boto/boto/pulse" aria-selected="true" class="js-selected-navigation-item selected reponav-item" data-selected-links="pulse /boto/boto/pulse">
+    <span class="octicon octicon-pulse "></span>
+    Pulse
+</a>
+  <a href="/boto/boto/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /boto/boto/graphs">
+    <span class="octicon octicon-graph "></span>
+    Graphs
+</a>
+
+</nav>
+
+  </div>
+</div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    <div class="header-with-actions">
+  <div class="select-menu js-menu-container js-select-menu js-pulse-period">
+    <button class="btn btn-sm select-menu-button js-menu-target" type="button" aria-haspopup="true">
+      <i>Period:</i>
+      <span class="js-select-button">1 week</span>
+    </button>
+
+    <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+      <div class="select-menu-modal">
+        <div class="select-menu-header">
+          <span class="select-menu-title">Filter Activity</span>
+          <span aria-label="Close" class="octicon octicon-x js-menu-close" role="button"></span>
+        </div>
+
+        <div class="select-menu-list">
+          <div class="select-menu-item js-navigation-item ">
+            <input data-url="/boto/boto/pulse/daily" id="period_daily" name="period" type="radio" value="daily" />
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <div class="select-menu-item-text js-select-button-text">24 hours</div>
+          </div>
+          <div class="select-menu-item js-navigation-item ">
+            <input data-url="/boto/boto/pulse/halfweekly" id="period_halfweekly" name="period" type="radio" value="halfweekly" />
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <div class="select-menu-item-text js-select-button-text">3 days</div>
+          </div>
+          <div class="select-menu-item js-navigation-item selected">
+            <input checked="checked" data-url="/boto/boto/pulse" id="period_weekly" name="period" type="radio" value="weekly" />
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <div class="select-menu-item-text js-select-button-text">1 week</div>
+          </div>
+          <div class="select-menu-item js-navigation-item ">
+            <input data-url="/boto/boto/pulse/monthly" id="period_monthly" name="period" type="radio" value="monthly" />
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <div class="select-menu-item-text js-select-button-text">1 month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="date-range">December 12, 2015 <span class='dash'>&ndash;</span> December 19, 2015</h3>
+</div>
+
+<div class="boxed-group flush">
+  <h3>Overview</h3>
+  <div class="boxed-group-inner">
+    <div class="clearfix">
+      <div class="pulse-graph">
+        <div class="simple-stacked-bar">
+            <a href="/boto/boto/pulls?direction=desc&amp;sort=created&amp;state=closed" class="bar-section bar-section-alt" style="width:16.666666666666664%"></a>
+            <a href="/boto/boto/pulls?direction=desc&amp;sort=created&amp;state=open" class="bar-section bar-section-positive" style="width:83.33333333333334%"></a>
+        </div>
+        <p class="desc"><span class="text-emphasized">6</span> Active Pull Requests</p>
+      </div>
+
+      <div class="pulse-graph">
+        <div class="simple-stacked-bar">
+            <a href="/boto/boto/issues?state=closed" class="bar-section bar-section-negative" style="width:14.285714285714285%"></a>
+            <a href="/boto/boto/issues?state=open" class="bar-section bar-section-positive" style="width:85.71428571428571%"></a>
+        </div>
+        <p class="desc"><span class="text-emphasized">7</span> Active Issues</p>
+      </div>
+    </div>
+
+    <ul class="summary-stats">
+      <li>
+        <a href="#merged-pull-requests">
+          <span class="num">
+            <span class="octicon octicon-git-pull-request"></span>
+            1
+          </span>
+          Merged Pull Request
+        </a>
+      </li>
+      <li>
+        <a href="#proposed-pull-requests">
+          <span class="num">
+            <span class="octicon octicon-git-branch"></span>
+            5
+          </span>
+          Proposed Pull Requests
+        </a>
+      </li>
+      <li>
+        <a href="#closed-issues">
+          <span class="num">
+            <span class="octicon octicon-issue-closed"></span>
+            1
+          </span>
+          Closed Issue
+        </a>
+      </li>
+      <li>
+        <a href="#new-issues">
+          <span class="num">
+            <span class="octicon octicon-issue-opened"></span>
+            6
+          </span>
+          New Issues
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <div class="authors-and-code">
+    <div class="section diffstat-summary">
+      Excluding merges, <strong>1 author</strong>
+      has pushed
+      <strong><span class="text-emphasized">1</span> commit</strong> to develop and
+      <strong><span class="text-emphasized">1</span> commit</strong>
+      to all branches.
+      On develop, <strong>2 files</strong>
+      have changed and there have been
+      <a href="/boto/boto/compare/develop@%7B1449993269%7D...develop" class="lines-changed">
+        <strong class="insertions">2</strong> <strong>additions</strong> and
+        <strong class="deletions">2</strong> <strong>deletions</strong></a>.
+    </div>
+    <div class="section">
+      <div class="js-graph graph-canvas pulse-authors-graph js-pulse-authors-graph"
+          data-url="https://github.com/boto/boto/pulse_committer_data">
+        <img class="graph-loading dots" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" alt="">
+      </div>
+    </div>
+  </div>
+
+<div class="pulse-sections">
+    <div id="pull-requests" class="pulse-section">
+    <h3 class="conversation-list-heading" id="merged-pull-requests">
+      <span class="inner">
+        <span class="octicon octicon-git-pull-request"></span>
+        <span class="text-emphasized">1</span>
+        Pull request merged by
+        <span class="text-emphasized">1</span> person
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="state state-merged">Merged</span>
+        <span class="num">#3425</span>
+        <a href="/boto/boto/pull/3425" class="title">Spelling fixes</a>
+        <time datetime="2015-12-14T17:23:02Z" is="relative-time">Dec 14, 2015</time>
+      </li>
+    </ul>
+
+    <h3 class="conversation-list-heading" id="proposed-pull-requests">
+      <span class="inner">
+        <span class="octicon octicon-git-pull-request"></span>
+        <span class="text-emphasized">5</span>
+        Pull requests proposed by <span class="text-emphasized">4</span> people
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="state state-proposed">Proposed</span>
+        <span class="num">#3429</span>
+        <a href="/boto/boto/pull/3429" class="title">Fix canonical URI path quoting for S3</a>
+        <time datetime="2015-12-16T21:20:43Z" is="relative-time">Dec 16, 2015</time>
+      </li>
+      <li>
+        <span class="state state-proposed">Proposed</span>
+        <span class="num">#3431</span>
+        <a href="/boto/boto/pull/3431" class="title">Allow s3 bucket lifecycle policies with multiple transitions</a>
+        <time datetime="2015-12-17T15:06:59Z" is="relative-time">Dec 17, 2015</time>
+      </li>
+      <li>
+        <span class="state state-proposed">Proposed</span>
+        <span class="num">#3432</span>
+        <a href="/boto/boto/pull/3432" class="title">Update docs for deprecate_activity_type</a>
+        <time datetime="2015-12-18T10:37:13Z" is="relative-time">Dec 18, 2015</time>
+      </li>
+      <li>
+        <span class="state state-proposed">Proposed</span>
+        <span class="num">#3436</span>
+        <a href="/boto/boto/pull/3436" class="title">BF(PY3): use except ... as   syntax instead of except ...,</a>
+        <time datetime="2015-12-19T19:01:16Z" is="relative-time">Dec 19, 2015</time>
+      </li>
+      <li>
+        <span class="state state-proposed">Proposed</span>
+        <span class="num">#3438</span>
+        <a href="/boto/boto/pull/3438" class="title">Add encryption capability to AMI copy</a>
+        <time datetime="2015-12-20T05:24:37Z" is="relative-time">Dec 20, 2015</time>
+      </li>
+    </ul>
+</div>
+
+
+    <div id="issues" class="pulse-section">
+    <h3 class="conversation-list-heading" id="closed-issues">
+      <span class="inner">
+        <span class="octicon octicon-issue-closed"></span>
+        <span class="text-emphasized">1</span> Issue
+        closed by <span class="text-emphasized">1</span> person
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="state state-closed">Closed</span>
+        <span class="num">#3437</span>
+        <a href="/boto/boto/issues/3437" class="title">404 error with tinys3; works with boto and aws</a>
+        <time datetime="2015-12-20T02:06:11Z" is="relative-time">Dec 20, 2015</time>
+      </li>
+    </ul>
+
+    <h3 class="conversation-list-heading" id="new-issues">
+      <span class="inner">
+        <span class="octicon octicon-issue-opened"></span>
+        <span class="text-emphasized">6</span> Issues
+        created by <span class="text-emphasized">5</span> people
+      </span>
+    </h3>
+    <ul class="simple-conversation-list varied-states">
+      <li>
+        <span class="state state-open">Opened</span>
+        <span class="num">#3435</span>
+        <a href="/boto/boto/issues/3435" class="title">Please release 2.38.1 or 2.39 of good old boto</a>
+        <time datetime="2015-12-19T18:57:20Z" is="relative-time">Dec 19, 2015</time>
+      </li>
+      <li>
+        <span class="state state-open">Opened</span>
+        <span class="num">#3434</span>
+        <a href="/boto/boto/issues/3434" class="title">Die when run on Python 3</a>
+        <time datetime="2015-12-19T00:07:18Z" is="relative-time">Dec 19, 2015</time>
+      </li>
+      <li>
+        <span class="state state-open">Opened</span>
+        <span class="num">#3433</span>
+        <a href="/boto/boto/issues/3433" class="title">Config masks exceptions from ConfigParser</a>
+        <time datetime="2015-12-19T00:05:43Z" is="relative-time">Dec 19, 2015</time>
+      </li>
+      <li>
+        <span class="state state-open">Opened</span>
+        <span class="num">#3428</span>
+        <a href="/boto/boto/issues/3428" class="title">Updating load balancers on an existing autoscaling group does not change anything</a>
+        <time datetime="2015-12-16T18:10:18Z" is="relative-time">Dec 16, 2015</time>
+      </li>
+      <li>
+        <span class="state state-open">Opened</span>
+        <span class="num">#3427</span>
+        <a href="/boto/boto/issues/3427" class="title">[Feature Request] - Add support for encrypted EBS boot volumes</a>
+        <time datetime="2015-12-16T01:15:24Z" is="relative-time">Dec 16, 2015</time>
+      </li>
+      <li>
+        <span class="state state-open">Opened</span>
+        <span class="num">#3426</span>
+        <a href="/boto/boto/issues/3426" class="title">[Question] shouldn&#39;t `validate_certs=None` be `validate_certs=False`?</a>
+        <time datetime="2015-12-14T09:18:51Z" is="relative-time">Dec 14, 2015</time>
+      </li>
+    </ul>
+
+</div>
+
+
+    <div id="active_discussions" class="pulse-section">
+  <h3 class="conversation-list-heading">
+    <span class="inner">
+      <span class="octicon octicon-comment-discussion"></span>
+      <span class="text-emphasized">12</span>
+      Unresolved conversations
+    </span>
+  </h3>
+  <p>
+    Sometimes conversations happen on old items that aren’t yet closed.
+    Here is a list of all the Issues and Pull Requests with unresolved
+    conversations.
+  </p>
+
+  <ul class="simple-conversation-list varied-states">
+    <li>
+      <strong class="meta">2 new comments</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#3402</span>
+      <a href="https://github.com/boto/boto/issues/3402" class="title">No support for multiple s3 lifecycle transitions</a>
+      <time datetime="2015-12-17T15:25:30Z" is="relative-time">Dec 17, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#3368</span>
+      <a href="https://github.com/boto/boto/issues/3368" class="title">Getting &quot;AttributeError: &#39;IAMConnection&#39; object has no attribute &#39;create_policy&#39;&quot; while creating IAM Policy using Boto SDK Script</a>
+      <time datetime="2015-12-15T13:59:03Z" is="relative-time">Dec 15, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2534</span>
+      <a href="https://github.com/boto/boto/issues/2534" class="title">Keyring support for profiles not working</a>
+      <time datetime="2015-12-16T01:26:08Z" is="relative-time">Dec 16, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2956</span>
+      <a href="https://github.com/boto/boto/issues/2956" class="title">Managed Policies Support</a>
+      <time datetime="2015-12-15T01:27:51Z" is="relative-time">Dec 15, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#3110</span>
+      <a href="https://github.com/boto/boto/issues/3110" class="title">UnexpectedHTTPResponseError with Python3</a>
+      <time datetime="2015-12-16T01:42:52Z" is="relative-time">Dec 16, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#3309</span>
+      <a href="https://github.com/boto/boto/issues/3309" class="title">add a deactivate feature for datapipeline</a>
+      <time datetime="2015-12-15T11:52:29Z" is="relative-time">Dec 15, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2506</span>
+      <a href="https://github.com/boto/boto/issues/2506" class="title">boto.manage.task no longer works</a>
+      <time datetime="2015-12-19T08:50:43Z" is="relative-time">Dec 19, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2409</span>
+      <a href="https://github.com/boto/boto/issues/2409" class="title">SSL Timeout on S3 get_contents_to_file</a>
+      <time datetime="2015-12-14T11:12:45Z" is="relative-time">Dec 14, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2637</span>
+      <a href="https://github.com/boto/boto/pull/2637" class="title">check whether query_auth is true before adding x-amz-security-token when run using an IAM role</a>
+      <time datetime="2015-12-15T13:53:22Z" is="relative-time">Dec 15, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2857</span>
+      <a href="https://github.com/boto/boto/pull/2857" class="title">Fix #2836: Do not validate SSL certificates against hostnames when validation is not enabled </a>
+      <time datetime="2015-12-18T05:55:17Z" is="relative-time">Dec 18, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#2973</span>
+      <a href="https://github.com/boto/boto/pull/2973" class="title">Add support to associate VPC to private hosted zone</a>
+      <time datetime="2015-12-17T15:52:33Z" is="relative-time">Dec 17, 2015</time>
+    </li>
+    <li>
+      <strong class="meta">1 new comment</strong>
+      <span class="state state-open">Open</span>
+      <span class="num">#3052</span>
+      <a href="https://github.com/boto/boto/pull/3052" class="title">Fix deserialization of a CloudFormation template&#39;s NoEcho value.</a>
+      <time datetime="2015-12-18T08:39:51Z" is="relative-time">Dec 18, 2015</time>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+
+<script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/graph-lib-00ac7edb43baf4c74ea5b161fa912cc80e24d60134c04b937c578f723b625f74.js"></script>
+
+  </div>
+  <div class="modal-backdrop"></div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+
+        <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+        <li><a href="https://github.com/pricing" data-ga-click="Footer, go to pricing, text:pricing">Pricing</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github " title="GitHub "></span>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2015 <span title="0.10113s from github-fe127-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+    
+    
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+        <span class="octicon octicon-x"></span>
+      </button>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-ef8eb4a89ee9f3c8b7613307fe589a8f5705817f7cee27bec51ce5e963234abf.js"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-4b6b8e7d11ebb7bce85126d3b4130c80041f2ae6d5d6ef8901a8c0c3f7cb80d2.js"></script>
+      
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <span class="octicon octicon-alert"></span>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+  </body>
+</html>
+
