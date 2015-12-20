@@ -20,15 +20,11 @@ var Metrics = {};
     throw new RangeError('Rating must be between 0 and 11');
   };
 
-  Metrics.effectiveness = function(
-    merged_pull_requests,
-    proposed_pull_requests,
-    closed_issues,
-    new_issues) {
-    return average(
-      Metrics.scaled(Metrics.ratio(merged_pull_requests, proposed_pull_requests)),
-      Metrics.scaled(Metrics.ratio(closed_issues, new_issues))
-    );
+  Metrics.effectiveness = function(merged_prs, proposed_prs, closed_issues, new_issues) {
+    var pr_effectiveness    = Metrics.scaled(Metrics.ratio(merged_prs, proposed_prs));
+    var issue_effectiveness = Metrics.scaled(Metrics.ratio(closed_issues, new_issues));
+
+    return (0.66 * pr_effectiveness) + (0.34 * issue_effectiveness);
   };
 
   // Scale a ratio to the range 0–10.
@@ -37,10 +33,5 @@ var Metrics = {};
     if (ratio === Infinity) return 10;
     return 10 * (ratio / (1 + ratio));
   };
-
-
-  function average(a, b) {
-    return (a + b) / 2;
-  }
 
 }());

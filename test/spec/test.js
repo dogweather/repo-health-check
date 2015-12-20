@@ -31,7 +31,7 @@
     });
 
     describe('.effectiveness()', function() {
-      it('accepts four parameters & returns an integer', function() {
+      it('accepts four parameters & returns a number', function() {
         expect( Metrics.effectiveness(1, 2, 3, 4) ).toEqual(jasmine.any(Number));
       });
       it('gives travel-project a 10', function() {
