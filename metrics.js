@@ -1,4 +1,4 @@
-var Metrics = {};
+var Metrics = Metrics || {};
 
 (function() {
   'use strict';

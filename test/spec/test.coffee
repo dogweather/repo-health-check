@@ -1,5 +1,6 @@
 describe "Metrics", ->
     describe ".ratio()", ->
+        
         it "handles a 1:1 ratio", ->
             expect(Metrics.ratio(5, 5)).toBe 1
 
@@ -11,6 +12,7 @@ describe "Metrics", ->
 
 
     describe ".effectiveness_desc()", ->
+
         it "handles a range from 0 to 10", ->
             expect(Metrics.effectiveness_desc(0)).toBe "in the weeds"
             expect(Metrics.effectiveness_desc(5)).toBe "treading water"
@@ -26,6 +28,7 @@ describe "Metrics", ->
 
 
     describe ".effectiveness()", ->
+
         it "accepts four parameters & returns a number", ->
             expect(Metrics.effectiveness(1, 2, 3, 4)).toEqual jasmine.any(Number)
 
@@ -34,6 +37,7 @@ describe "Metrics", ->
 
 
     describe ".scaled()", ->
+
         it "converts 0 to 0", ->
             expect(Metrics.scaled(0)).toBe 0
 
