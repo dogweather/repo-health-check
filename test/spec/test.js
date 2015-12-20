@@ -30,7 +30,7 @@
       });
     });
 
-    xdescribe('.effectiveness()', function() {
+    describe('.effectiveness()', function() {
       it('accepts four parameters & returns an integer', function() {
         expect( Metrics.effectiveness(1, 2, 3, 4) ).toEqual(jasmine.any(Number));
       });
@@ -43,9 +43,15 @@
       it('converts 0 to 0', function() {
         expect( Metrics.scaled(0) ).toBe(0);
       });
-      xit('converts 0.1 to 1');
-      xit('converts 1 to 5');
-      xit('converts 10 to 9');
+      it('converts 0.1 to ~1', function() {
+        expect( Metrics.scaled(0.1) ).toBeCloseTo(0.9, 1);
+      });
+      it('converts 1 to 5', function() {
+        expect( Metrics.scaled(1) ).toBe(5);
+      });
+      it('converts 10 to 9', function() {
+        expect( Metrics.scaled(10) ).toBeCloseTo(9, 0);
+      });
       it('converts infinity to 10', function() {
         expect( Metrics.scaled(Infinity) ).toBe(10);
       });
