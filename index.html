@@ -12,18 +12,20 @@
 
 <body>
   <div class="pure-g">
-    <div class="pure-u-1-4"><!-- Blank column for spacing --></div>
+    <div class="pure-u-1-4">
+      <!-- Blank column for spacing -->
+    </div>
 
     <div class="pure-u-1-2">
       <h1>Repo Health Check</h1>
 
-      <form class="pure-form pure-form-stacked">
+      <div class="pure-form pure-form-stacked">
         <fieldset>
           <legend>Check a project’s effectiveness:</legend>
-          <label for="github_repo">GitHub Repo</label>
-          <input type="text" name="github_repo" id="github_repo" placeholder="account/repo" autofocus>
+          <label for="github-repo">GitHub Repo</label>
+          <input type="text" name="github-repo" id="github-repo" placeholder="account/repo" autofocus>
         </fieldset>
-      </form>
+      </div>
 
       <div id="results"></div>
 
@@ -35,7 +37,6 @@
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="metrics.js"></script>
-  <script src="github_repo.js"></script>
   <script src="app.js"></script>
 </body>
 
