@@ -1,6 +1,6 @@
 describe "Metrics", ->
     describe ".ratio()", ->
-        
+
         it "handles a 1:1 ratio", ->
             expect(Metrics.ratio(5, 5)).toBe 1
 
@@ -52,3 +52,14 @@ describe "Metrics", ->
 
         it "converts infinity to 10", ->
             expect(Metrics.scaled(Infinity)).toBe 10
+
+
+xdescribe "GitHubRepo", ->
+
+    it "parses proposed pull requests", ->
+        html = fs.readFileSync("../fixtures/boto-pulse.html", "utf8");
+        expect(GitHubRepo.proposed_pull_requests(html)).toBe 5
+
+    it "parses merged pull requests", ->
+        html = fs.readFileSync("../fixtures/boto-pulse.html", "utf8");
+        expect(GitHubRepo.merged_pull_requests(html)).toBe 1

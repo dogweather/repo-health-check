@@ -54,4 +54,17 @@
     });
   });
 
+  xdescribe("GitHubRepo", function() {
+    it("parses proposed pull requests", function() {
+      var html;
+      html = fs.readFileSync("../fixtures/boto-pulse.html", "utf8");
+      return expect(GitHubRepo.proposed_pull_requests(html)).toBe(5);
+    });
+    return it("parses merged pull requests", function() {
+      var html;
+      html = fs.readFileSync("../fixtures/boto-pulse.html", "utf8");
+      return expect(GitHubRepo.merged_pull_requests(html)).toBe(1);
+    });
+  });
+
 }).call(this);
