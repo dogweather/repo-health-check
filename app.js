@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  var REPO_INPUT  = '#github-repo'
-  var RESULTS_DIV = '#results'
+  var REPO_INPUT  = '#github-repo';
+  var RESULTS_DIV = '#results';
 
   $(function() {
     setup_events();
@@ -17,8 +17,8 @@
   }
 
   function run_checks() {
-    console.log("run_checks()")
-    var repo = $(REPO_INPUT).val()
+    console.log("run_checks()");
+    var repo = $(REPO_INPUT).val();
   }
 
 }());
