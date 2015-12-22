@@ -18,17 +18,19 @@
 
   function run_checks() {
     console.log("run_checks()");
-    
-    var repo = $(REPO_INPUT).val();
-    var acct = repo.split('/')[0];
-    var name = repo.split('/')[1];
+
+    var acct = $(REPO_INPUT).val().split('/')[0];
+    var name = $(REPO_INPUT).val().split('/')[1];
 
     var octo = new Octokat();
-    octo.repos(acct, name).fetch(function(err, repo) {
+    var repo;
+
+    octo.repos(acct, name).fetch(function(err, repodata) {
       if (err) {
         return alert(err);
       }
-      alert(repo.url);
+      repo = repodata;
+      console.log(repo);
     });
   }
 
