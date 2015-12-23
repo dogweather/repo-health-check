@@ -8,11 +8,14 @@ class App.Github
 
   @rateLimit: (callback) ->
     App.octo.rateLimit.fetch (err, data) ->
-      callback(
-        limit: data.rate.limit,
-        remaining: data.rate.remaining,
-        hasRemaining: -> data.rate.remaining > 0
-      )
+      if err
+        console.log err
+      else
+        callback(
+          limit: data.rate.limit,
+          remaining: data.rate.remaining,
+          hasRemaining: -> data.rate.remaining > 0
+        )
 
 
   @oneMonthAgo: ->
