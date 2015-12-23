@@ -9,7 +9,7 @@ class App.Repo
   fetchData: =>
     App.octo.repos(@acct, @name).fetch (err, repodata) =>
       if err
-        alert(err)
+        console.log(err)
       else
         @rawdata.repo = repodata
         @fetchIssues(@rawdata.repo)
