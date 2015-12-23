@@ -1,9 +1,9 @@
 class App.Repo
   # @param repo_spec should be a string like "facebook/react"
-  constructor: (repo_spec) ->
+  constructor: (repo_spec, accessNetwork = true) ->
     [@acct, @name] = repo_spec.split('/')
     @rawdata = {}
-    @fetchData()
+    @fetchData() if accessNetwork
 
   fetchData: =>
     App.octo.repos(@acct, @name).fetch (err, repodata) =>

@@ -19,7 +19,7 @@
 
     $('button').click(function() {
       checkRateLimit();
-    })
+    });
   }
 
 

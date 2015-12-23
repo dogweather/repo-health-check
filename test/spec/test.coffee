@@ -57,6 +57,6 @@ describe "Metrics", ->
 describe "App.Repo", ->
 
     it "parses a repo spec in acct/name form", ->
-        repo = new App.Repo('dogweather/naturally')
+        repo = new App.Repo('dogweather/naturally', false)
         expect(repo.name).toEqual 'naturally'
         expect(repo.acct).toEqual 'dogweather'

@@ -11,6 +11,5 @@ class App.Github
       callback(
         limit: data.rate.limit,
         remaining: data.rate.remaining,
-        hasRemaining: ->
-          data.rate.remaining > 0
-      )
+        hasRemaining: -> data.rate.remaining > 0
+)
