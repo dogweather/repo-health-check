@@ -1,27 +1,46 @@
-var repo;
-
-
 (function() {
   'use strict';
 
-  var REPO_INPUT = '#github-repo';
-  var RESULTS_DIV = '#results';
+  var REPO_INPUT    = '#github-repo';
+  var RESULTS_DIV   = '#results';
+
 
   $(function() {
-    setup_events();
+    setupEvents();
   });
 
-  function setup_events() {
+
+  function setupEvents() {
     $(REPO_INPUT).keyup(function(e) {
       if (e.keyCode == 13) {
-        run_checks();
+        checkRateLimit();
       }
     });
   }
 
-  function run_checks() {
-    console.log("run_checks()");
-    repo = new App.Repo( $(REPO_INPUT).val() );
+
+  function checkRateLimit() {
+    console.log("checkRateLimit()");
+
+    App.Github.rateLimit(function(rateData) {
+      showRateInfo(rateData);
+      if (rateData.hasRemaining()) {
+        startAnalysis();
+      }
+    });
+  }
+
+
+  function showRateInfo(rateData) {
+    console.log("showRateInfo()");
+
+    $('#rate-limit').text(rateData.limit);
+    $('#rate-remaining').text(rateData.remaining);
+  }
+
+
+  function startAnalysis() {
+    App.repo = new App.Repo( $(REPO_INPUT).val() );
   }
 
 }());

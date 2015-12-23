@@ -1,16 +1,12 @@
-App = exports? and exports or @App = {}
-
-
 class App.Repo
   # @param repo_spec should be a string like "facebook/react"
   constructor: (repo_spec) ->
     [@acct, @name] = repo_spec.split('/')
     @rawdata = {}
-    @octo = new Octokat()
     @fetchData()
 
   fetchData: =>
-    @octo.repos(@acct, @name).fetch (err, repodata) =>
+    App.octo.repos(@acct, @name).fetch (err, repodata) =>
       if err
         alert(err)
       else
@@ -18,7 +14,8 @@ class App.Repo
         @fetchIssues(@rawdata.repo)
 
   fetchIssues: (repo) =>
-    fetchAll(repo.issues.fetch, {state: 'open'}).then (openIssues) =>
+    one_month_ago = '2015-12-22'
+    fetchAll(repo.issues.fetch, {state: 'open', since: one_month_ago}).then (openIssues) =>
       @rawdata.openIssues = openIssues
-    fetchAll(repo.issues.fetch, {state: 'closed'}).then (closedIssues) =>
+    fetchAll(repo.issues.fetch, {state: 'closed', since: one_month_ago}).then (closedIssues) =>
       @rawdata.closedIssues = closedIssues
