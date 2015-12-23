@@ -21,7 +21,7 @@ var repo;
 
   function run_checks() {
     console.log("run_checks()");
-    repo = new App.Repo($(REPO_INPUT).val());
+    repo = new App.Repo( $(REPO_INPUT).val() );
   }
 
 }());

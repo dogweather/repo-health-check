@@ -15,10 +15,10 @@ class App.Repo
         alert(err)
       else
         @rawdata.repo = repodata
-        @fetchIssues()
+        @fetchIssues(@rawdata.repo)
 
-  fetchIssues: =>
-    fetchAll(@octo.repos(@acct, @name).issues.fetch, {state: 'open'}).then (openIssues) =>
+  fetchIssues: (repo) =>
+    fetchAll(repo.issues.fetch, {state: 'open'}).then (openIssues) =>
       @rawdata.openIssues = openIssues
-    fetchAll(@octo.repos(@acct, @name).issues.fetch, {state: 'closed'}).then (closedIssues) =>
+    fetchAll(repo.issues.fetch, {state: 'closed'}).then (closedIssues) =>
       @rawdata.closedIssues = closedIssues
