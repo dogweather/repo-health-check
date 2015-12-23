@@ -12,10 +12,14 @@
 
   function setupEvents() {
     $(REPO_INPUT).keyup(function(e) {
-      if (e.keyCode == 13) {
+      if (enterWasHit(e)) {
         checkRateLimit();
       }
     });
+
+    $('button').click(function() {
+      checkRateLimit();
+    })
   }
 
 
@@ -34,6 +38,7 @@
   function showRateInfo(rateData) {
     console.log("showRateInfo()");
 
+    $('#rate-info').show();
     $('#rate-limit').text(rateData.limit);
     $('#rate-remaining').text(rateData.remaining);
   }
@@ -41,6 +46,11 @@
 
   function startAnalysis() {
     App.repo = new App.Repo( $(REPO_INPUT).val() );
+  }
+
+
+  function enterWasHit(event) {
+    return event.keyCode == 13;
   }
 
 }());

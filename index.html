@@ -23,15 +23,25 @@
           <legend>Check a project’s effectiveness:</legend>
           <label for="github-repo">GitHub repo</label>
           <input type="text" name="github-repo" id="github-repo" placeholder="account/repo" autofocus>
+          <br>
+          <button class="pure-button">Check</button>
         </fieldset>
       </div>
 
-      <div>
-        <div id=rate-limit></div>
-        <div id=rate-remaining></div>
-      </div>
+      <table id=rate-info class="pure-table pure-table-horizontal">
+        <tbody>
+          <tr>
+            <td>Rate limit:</td>
+            <td id=rate-limit></td>
+          </tr>
+          <tr>
+            <td>Remaining:</td>
+            <td id=rate-remaining></td>
+          </tr>
+        </tbody>
+      </table>
 
-      <div id="results"></div>
+      <div id=results></div>
 
       <footer>
         <a href="https://github.com/dogweather/repo-health-check">Source code</a>
