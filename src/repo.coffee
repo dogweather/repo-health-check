@@ -5,6 +5,7 @@ class App.Repo
     @rawdata = {}
     @fetchData() if accessNetwork
 
+
   fetchData: =>
     App.octo.repos(@acct, @name).fetch (err, repodata) =>
       if err
@@ -13,9 +14,12 @@ class App.Repo
         @rawdata.repo = repodata
         @fetchIssues(@rawdata.repo)
 
+
   fetchIssues: (repo) =>
-    one_month_ago = '2015-12-22'
-    fetchAll(repo.issues.fetch, {state: 'open', since: one_month_ago}).then (openIssues) =>
-      @rawdata.openIssues = openIssues
-    fetchAll(repo.issues.fetch, {state: 'closed', since: one_month_ago}).then (closedIssues) =>
-      @rawdata.closedIssues = closedIssues
+    options = {state: 'open', since: App.Github.oneMonthAgo()}
+    fetchAll(repo.issues.fetch, options).then (issues) =>
+      @rawdata.openIssues = issues
+
+    options.state = 'closed'
+    fetchAll(repo.issues.fetch, options).then (issues) =>
+      @rawdata.closedIssues = issues
