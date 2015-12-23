@@ -1,35 +1,56 @@
 (function() {
   'use strict';
 
-  var REPO_INPUT = '#github-repo';
-  var RESULTS_DIV = '#results';
+  var REPO_INPUT    = '#github-repo';
+  var RESULTS_DIV   = '#results';
+
 
   $(function() {
-    setup_events();
+    setupEvents();
   });
 
-  function setup_events() {
+
+  function setupEvents() {
     $(REPO_INPUT).keyup(function(e) {
-      if (e.keyCode == 13) {
-        run_checks();
+      if (enterWasHit(e)) {
+        checkRateLimit();
+      }
+    });
+
+    $('button').click(function() {
+      checkRateLimit();
+    });
+  }
+
+
+  function checkRateLimit() {
+    console.log("checkRateLimit()");
+
+    App.Github.rateLimit(function(rateData) {
+      showRateInfo(rateData);
+      if (rateData.hasRemaining()) {
+        startAnalysis();
       }
     });
   }
 
-  function run_checks() {
-    console.log("run_checks()");
-    
-    var repo = $(REPO_INPUT).val();
-    var acct = repo.split('/')[0];
-    var name = repo.split('/')[1];
 
-    var octo = new Octokat();
-    octo.repos(acct, name).fetch(function(err, repo) {
-      if (err) {
-        return alert(err);
-      }
-      alert(repo.url);
-    });
+  function showRateInfo(rateData) {
+    console.log("showRateInfo()");
+
+    $('#rate-info').show();
+    $('#rate-limit').text(rateData.limit);
+    $('#rate-remaining').text(rateData.remaining);
+  }
+
+
+  function startAnalysis() {
+    App.repo = new App.Repo( $(REPO_INPUT).val() );
+  }
+
+
+  function enterWasHit(event) {
+    return event.keyCode == 13;
   }
 
 }());
