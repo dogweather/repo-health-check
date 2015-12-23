@@ -16,10 +16,7 @@ class App.Repo
 
 
   fetchIssues: (repo) =>
-    options = {state: 'open', since: App.Github.oneMonthAgo()}
+    # https://developer.github.com/v3/issues/#list-issues-for-a-repository
+    options = {state: 'all', since: App.Github.oneMonthAgo()}
     fetchAll(repo.issues.fetch, options).then (issues) =>
-      @rawdata.openIssues = issues
-
-    options.state = 'closed'
-    fetchAll(repo.issues.fetch, options).then (issues) =>
-      @rawdata.closedIssues = issues
+      @rawdata.issues = issues
