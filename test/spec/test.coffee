@@ -54,12 +54,9 @@ describe "Metrics", ->
             expect(Metrics.scaled(Infinity)).toBe 10
 
 
-xdescribe "GitHubRepo", ->
+describe "App.Repo", ->
 
-    it "parses proposed pull requests", ->
-        html = fs.readFileSync("../fixtures/boto-pulse.html", "utf8");
-        expect(GitHubRepo.proposed_pull_requests(html)).toBe 5
-
-    it "parses merged pull requests", ->
-        html = fs.readFileSync("../fixtures/boto-pulse.html", "utf8");
-        expect(GitHubRepo.merged_pull_requests(html)).toBe 1
+    it "parses a repo spec in acct/name form", ->
+        repo = new App.Repo('dogweather/naturally')
+        expect(repo.name).toEqual 'naturally'
+        expect(repo.acct).toEqual 'dogweather'

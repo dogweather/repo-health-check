@@ -1,6 +1,5 @@
-var repo = {
-  rawdata: {}
-};
+var repo;
+var octo = new Octokat();
 
 
 (function() {
@@ -24,19 +23,15 @@ var repo = {
   function run_checks() {
     console.log("run_checks()");
 
-    var userinput = $(REPO_INPUT).val().split('/');
-    var acct = userinput[0];
-    var name = userinput[1];
+    repo = new App.Repo($(REPO_INPUT).val());
 
-    var octo = new Octokat();
-
-    octo.repos(acct, name).fetch(function(err, repodata) {
+    octo.repos(repo.acct, repo.name).fetch(function(err, repodata) {
       if (err) {
         return alert(err);
       } else {
         repo.rawdata.repo = repodata;
 
-        fetchAll(octo.repos(acct, name).issues.fetch).then((allIssues) => {
+        fetchAll(octo.repos(repo.acct, repo.name).issues.fetch).then((allIssues) => {
           repo.rawdata.open_issues = allIssues;
           console.log(repo);
         });
