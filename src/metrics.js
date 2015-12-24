@@ -40,7 +40,11 @@ var Metrics = Metrics || {};
   };
 
   Metrics.ratio = function(x, y) {
-    return x / y;
+    if (x === 0 && y === 0) {
+      return 1;
+    } else {
+      return x / y;
+    }
   };
 
   // Scale a ratio to the range 0–10.

@@ -64,6 +64,7 @@
 
 
   function startAnalysis() {
+    $('#effectiveness-result').text(' ');
     setProgress(5);
     showProgressBar();
     var repoSpec = $(REPO_INPUT).val();

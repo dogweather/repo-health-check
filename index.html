@@ -8,8 +8,7 @@
   <title>Repo Health Check</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- Optional theme -->
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -17,6 +16,8 @@
 
 <body>
   <div class=container>
+
+    <!-- Page header -->
     <div class="row">
       <div class="col-sm-12">
         <div class="page-header">
@@ -29,10 +30,47 @@
       </div>
     </div>
 
+    <!-- Main page -->
     <div class="row">
+
+      <!-- Left column -->
       <div class="col-sm-6">
 
-        <!-- Form and controls -->
+        <!-- Repo name form -->
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="account/repo" autofocus>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">
+              <button id=analyze class="btn btn-default">Analyze</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results display -->
+        <div id=results class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">&nbsp;</h3>
+          </div>
+          <div class="panel-body">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
+            </div>
+            Effectiveness: <span id="effectiveness-result"></span> / 10
+          </div>
+        </div>
+
+      </div> <!-- End left column -->
+
+
+      <!-- Right column -->
+      <div class="col-sm-6">
+
+        <!-- Sign-in Form -->
         <div class="form-horizontal">
           <div class="form-group">
             <label for="github-repo" class="col-sm-3 control-label">Username</label>
@@ -51,50 +89,21 @@
               <button id=sign-in class="btn btn-default">Sign in</button>
               <br>
               <div id=user-display>
-                Signed in as “
-                <span class=username></span>”
+                Signed in as
+                <span class=username></span>
               </div>
             </div>
           </div>
 
-          <hr>
-
-          <div class="form-group">
-            <label for="github-repo" class="col-sm-3 control-label">GitHub</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="account/repo" autofocus>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button id=analyze class="btn btn-default">Analyze</button>
-            </div>
-          </div>
-        </div>
-
       </div>
+    </div> <!-- End right column -->
 
-      <!-- Results display -->
-      <div class="col-sm-6">
-        <div id=results class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">&nbsp;</h3>
-          </div>
-          <div class="panel-body">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
-            </div>
-            Effectiveness:
-            <span id="effectiveness-result"></span>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-sm-12">
         <footer>
-          <a href="https://github.com/dogweather/repo-health-check">Source code</a>
+          <a href="https://github.com/dogweather/repo-health-check"><i class="fa fa-github"></i>
+Source code</a>
         </footer>
       </div>
     </div>

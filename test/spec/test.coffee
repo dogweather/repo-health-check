@@ -4,6 +4,9 @@ describe "Metrics", ->
     it "handles a 1:1 ratio", ->
       expect(Metrics.ratio(5, 5)).toBe 1
 
+    it "treats 0/0 as 1:1", ->
+      expect(Metrics.ratio(0, 0)).toBe 1
+
     it "handles a 1:2 ratio", ->
       expect(Metrics.ratio(3, 6)).toBe 0.5
 
@@ -83,26 +86,26 @@ describe "App.Github", ->
 
     it "works on the first page", ->
       result = {lastPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=3"}
-      expect(App.Github.pageCount(result)).toEqual 3
+      expect(App.Github.pageCount(result)).toBe 3
 
     it "works on the last page", ->
       result = {prevPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=2"}
-      expect(App.Github.pageCount(result)).toEqual 3
+      expect(App.Github.pageCount(result)).toBe 3
 
     it "works on the only page", ->
       result = {}
-      expect(App.Github.pageCount(result)).toEqual 1
+      expect(App.Github.pageCount(result)).toBe 1
 
   describe ".currentPage(apiResult)", ->
 
     it "works on the first page", ->
       result = {nextPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=2"}
-      expect(App.Github.currentPage(result)).toEqual 1
+      expect(App.Github.currentPage(result)).toBe 1
 
     it "works on the last page", ->
       result = {prevPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=2"}
-      expect(App.Github.currentPage(result)).toEqual 3
+      expect(App.Github.currentPage(result)).toBe 3
 
     it "works on the only page", ->
       result = {}
-      expect(App.Github.currentPage(result)).toEqual 1
+      expect(App.Github.currentPage(result)).toBe 1
