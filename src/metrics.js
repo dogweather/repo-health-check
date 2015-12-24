@@ -3,9 +3,19 @@ var Metrics = Metrics || {};
 (function() {
   'use strict';
 
+  Metrics.repoEffectiveness = function(repo) {
+    return Metrics.effectiveness(
+      repo.closedPullRequestCount(),
+      repo.openPullRequestCount(),
+      repo.closedIssueCount(),
+      repo.openIssueCount()
+    );
+  };
+
   Metrics.effectiveness = function(merged_prs, proposed_prs, closed_issues, new_issues) {
-    return (0.66 * Metrics.pr_effectiveness(merged_prs, proposed_prs)) +
-           (0.34 * Metrics.issue_effectiveness(closed_issues, new_issues));
+    var prs    = Metrics.pr_effectiveness(merged_prs, proposed_prs);
+    var issues = Metrics.issue_effectiveness(closed_issues, new_issues);
+    return Math.round((0.66 * prs) + (0.34 * issues));
   };
 
   Metrics.pr_effectiveness = function(merged_prs, proposed_prs) {
@@ -30,7 +40,11 @@ var Metrics = Metrics || {};
   };
 
   Metrics.ratio = function(x, y) {
-    return x / y;
+    if (x === 0 && y === 0) {
+      return 1;
+    } else {
+      return x / y;
+    }
   };
 
   // Scale a ratio to the range 0–10.

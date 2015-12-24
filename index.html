@@ -7,29 +7,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Repo Health Check</title>
 
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- Optional theme -->
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
 </head>
 
 <body>
   <div class=container>
+
+    <!-- Page header -->
     <div class="row">
       <div class="col-sm-12">
         <div class="page-header">
           <h1>
-            Repo Health Check<br>
-            <small>Analyze its management style</small>
+            <i class="fa fa-stethoscope"></i> Repo Health Check
+            <br>
+            <small>Super effective, or somewhat dejected?</small>
           </h1>
         </div>
       </div>
     </div>
 
+    <!-- Main page -->
     <div class="row">
+
+      <!-- Left column -->
       <div class="col-sm-6">
-        <!-- Form and controls -->
+
+        <!-- Repo name form -->
         <div class="form-horizontal">
           <div class="form-group">
             <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
@@ -39,47 +46,81 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button class="btn btn-default">Analyze</button>
+              <button id=analyze class="btn btn-default">Analyze</button>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Results display -->
-      <div class="col-sm-6">
-        <table id=rate-info class="table">
-          <tbody>
-            <tr>
-              <td>Rate limit:</td>
-              <td id=rate-limit></td>
-            </tr>
-            <tr>
-              <td>Remaining:</td>
-              <td id=rate-remaining></td>
-            </tr>
-          </tbody>
-        </table>
-        <div id=results></div>
+        <!-- Results display -->
+        <div id=results class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">&nbsp;</h3>
+          </div>
+          <div class="panel-body">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
+            </div>
+            Effectiveness:
+            <span id="effectiveness-result"></span> / 10
+          </div>
+        </div>
+
+      </div>
+      <!-- End left column -->
+
+
+      <!-- Right column -->
+      <div class="col-sm-5 col-sm-offset-1">
+
+        <!-- Sign-in Form -->
+        <div class="well">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="github-repo" class="col-sm-3 control-label">Username</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="github-username" placeholder="(optional)" autofocus>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="github-repo" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="github-password" placeholder="(optional)" autofocus>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button id=sign-in class="btn btn-default">Sign in</button>
+                <br>
+                <div id=user-display>
+                  Signed in as <span class=username></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- End right column -->
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <footer>
+            <a href="https://github.com/dogweather/repo-health-check"><i class="fa fa-github"></i>
+Source code</a>
+          </footer>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <footer>
-          <a href="https://github.com/dogweather/repo-health-check">Source code</a>
-        </footer>
-      </div>
-    </div>
-  </div>
-
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
-  <script src="bower_components/octokat/dist/octokat.js"></script>
-  <script src="src/octokat-ext.js"></script>
-  <script src="src/metrics.js"></script>
-  <script src="lib/github.js"></script>
-  <script src="lib/repo.js"></script>
-  <script src="src/app.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+    <script src="bower_components/octokat/dist/octokat.js"></script>
+    <script src="src/octokat-ext.js"></script>
+    <script src="lib/core.js"></script>
+    <script src="src/metrics.js"></script>
+    <script src="lib/github.js"></script>
+    <script src="lib/repo.js"></script>
+    <script src="src/app.js"></script>
 </body>
 
 </html>

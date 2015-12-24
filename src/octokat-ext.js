@@ -7,6 +7,7 @@ function fetchAll(fn, args) {
   let acc = []; // Accumulated results
   let p = new Promise((resolve, reject) => {
     fn(args).then((val) => {
+      setProgress(App.Github.percentComplete(val));
       acc = acc.concat(val);
       if (val.nextPage) {
         return fetchAll(val.nextPage).then((val2) => {
@@ -19,4 +20,8 @@ function fetchAll(fn, args) {
     }, reject);
   });
   return p;
+}
+
+function setProgress(percent) {
+  $('.progress-bar').attr('style', 'width: ' + percent + '%');
 }

@@ -1,9 +1,4 @@
-App = exports? and exports or @App = {}
-
-
-App.octo = new Octokat()
-
-
+# Utility functions for working with the GitHub API
 class App.Github
 
   @rateLimit: (callback) ->
@@ -24,5 +19,40 @@ class App.Github
     return @dateFormat(result)
 
 
-  @dateFormat: (d) ->
-    d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
+  # The date format specified in the API, e.g. 2015-12-23.
+  @dateFormat: (aDate) ->
+    year  = aDate.getFullYear()
+    month = @padWithZeroes(aDate.getMonth() + 1, 2)
+    day   = @padWithZeroes(aDate.getDate(), 2)
+    [year, month, day].join('-')
+
+
+  @padWithZeroes: (num, size) ->
+    s = num + ""
+    while (s.length < size)
+      s = "0" + s
+    s
+
+
+  @pageCount: (apiResult) ->
+    url = apiResult.lastPageUrl
+    if typeof(url) is 'undefined'
+      url = apiResult.prevPageUrl
+      return 1 if typeof(url) is 'undefined'
+      parseInt(url.match(/\d+$/)[0]) + 1
+    else
+      parseInt(url.match(/\d+$/)[0])
+
+
+  @currentPage: (apiResult) ->
+    url = apiResult.nextPageUrl
+    if typeof(url) is 'undefined'
+      url = apiResult.prevPageUrl
+      return 1 if typeof(url) is 'undefined'
+      parseInt(url.match(/\d+$/)[0]) + 1
+    else
+      parseInt(url.match(/\d+$/)[0]) - 1
+
+
+  @percentComplete: (apiResult) ->
+    parseInt(@currentPage(apiResult) / @pageCount(apiResult) * 100)

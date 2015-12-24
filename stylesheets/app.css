@@ -1,15 +1,32 @@
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 footer {
   text-align: center;
   border-top: 1px solid #ddd;
-  font-size: 80%;
   margin-top: 3em;
-}
-
-#rate-info {
-  display: none;
 }
 
 #rate-limit, #rate-remaining {
   text-align: right;
+  font-weight: bold;
+}
+
+#results {
+  display: none;
+  margin-top: 4em;
+}
+
+#user-display {
+  display: none;
+  margin-top: 1em
+}
+
+div.progress {
+  display: none
+}
+
+#effectiveness-result, .username {
   font-weight: bold;
 }
