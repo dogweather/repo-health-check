@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Repo Health Check</title>
 
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -20,7 +19,8 @@
       <div class="col-sm-12">
         <div class="page-header">
           <h1>
-            Repo Health Check<br>
+            Repo Health Check
+            <br>
             <small>Analyze its management style</small>
           </h1>
         </div>
@@ -29,6 +29,7 @@
 
     <div class="row">
       <div class="col-sm-6">
+
         <!-- Form and controls -->
         <div class="form-horizontal">
           <div class="form-group">
@@ -43,10 +44,8 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Results display -->
-      <div class="col-sm-6">
+        <!-- Rate limit info -->
         <table id=rate-info class="table">
           <tbody>
             <tr>
@@ -59,7 +58,17 @@
             </tr>
           </tbody>
         </table>
-        <div id=results></div>
+
+      </div>
+
+      <!-- Results display -->
+      <div class="col-sm-6">
+        <div id=results class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">&nbsp;</h3>
+          </div>
+          <div class="panel-body">&nbsp;</div>
+        </div>
       </div>
     </div>
 
@@ -76,6 +85,7 @@
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
   <script src="bower_components/octokat/dist/octokat.js"></script>
   <script src="src/octokat-ext.js"></script>
+  <script src="lib/core.js"></script>
   <script src="src/metrics.js"></script>
   <script src="lib/github.js"></script>
   <script src="lib/repo.js"></script>

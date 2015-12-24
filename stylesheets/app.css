@@ -13,3 +13,7 @@ footer {
   text-align: right;
   font-weight: bold;
 }
+
+#results {
+  display: none
+}
