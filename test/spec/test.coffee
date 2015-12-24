@@ -81,9 +81,28 @@ describe "App.Github", ->
 
   describe ".pageCount(apiResult)", ->
 
-    it "can parse a result correctly", ->
+    it "works on the first page", ->
       result = {lastPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=3"}
       expect(App.Github.pageCount(result)).toEqual 3
 
-    it "returns null when info is not present", ->
-      expect(App.Github.pageCount({})).toBe null
+    it "works on the last page", ->
+      result = {prevPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=2"}
+      expect(App.Github.pageCount(result)).toEqual 3
+
+    it "works on the only page", ->
+      result = {}
+      expect(App.Github.pageCount(result)).toEqual 1
+
+  describe ".currentPage(apiResult)", ->
+
+    it "works on the first page", ->
+      result = {nextPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=2"}
+      expect(App.Github.currentPage(result)).toEqual 1
+
+    it "works on the last page", ->
+      result = {prevPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=2"}
+      expect(App.Github.currentPage(result)).toEqual 3
+
+    it "works on the only page", ->
+      result = {}
+      expect(App.Github.currentPage(result)).toEqual 1

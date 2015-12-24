@@ -36,5 +36,19 @@ class App.Github
 
   @pageCount: (apiResult) ->
     url = apiResult.lastPageUrl
-    return null if typeof(url) is 'undefined'
-    return parseInt(url.match(/\d+$/)[0])
+    if typeof(url) is 'undefined'
+      url = apiResult.prevPageUrl
+      return 1 if typeof(url) is 'undefined'
+      parseInt(url.match(/\d+$/)[0]) + 1
+    else
+      parseInt(url.match(/\d+$/)[0])
+
+
+  @currentPage: (apiResult) ->
+    url = apiResult.nextPageUrl
+    if typeof(url) is 'undefined'
+      url = apiResult.prevPageUrl
+      return 1 if typeof(url) is 'undefined'
+      parseInt(url.match(/\d+$/)[0]) + 1
+    else
+      parseInt(url.match(/\d+$/)[0]) - 1

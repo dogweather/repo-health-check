@@ -7,7 +7,8 @@ function fetchAll(fn, args) {
   let acc = []; // Accumulated results
   let p = new Promise((resolve, reject) => {
     fn(args).then((val) => {
-      console.log(val.lastPageUrl);
+      // console.log(App.Github.pageCount(val));
+      console.log(val);
       acc = acc.concat(val);
       if (val.nextPage) {
         return fetchAll(val.nextPage).then((val2) => {
