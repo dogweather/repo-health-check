@@ -5,10 +5,6 @@ footer {
   margin-top: 3em;
 }
 
-#rate-info {
-  display: none;
-}
-
 #rate-limit, #rate-remaining {
   text-align: right;
   font-weight: bold;

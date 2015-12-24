@@ -7,28 +7,32 @@
 
   $(function() {
     setupEvents();
+    checkRateLimit();
   });
 
 
   function setupEvents() {
     $(REPO_INPUT).keyup(function(e) {
       if (enterWasHit(e)) {
-        checkRateLimit();
+        startAnalysis();
       }
     });
 
-    $('button').click(function() {
-      checkRateLimit();
+    $('button#analyze').click(startAnalysis);
+
+    $('button#sign-in').click(function(e) {
+      App.octo = new Octokat({
+        username: $('#github-username').val(),
+        password: $('#github-password').val()
+      });
+      console.log('sign in');
     });
   }
 
 
   function checkRateLimit() {
     App.Github.rateLimit(function(rateData) {
-      // showRateInfo(rateData);
-      if (rateData.hasRemaining()) {
-        startAnalysis();
-      }
+      showRateInfo(rateData);
     });
   }
 
@@ -42,7 +46,7 @@
 
   function startAnalysis() {
     var repoSpec = $(REPO_INPUT).val();
-    var analyze  = function(repo) { console.log("analyze()"); };
+    var analyze  = function(repo) { console.log("analyze()"); checkRateLimit(); };
     App.repo = new App.Repo( repoSpec, showRepo, analyze );
   }
 
