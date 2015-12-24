@@ -32,3 +32,9 @@ class App.Github
     while (s.length < size)
       s = "0" + s
     s
+
+
+  @pageCount: (apiResult) ->
+    url = apiResult.lastPageUrl
+    return null if typeof(url) is 'undefined'
+    return parseInt(url.match(/\d+$/)[0])

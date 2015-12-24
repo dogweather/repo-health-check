@@ -64,7 +64,7 @@ describe "App.Repo", ->
       expect(repo.acct).toEqual 'dogweather'
 
 
-describe "App.GitHub", ->
+describe "App.Github", ->
   describe ".dateFormat()", ->
 
     it "returns a date in GitHub's prefered format", ->
@@ -78,3 +78,12 @@ describe "App.GitHub", ->
 
     it "leaves a double-digit number unchanged", ->
       expect(App.Github.padWithZeroes(12, 2)).toEqual '12'
+
+  describe ".pageCount(apiResult)", ->
+
+    it "can parse a result correctly", ->
+      result = {lastPageUrl: "https://api.github.com/repositories/771016/issues?per_page=100&state=all&since=2015-11-24&page=3"}
+      expect(App.Github.pageCount(result)).toEqual 3
+
+    it "returns null when info is not present", ->
+      expect(App.Github.pageCount({})).toBe null
