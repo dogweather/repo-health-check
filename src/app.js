@@ -17,7 +17,11 @@
         startAnalysis();
       }
     });
-
+    $('#github-password').keyup(function(e) {
+      if (enterWasHit(e)) {
+        signIn();
+      }
+    });
     $('button#analyze').click(startAnalysis);
     $('button#sign-in').click(signIn);
     $('button#sign-out').click(signOut);
@@ -60,7 +64,7 @@
 
 
   function startAnalysis() {
-    setProgress(0);
+    setProgress(5);
     showProgressBar();
     var repoSpec = $(REPO_INPUT).val();
     App.repo = new App.Repo(repoSpec, showRepo, analyze);
