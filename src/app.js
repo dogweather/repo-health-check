@@ -1,8 +1,8 @@
 (function() {
   'use strict';
 
-  var REPO_INPUT    = '#github-repo';
-  var RESULTS_DIV   = '#results';
+  var REPO_INPUT = '#github-repo';
+  var RESULTS_DIV = '#results';
 
 
   $(function() {
@@ -19,14 +19,29 @@
     });
 
     $('button#analyze').click(startAnalysis);
+    $('button#sign-in').click(signIn);
+    $('button#sign-out').click(signOut);
+  }
 
-    $('button#sign-in').click(function(e) {
+
+  function signIn() {
+    var username = $('#github-username').val();
+    var password = $('#github-password').val();
+
+    if (username && password) {
       App.octo = new Octokat({
-        username: $('#github-username').val(),
-        password: $('#github-password').val()
+        username: username,
+        password: password
       });
-      console.log('sign in');
-    });
+      $('#user-display').show();
+      $('#user-display .username').text(username);
+      checkRateLimit();
+    }
+  }
+
+
+  function signOut() {
+    App.octo = new Octokat();
   }
 
 
@@ -46,8 +61,11 @@
 
   function startAnalysis() {
     var repoSpec = $(REPO_INPUT).val();
-    var analyze  = function(repo) { console.log("analyze()"); checkRateLimit(); };
-    App.repo = new App.Repo( repoSpec, showRepo, analyze );
+    var analyze = function(repo) {
+      console.log("analyze()");
+      checkRateLimit();
+    };
+    App.repo = new App.Repo(repoSpec, showRepo, analyze);
   }
 
 

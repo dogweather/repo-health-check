@@ -47,22 +47,27 @@
           <div class="form-group">
             <div class="col-sm-offset-3 col-sm-9">
               <button id=sign-in class="btn btn-default">Sign in</button>
+              <br>
+              <div id=user-display>
+                Signed in as “<span class=username></span>”
+              </div>
+
+              <!-- Rate limit info -->
+              <table id=rate-info class="table">
+                <tbody>
+                  <tr>
+                    <td>Rate limit:</td>
+                    <td id=rate-limit></td>
+                  </tr>
+                  <tr>
+                    <td>Remaining:</td>
+                    <td id=rate-remaining></td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
-
-          <!-- Rate limit info -->
-          <table id=rate-info class="table">
-            <tbody>
-              <tr>
-                <td>Rate limit:</td>
-                <td id=rate-limit></td>
-              </tr>
-              <tr>
-                <td>Remaining:</td>
-                <td id=rate-remaining></td>
-              </tr>
-            </tbody>
-          </table>
 
           <hr>
 
