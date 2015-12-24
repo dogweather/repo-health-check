@@ -7,7 +7,7 @@
 
   $(function() {
     setupEvents();
-    checkRateLimit();
+    displayRateLimit();
   });
 
 
@@ -35,7 +35,7 @@
       });
       $('#user-display').show();
       $('#user-display .username').text(username);
-      checkRateLimit();
+      displayRateLimit();
     }
   }
 
@@ -45,7 +45,7 @@
   }
 
 
-  function checkRateLimit() {
+  function displayRateLimit() {
     App.Github.rateLimit(function(rateData) {
       showRateInfo(rateData);
     });
@@ -61,22 +61,24 @@
 
   function startAnalysis() {
     var repoSpec = $(REPO_INPUT).val();
-    var analyze = function(repo) {
-      console.log("analyze()");
-      checkRateLimit();
-    };
     App.repo = new App.Repo(repoSpec, showRepo, analyze);
-  }
-
-
-  function enterWasHit(event) {
-    return event.keyCode == 13;
   }
 
 
   function showRepo(repo) {
     $(RESULTS_DIV).show();
     $('#results .panel-title').text(repo.name);
+  }
+
+
+  function analyze(repo) {
+    displayRateLimit();
+    
+  }
+
+
+  function enterWasHit(event) {
+    return event.keyCode == 13;
   }
 
 }());
