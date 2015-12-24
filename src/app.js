@@ -60,6 +60,8 @@
 
 
   function startAnalysis() {
+    setProgress(0);
+    showProgressBar();
     var repoSpec = $(REPO_INPUT).val();
     App.repo = new App.Repo(repoSpec, showRepo, analyze);
   }
@@ -74,6 +76,22 @@
   function analyze(repo) {
     displayRateLimit();
     $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
+    window.setTimeout(hideProgressBar, 1000);
+  }
+
+
+  function hideProgressBar() {
+    $('div.progress').hide('fast');
+  }
+
+
+  function showProgressBar() {
+    $('div.progress').show('fast');
+  }
+
+
+  function setProgress(percent) {
+    $('.progress-bar').attr('style', 'width: ' + percent + '%');
   }
 
 

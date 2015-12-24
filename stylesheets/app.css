@@ -21,3 +21,7 @@ footer {
 #user-display {
   display: none
 }
+
+div.progress {
+  display: none
+}

@@ -52,3 +52,7 @@ class App.Github
       parseInt(url.match(/\d+$/)[0]) + 1
     else
       parseInt(url.match(/\d+$/)[0]) - 1
+
+
+  @percentComplete: (apiResult) ->
+    parseInt(@currentPage(apiResult) / @pageCount(apiResult) * 100)
