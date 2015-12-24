@@ -22,3 +22,29 @@ class App.Repo
     fetchAll(repo.issues.fetch, options).then (issues) =>
       @rawdata.issues = issues
       @issuesCallback(this)
+
+
+  openPullRequestCount: =>
+    @pullRequests().filter((pr) -> pr.state is 'open').length
+
+
+  closedPullRequestCount: =>
+    @pullRequests().filter((pr) -> pr.state is 'closed').length
+
+
+  openIssueCount: =>
+    @issues().filter((i) -> i.state is 'open').length
+
+
+  closedIssueCount: =>
+    @issues().filter((i) -> i.state is 'closed').length
+
+
+  pullRequests: =>
+    @rawdata.issues.filter (x) ->
+      typeof(x.pullRequest) is 'object'
+
+
+  issues: =>
+    @rawdata.issues.filter (x) ->
+      typeof(x.pullRequest) is 'undefined'

@@ -3,6 +3,15 @@ var Metrics = Metrics || {};
 (function() {
   'use strict';
 
+  Metrics.repoEffectiveness = function(repo) {
+    return Metrics.effectiveness(
+      repo.closedPullRequestCount(),
+      repo.openPullRequestCount(),
+      repo.closedIssueCount(),
+      repo.openIssueCount()
+    );
+  };
+
   Metrics.effectiveness = function(merged_prs, proposed_prs, closed_issues, new_issues) {
     return (0.66 * Metrics.pr_effectiveness(merged_prs, proposed_prs)) +
            (0.34 * Metrics.issue_effectiveness(closed_issues, new_issues));

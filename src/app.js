@@ -73,7 +73,7 @@
 
   function analyze(repo) {
     displayRateLimit();
-    
+    $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
   }
 
 
