@@ -34,7 +34,7 @@
     <div class="row">
 
       <!-- Left column -->
-      <div class="col-sm-5">
+      <div class="col-sm-6">
 
         <!-- Repo name form -->
         <div class="form-horizontal">
@@ -60,64 +60,67 @@
             <div class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
             </div>
-            Effectiveness: <span id="effectiveness-result"></span> / 10
+            Effectiveness:
+            <span id="effectiveness-result"></span> / 10
           </div>
         </div>
 
-      </div> <!-- End left column -->
+      </div>
+      <!-- End left column -->
 
 
       <!-- Right column -->
-      <div class="col-sm-6 col-sm-offset-1">
+      <div class="col-sm-5 col-sm-offset-1">
 
         <!-- Sign-in Form -->
-        <div class="form-horizontal">
-          <div class="form-group">
-            <label for="github-repo" class="col-sm-3 control-label">Username</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" id="github-username" placeholder="(optional)" autofocus>
+        <div class="well">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label for="github-repo" class="col-sm-3 control-label">Username</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="github-username" placeholder="(optional)" autofocus>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="github-repo" class="col-sm-3 control-label">Password</label>
-            <div class="col-sm-9">
-              <input type="password" class="form-control" id="github-password" placeholder="(optional)" autofocus>
+            <div class="form-group">
+              <label for="github-repo" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="github-password" placeholder="(optional)" autofocus>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button id=sign-in class="btn btn-default">Sign in</button>
-              <br>
-              <div id=user-display>
-                Signed in as
-                <span class=username></span>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button id=sign-in class="btn btn-default">Sign in</button>
+                <br>
+                <div id=user-display>
+                  Signed in as <span class=username></span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-      </div>
-    </div> <!-- End right column -->
+      </div> <!-- End right column -->
 
 
-    <div class="row">
-      <div class="col-sm-12">
-        <footer>
-          <a href="https://github.com/dogweather/repo-health-check"><i class="fa fa-github"></i>
+      <div class="row">
+        <div class="col-sm-12">
+          <footer>
+            <a href="https://github.com/dogweather/repo-health-check"><i class="fa fa-github"></i>
 Source code</a>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
-  <script src="bower_components/octokat/dist/octokat.js"></script>
-  <script src="src/octokat-ext.js"></script>
-  <script src="lib/core.js"></script>
-  <script src="src/metrics.js"></script>
-  <script src="lib/github.js"></script>
-  <script src="lib/repo.js"></script>
-  <script src="src/app.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+    <script src="bower_components/octokat/dist/octokat.js"></script>
+    <script src="src/octokat-ext.js"></script>
+    <script src="lib/core.js"></script>
+    <script src="src/metrics.js"></script>
+    <script src="lib/github.js"></script>
+    <script src="lib/repo.js"></script>
+    <script src="src/app.js"></script>
 </body>
 
 </html>
