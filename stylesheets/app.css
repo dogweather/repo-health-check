@@ -36,11 +36,13 @@ div.progress {
     background-color: #777;
 }
 
-.dejected-copy {
-  font-family: 'Slackey', cursive;
-  font-size: 90%;
+.effective-copy {
+  font-weight: bold;
 }
 
-.effective-copy {
-  font-weight: bold
+.dejected-copy {
+  font-family: 'Schoolbell', cursive; font-size: 110%;
+  /*font-family: 'Eater', cursive; font-size: 80%;*/
+  /*font-family: 'Slackey', cursive; font-size: 80%;*/
+  /*font-family: 'Just Me Again Down Here', cursive; font-size: 140%;*/
 }
