@@ -17,9 +17,9 @@ describe "Metrics", ->
   describe ".effectiveness_desc()", ->
 
     it "handles a range from 0 to 10", ->
-      expect(Metrics.effectiveness_desc(0)).toBe "in the weeds"
-      expect(Metrics.effectiveness_desc(5)).toBe "treading water"
-      expect(Metrics.effectiveness_desc(10)).toBe "on top of it"
+      expect(Metrics.effectiveness_desc(0)).toBe "In the weeds"
+      expect(Metrics.effectiveness_desc(5)).toBe "Doing fine"
+      expect(Metrics.effectiveness_desc(10)).toBe "Super effective"
 
     it "throws an error when outside 0 to 10", ->
       expect(->
@@ -63,8 +63,8 @@ describe "App.Repo", ->
     it "parses a repo spec in acct/name form", ->
       nop = ->
       repo = new App.Repo('dogweather/naturally', nop, nop, false)
-      expect(repo.name).toEqual 'naturally'
-      expect(repo.acct).toEqual 'dogweather'
+      expect(repo.name).toBe 'naturally'
+      expect(repo.acct).toBe 'dogweather'
 
 
 describe "App.Github", ->
@@ -72,15 +72,15 @@ describe "App.Github", ->
 
     it "returns a date in GitHub's prefered format", ->
       date = new Date(90000000000) # Tue Nov 07 1972 08:00:00 GMT-0800 (PST)
-      expect(App.Github.dateFormat(date)).toEqual '1972-11-07'
+      expect(App.Github.dateFormat(date)).toBe '1972-11-07'
 
   describe ".padWithZeroes()", ->
 
     it "prepends 0 to a single digit number", ->
-      expect(App.Github.padWithZeroes(5, 2)).toEqual '05'
+      expect(App.Github.padWithZeroes(5, 2)).toBe '05'
 
     it "leaves a double-digit number unchanged", ->
-      expect(App.Github.padWithZeroes(12, 2)).toEqual '12'
+      expect(App.Github.padWithZeroes(12, 2)).toBe '12'
 
   describe ".pageCount(apiResult)", ->
 

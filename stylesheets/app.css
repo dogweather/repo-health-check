@@ -5,7 +5,7 @@
 footer {
   text-align: center;
   border-top: 1px solid #ddd;
-  margin-top: 3em;
+  margin-top: 6em;
 }
 
 #rate-limit, #rate-remaining {
@@ -19,14 +19,30 @@ footer {
 }
 
 #user-display {
-  display: none;
   margin-top: 1em
 }
 
 div.progress {
-  display: none
+  display: none;
+  margin: 0.5em 0 0 0;
 }
 
 #effectiveness-result, .username {
   font-weight: bold;
+}
+
+/* The default background color is #c00 */
+.github-fork-ribbon {
+    background-color: #777;
+}
+
+.effective-copy {
+  font-weight: bold;
+}
+
+.dejected-copy {
+  font-family: 'Schoolbell', cursive; font-size: 110%;
+  /*font-family: 'Eater', cursive; font-size: 80%;*/
+  /*font-family: 'Slackey', cursive; font-size: 80%;*/
+  /*font-family: 'Just Me Again Down Here', cursive; font-size: 140%;*/
 }
