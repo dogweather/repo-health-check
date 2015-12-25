@@ -1,5 +1,14 @@
 class App.UI
 
+  @setProgress: (percent) ->
+    if percent > 0
+      @_changeProgress()
+      @showProgressBar()
+    else
+      @hideProgressBar()
+      @_changeProgress()
+
+
   @hideProgressBar: ->
     $('div.progress').hide('fast')
 
@@ -8,5 +17,6 @@ class App.UI
     $('div.progress').show('fast')
 
 
-  @setProgress: (percent) ->
+
+  @_changeProgress: (percent) ->
     $('.progress-bar').attr('style', 'width: ' + percent + '%')

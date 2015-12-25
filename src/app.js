@@ -66,7 +66,6 @@
   function startAnalysis() {
     $('#effectiveness-result').text(' ');
     App.UI.setProgress(5);
-    App.UI.showProgressBar();
     var repoSpec = $(REPO_INPUT).val();
     App.repo = new App.Repo(repoSpec, showRepo, analyze);
   }
