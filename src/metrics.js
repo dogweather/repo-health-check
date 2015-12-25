@@ -28,13 +28,13 @@ var Metrics = Metrics || {};
 
   Metrics.effectiveness_desc = function(rating) {
     if (rating >= 0 && rating <= 3) {
-      return 'in the weeds';
+      return 'In the weeds';
     }
     if (rating >= 4 && rating <= 6) {
-      return 'treading water';
+      return 'Doing fine';
     }
     if (rating >= 7 && rating <= 10) {
-      return 'on top of it';
+      return 'Super effective';
     }
     throw new RangeError('Rating must be between 0 and 11');
   };

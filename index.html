@@ -9,6 +9,8 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'>
+  <link href='https://fonts.googleapis.com/css?family=Schoolbell|Slackey|Eater' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -24,7 +26,10 @@
           <h1>
             <i class="fa fa-stethoscope"></i> Repo Health Check
             <br>
-            <small>Super effective, or somewhat dejected?</small>
+            <small>
+              <span class="effective-copy">Super effective</span>, or
+              <span class="dejected-copy">somewhat dejected?</span>
+            </small>
           </h1>
         </div>
       </div>
@@ -36,7 +41,7 @@
       <!-- Left column -->
       <div class="col-sm-6">
 
-        <!-- Repo name form -->
+        <!-- Repo form -->
         <div class="form-horizontal">
           <div class="form-group">
             <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
@@ -45,8 +50,13 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
+            <div class="col-sm-offset-2 col-sm-3">
               <button id=analyze class="btn btn-default">Analyze</button>
+            </div>
+            <div class="col-sm-7">
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -57,9 +67,6 @@
             <h3 class="panel-title">&nbsp;</h3>
           </div>
           <div class="panel-body">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
-            </div>
             Effectiveness:
             <span id="effectiveness-result"></span> / 10
           </div>
@@ -92,7 +99,7 @@
                 <button id=sign-in class="btn btn-default">Sign in</button>
                 <br>
                 <div id=user-display>
-                  Signed in as <span class=username></span>
+                  API mode: <span class=username>anonymous</span>
                 </div>
               </div>
             </div>
@@ -105,8 +112,9 @@
       <div class="row">
         <div class="col-sm-12">
           <footer>
-            <a href="https://github.com/dogweather/repo-health-check"><i class="fa fa-github"></i>
-Source code</a>
+            <a href="https://github.com/dogweather/repo-health-check">
+              <i class="fa fa-github"></i> Source code
+            </a>
           </footer>
         </div>
       </div>
@@ -120,6 +128,7 @@ Source code</a>
     <script src="src/metrics.js"></script>
     <script src="lib/github.js"></script>
     <script src="lib/repo.js"></script>
+    <script src="lib/ui.js"></script>
     <script src="src/app.js"></script>
 </body>
 
