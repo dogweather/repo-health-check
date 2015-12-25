@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'>
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Slackey'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -24,7 +25,10 @@
           <h1>
             <i class="fa fa-stethoscope"></i> Repo Health Check
             <br>
-            <small>Super effective, or somewhat dejected?</small>
+            <small>
+              <span class="effective-copy">Super effective</span>, or 
+              <span class="dejected-copy">somewhat dejected?</span>
+            </small>
           </h1>
         </div>
       </div>
@@ -94,7 +98,7 @@
                 <button id=sign-in class="btn btn-default">Sign in</button>
                 <br>
                 <div id=user-display>
-                  Signed in as <span class=username></span>
+                  API mode: <span class=username>anonymous</span>
                 </div>
               </div>
             </div>

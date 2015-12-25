@@ -19,7 +19,6 @@ footer {
 }
 
 #user-display {
-  display: none;
   margin-top: 1em
 }
 
@@ -35,4 +34,13 @@ div.progress {
 /* The default background color is #c00 */
 .github-fork-ribbon {
     background-color: #777;
+}
+
+.dejected-copy {
+  font-family: 'Slackey', cursive;
+  font-size: 90%;
+}
+
+.effective-copy {
+  font-weight: bold
 }

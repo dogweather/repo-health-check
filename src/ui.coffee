@@ -1,6 +1,12 @@
 class App.UI
 
-  @setProgress: (percent) ->
+  @anonymousMode: ->
+
+
+  @signedInMode: (username) ->
+
+
+  @progress: (percent) ->
     if percent > 0
       @_changeProgress()
       @showProgressBar()
