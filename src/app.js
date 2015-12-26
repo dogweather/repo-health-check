@@ -60,8 +60,7 @@
     $('#results').hide();
     $('#results-display').hide();
     App.UI.progress(5);
-    var repoSpec = $(REPO_INPUT).val();
-    App.repo = new App.Repo(repoSpec, showRepo, analyze);
+    App.repo = new App.Repo($(REPO_INPUT).val(), showRepo, analyze, showError);
   }
 
 
@@ -80,6 +79,11 @@
     $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
     window.setTimeout(App.UI.hideProgressBar, 700);
     window.setTimeout("$('#results-display').show();", 700);
+  }
+
+
+  function showError(message) {
+    console.log("showError: "+message);
   }
 
 

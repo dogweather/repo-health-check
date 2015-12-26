@@ -1,8 +1,16 @@
 class App.Repo
-  # @param repo_spec should be a string like "facebook/react" or a GitHub
+  # @param repoSpec should be a string like "facebook/react" or a GitHub
   # project URL.
-  constructor: (repo_spec, @repoCallback, @issuesCallback, network = true) ->
-    [@acct, @name] = App.Github.parseRepoInput(repo_spec)
+  constructor: (repoSpec,
+                @repoCallback,
+                @issuesCallback,
+                @errorCallback,
+                network = true) ->
+    repoInfo = App.Github.parseRepoInput(repoSpec)
+    if not repoInfo?
+      @errorCallback("Couldn't parse the info in: " + repoSpec)
+      return
+    [@acct, @name] = repoInfo
     @rawdata = {}
     @fetchData() if network
 
@@ -10,7 +18,7 @@ class App.Repo
   fetchData: =>
     App.octo.repos(@acct, @name).fetch (err, repodata) =>
       if err
-        console.log(err)
+        @errorCallback(err.message)
       else
         @rawdata.repo = repodata
         @repoCallback(this)
