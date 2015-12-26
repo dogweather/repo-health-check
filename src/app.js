@@ -65,6 +65,7 @@
 
 
   function showRepo(repo) {
+    App.UI.hideError();
     refreshRateInfo();
     App.UI.showProgressBar();
     $('#results').show();
@@ -73,6 +74,7 @@
 
 
   function analyze(repo) {
+    App.UI.hideError();
     refreshRateInfo();
     $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
     $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
@@ -83,7 +85,7 @@
 
 
   function showError(message) {
-    console.log("showError: "+message);
+    App.UI.showError(message);
   }
 
 

@@ -30,6 +30,15 @@ class App.UI
       @_changeProgress()
 
 
+  @showError: (message) ->
+    $('#error-text').text(message)
+    $('#error-alert').show()
+
+
+  @hideError: ->
+    $('#error-alert').hide()
+
+
   @hideProgressBar: ->
     $('div.progress').hide('fast')
 

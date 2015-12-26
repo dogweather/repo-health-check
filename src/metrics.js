@@ -9,13 +9,13 @@ var Metrics = Metrics || {};
     if (rating >= 0 && rating < 3) {
       return 'fa-frown-o';
     }
-    if (rating >= 3 && rating < 5) {
+    if (rating >= 3 && rating < 4.5) {
       return 'fa-meh-o';
     }
-    if (rating >= 5 && rating < 8) {
+    if (rating >= 4.5 && rating < 7) {
       return 'fa-smile-o';
     }
-    if (rating >= 8 && rating <= 10) {
+    if (rating >= 7 && rating <= 10) {
       return 'fa-smile-o green-glow';
     }
     throw new RangeError('Rating must be between 0 and 11');
