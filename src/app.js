@@ -2,7 +2,6 @@
   'use strict';
 
   var REPO_INPUT = '#github-repo';
-  var RESULTS_DIV = '#results';
 
 
   $(function() {
@@ -31,7 +30,7 @@
     });
     $('#github-username').keyup(function(e) {
       $('button#sign-in').prop('disabled', (e.target.value === ''));
-    })
+    });
   }
 
 
@@ -58,7 +57,8 @@
 
 
   function startAnalysis() {
-    $('#effectiveness-result').text(' ');
+    $('#results').hide();
+    $('#results-display').hide();
     App.UI.progress(5);
     var repoSpec = $(REPO_INPUT).val();
     App.repo = new App.Repo(repoSpec, showRepo, analyze);
@@ -66,16 +66,18 @@
 
 
   function showRepo(repo) {
-    $(RESULTS_DIV).show();
-    $('#results .panel-title').text(repo.name);
     refreshRateInfo();
+    App.UI.showProgressBar();
+    $('#results').show();
+    $('#results .panel-title').text(repo.name);
   }
 
 
   function analyze(repo) {
     refreshRateInfo();
     $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
-    window.setTimeout(App.UI.hideProgressBar, 1000);
+    window.setTimeout(App.UI.hideProgressBar, 700);
+    window.setTimeout("$('#results-display').show();", 700);
   }
 
 
