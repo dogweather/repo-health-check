@@ -23,11 +23,15 @@
       }
     });
     $('button#analyze').click(startAnalysis);
+    $('button#sign-in').click(signIn);
+    $('button#sign-out').click(signOut);
+
     $('#github-repo').keyup(function(e) {
       $('button#analyze').prop('disabled', (e.target.value === ''));
     });
-    $('button#sign-in').click(signIn);
-    $('button#sign-out').click(signOut);
+    $('#github-username').keyup(function(e) {
+      $('button#sign-in').prop('disabled', (e.target.value === ''));
+    })
   }
 
 

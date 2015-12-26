@@ -6,6 +6,10 @@ class App.UI
     $('#github-password').val('')
     $('button#sign-out').hide()
     $('button#sign-in').show()
+    $('#github-username').prop('disabled', false)
+    $('#github-password').prop('disabled', false)
+    $('button#sign-in').prop('disabled', true)
+    $('#github-repo').focus()
 
 
   @signedInMode: (username) ->
@@ -13,7 +17,8 @@ class App.UI
     $('button#sign-in').hide()
     $('button#sign-out').show()
     $('#github-repo').focus()
-
+    $('#github-username').prop('disabled', true)
+    $('#github-password').prop('disabled', true)
 
 
   @progress: (percent) ->
