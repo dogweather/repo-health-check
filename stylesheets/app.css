@@ -67,6 +67,10 @@ button#sign-out {
   color: green;
 }
 
+.green-glow {
+  text-shadow: 0 0 20px #4f4;
+}
+
 .icon {
   font-weight: bold;
   font-size: 120%;

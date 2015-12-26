@@ -16,7 +16,7 @@ var Metrics = Metrics || {};
       return 'fa-smile-o';
     }
     if (rating >= 8 && rating <= 10) {
-      return 'fa-smile-o';
+      return 'fa-smile-o green-glow';
     }
     throw new RangeError('Rating must be between 0 and 11');
 };
