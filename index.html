@@ -8,11 +8,9 @@
   <title>Repo Health Check</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700'>
-  <link href='https://fonts.googleapis.com/css?family=Schoolbell|Slackey|Eater' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here' rel='stylesheet'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Schoolbell|Roboto+Condensed:400,300,700'>
   <link rel="stylesheet" href="stylesheets/app.css">
 </head>
 
@@ -51,7 +49,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-3">
-              <button id=analyze class="btn btn-default">Analyze</button>
+              <button id=analyze class="btn btn-primary">Analyze</button>
             </div>
             <div class="col-sm-7">
               <div class="progress">
@@ -82,6 +80,13 @@
         <!-- Sign-in Form -->
         <div class="well">
           <div class="form-horizontal">
+            <legend id=user-display>
+              API mode: <span id=api-mode>anonymous</span>
+              <div id=rate-info>
+                Rate limit: <span id=rate-remaining></span> / <span id=rate-limit></span>
+              </div>
+            </legend>
+
             <div class="form-group">
               <label for="github-repo" class="col-sm-3 control-label">Username</label>
               <div class="col-sm-9">
@@ -96,11 +101,8 @@
             </div>
             <div class="form-group">
               <div class="col-sm-offset-3 col-sm-9">
-                <button id=sign-in class="btn btn-default">Sign in</button>
-                <br>
-                <div id=user-display>
-                  API mode: <span class=username>anonymous</span>
-                </div>
+                <button id=sign-in  class="btn btn-default">Sign in</button>
+                <button id=sign-out class="btn btn-default">Sign out</button>
               </div>
             </div>
           </div>
