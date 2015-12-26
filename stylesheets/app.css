@@ -8,8 +8,11 @@ footer {
   margin-top: 6em;
 }
 
+#rate-info {
+  font-size: 80%;
+}
+
 #rate-limit, #rate-remaining {
-  text-align: right;
   font-weight: bold;
 }
 
@@ -18,8 +21,8 @@ footer {
   margin-top: 4em;
 }
 
-#user-display {
-  margin-top: 1em
+#api-mode {
+  font-weight: bold
 }
 
 div.progress {
@@ -42,7 +45,4 @@ div.progress {
 
 .dejected-copy {
   font-family: 'Schoolbell', cursive; font-size: 110%;
-  /*font-family: 'Eater', cursive; font-size: 80%;*/
-  /*font-family: 'Slackey', cursive; font-size: 80%;*/
-  /*font-family: 'Just Me Again Down Here', cursive; font-size: 140%;*/
 }

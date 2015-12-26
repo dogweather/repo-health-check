@@ -7,7 +7,7 @@
 
   $(function() {
     setupEvents();
-    displayRateLimit();
+    refreshRateInfo();
   });
 
 
@@ -37,29 +37,16 @@
         username: username,
         password: password
       });
-      $('#user-display').show();
-      $('#user-display .username').text(username);
-      displayRateLimit();
+      App.UI.signedInMode();
+      refreshRateInfo();
     }
   }
 
 
   function signOut() {
     App.octo = new Octokat();
-  }
-
-
-  function displayRateLimit() {
-    App.Github.rateLimit(function(rateData) {
-      showRateInfo(rateData);
-    });
-  }
-
-
-  function showRateInfo(rateData) {
-    $('#rate-info').show();
-    $('#rate-limit').text(rateData.limit);
-    $('#rate-remaining').text(rateData.remaining);
+    App.UI.anonymousMode();
+    refreshRateInfo();
   }
 
 
@@ -74,13 +61,27 @@
   function showRepo(repo) {
     $(RESULTS_DIV).show();
     $('#results .panel-title').text(repo.name);
+    refreshRateInfo();
   }
 
 
   function analyze(repo) {
-    displayRateLimit();
+    refreshRateInfo();
     $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
     window.setTimeout(App.UI.hideProgressBar, 1000);
+  }
+
+
+  function refreshRateInfo() {
+    App.Github.rateLimit(function(rateData) {
+      showRateInfo(rateData);
+    });
+  }
+
+
+  function showRateInfo(rateData) {
+    $('#rate-limit').text(rateData.limit);
+    $('#rate-remaining').text(rateData.remaining);
   }
 
 

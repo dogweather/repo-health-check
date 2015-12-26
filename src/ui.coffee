@@ -1,9 +1,13 @@
 class App.UI
 
   @anonymousMode: ->
+    $('#api-mode').text('anonymous')
+    $('#github-username').val('')
+    $('#github-password').val('')
 
 
   @signedInMode: (username) ->
+    $('#api-mode').text('authenticated')
 
 
   @progress: (percent) ->
