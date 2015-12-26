@@ -14,19 +14,20 @@ describe "Metrics", ->
       expect(Metrics.ratio(9, 6)).toBe 1.5
 
 
-  describe ".effectiveness_desc()", ->
+  describe ".effectivenessDesc()", ->
 
     it "handles a range from 0 to 10", ->
-      expect(Metrics.effectiveness_desc(0)).toBe "In the weeds"
-      expect(Metrics.effectiveness_desc(5)).toBe "Doing fine"
-      expect(Metrics.effectiveness_desc(10)).toBe "Super effective"
+      expect(Metrics.effectivenessDesc(0)).toBe "In the weeds"
+      expect(Metrics.effectivenessDesc(3)).toBe "In the weeds"
+      expect(Metrics.effectivenessDesc(5)).toBe "Doing fine"
+      expect(Metrics.effectivenessDesc(10)).toBe "Super effective!"
 
     it "throws an error when outside 0 to 10", ->
       expect(->
-        Metrics.effectiveness_desc 15
+        Metrics.effectivenessDesc 15
       ).toThrowError RangeError
       expect(->
-        Metrics.effectiveness_desc -1
+        Metrics.effectivenessDesc -1
       ).toThrowError RangeError
 
 
@@ -109,3 +110,45 @@ describe "App.Github", ->
     it "works on the only page", ->
       result = {}
       expect(App.Github.currentPage(result)).toBe 1
+
+  describe ".isUrl()", ->
+
+    it "recognizes a GitHub project url", ->
+      validUrl = 'https://github.com/dogweather/repo-health-check'
+      expect( App.Github.isUrl(validUrl) ).toBe true
+
+    it "recognizes a GitHub project sub-page", ->
+      prUrl = 'https://github.com/dogweather/repo-health-check/pulls'
+      expect( App.Github.isUrl(prUrl) ).toBe true
+
+    it "rejects a non-project url", ->
+      statusUrl = 'https://status.github.com/'
+      expect( App.Github.isUrl(statusUrl) ).toBe false
+
+  describe ".isRepoSpec()", ->
+
+    it "recognizes a valid spec", ->
+      validSpec = 'dogweather/repo-health-check'
+      expect( App.Github.isRepoSpec(validSpec) ).toBe true
+
+    it "rejects a string with two /'s", ->
+      inValidSpec = '/dogweather/repo-health-check'
+      expect( App.Github.isRepoSpec(inValidSpec) ).toBe false
+
+  describe ".parseRepoInput()", ->
+
+    it "parses a project URL", ->
+      validUrl = 'https://github.com/dogweather/repo-health-check'
+      [acct, name] = App.Github.parseRepoInput(validUrl)
+      expect( acct ).toEqual 'dogweather'
+      expect( name ).toEqual 'repo-health-check'
+
+    it "parses a repo spec", ->
+      validSpec = 'dogweather/repo-health-check'
+      [acct, name] = App.Github.parseRepoInput(validSpec)
+      expect( acct ).toEqual 'dogweather'
+      expect( name ).toEqual 'repo-health-check'
+
+    it "returns null if input is neither a URL or repo spec", ->
+      inValidSpec = '/dogweather/repo-health-check'
+      expect( App.Github.parseRepoInput(inValidSpec) ).toBe null

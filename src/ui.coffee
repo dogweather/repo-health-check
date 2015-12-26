@@ -4,10 +4,21 @@ class App.UI
     $('#api-mode').text('anonymous')
     $('#github-username').val('')
     $('#github-password').val('')
+    $('button#sign-out').hide()
+    $('button#sign-in').show()
+    $('#github-username').prop('disabled', false)
+    $('#github-password').prop('disabled', false)
+    $('button#sign-in').prop('disabled', true)
+    $('#github-repo').focus()
 
 
   @signedInMode: (username) ->
     $('#api-mode').text('authenticated')
+    $('button#sign-in').hide()
+    $('button#sign-out').show()
+    $('#github-username').prop('disabled', true)
+    $('#github-password').prop('disabled', true)
+    $('#github-repo').focus()
 
 
   @progress: (percent) ->
@@ -17,6 +28,15 @@ class App.UI
     else
       @hideProgressBar()
       @_changeProgress()
+
+
+  @showError: (message) ->
+    $('#error-text').text(message)
+    $('#error-alert').show()
+
+
+  @hideError: ->
+    $('#error-alert').hide()
 
 
   @hideProgressBar: ->
