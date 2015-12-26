@@ -109,3 +109,41 @@ describe "App.Github", ->
     it "works on the only page", ->
       result = {}
       expect(App.Github.currentPage(result)).toBe 1
+
+  describe ".isUrl()", ->
+
+    it "recognizes a GitHub project url", ->
+      validUrl = 'https://github.com/dogweather/repo-health-check'
+      expect( App.Github.isUrl(validUrl) ).toBe true
+
+    it "recognizes a GitHub project sub-page", ->
+      prUrl = 'https://github.com/dogweather/repo-health-check/pulls'
+      expect( App.Github.isUrl(prUrl) ).toBe true
+
+    it "rejects a non-project url", ->
+      statusUrl = 'https://status.github.com/'
+      expect( App.Github.isUrl(statusUrl) ).toBe false
+
+  describe ".isRepoSpec()", ->
+
+    xit "recognizes a valid spec", ->
+      validSpec = 'dogweather/repo-health-check'
+      expect( App.Github.isRepoSpec(validSpec) ).toBe true
+
+    xit "rejects a string with two /'s", ->
+      inValidSpec = '/dogweather/repo-health-check'
+      expect( App.Github.isRepoSpec(inValidSpec) ).toBe false
+
+  describe ".parseRepoInput()", ->
+
+    xit "parses a project URL", ->
+      validUrl = 'https://github.com/dogweather/repo-health-check'
+      [acct, name] = App.Github.parseRepoInput(validUrl)
+      expect( acct ).toEqual 'dogweather'
+      expect( name ).toEqual 'repo-health-check'
+
+    xit "parses a repo spec", ->
+      validSpec = 'dogweather/repo-health-check'
+      [acct, name] = App.Github.parseRepoInput(validSpec)
+      expect( acct ).toEqual 'dogweather'
+      expect( name ).toEqual 'repo-health-check'

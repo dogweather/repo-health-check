@@ -1,6 +1,9 @@
 # Utility functions for working with the GitHub API
 class App.Github
 
+  @isUrl: (text) ->
+    /^https:\/\/github.com\/[^/]+\/[^/]+/.test(text)
+
   @rateLimit: (callback) ->
     App.octo.rateLimit.fetch (err, data) ->
       if err
