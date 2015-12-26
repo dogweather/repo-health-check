@@ -1,7 +1,9 @@
 # Repo Health Check
 
-A completely client-side browser-based repo analyzer: Is it well managed? Does it want help? **Does it _accept_
+A Javascript+Coffeescript browser-based repo analyzer: Is it well managed? Does it want help? **Does it _accept_
 help?**
+
+This app runs completely in the web browser to avoid problems with the GitHub API rate limits.
 
 [The Issues](https://github.com/dogweather/repo-health-check/issues) show the
 development roadmap. Brainstorming is [happening on the
