@@ -8,7 +8,7 @@
   <title>Repo Health Check</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Schoolbell|Roboto+Condensed:400,300,700'>
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -22,7 +22,7 @@
       <div class="col-sm-12">
         <div class="page-header">
           <h1>
-            <i class="fa fa-stethoscope"></i> Repo Health Check
+            <span class=red-cross>✚</span> Repo Health Check
             <br>
             <small>
               <span class="effective-copy">Super effective</span>, or
@@ -62,14 +62,14 @@
         <!-- Results display -->
         <div id=results class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">&nbsp;</h3>
+            <h2 class="panel-title">&nbsp;</h2>
           </div>
           <div class="panel-body">
             <div id=progress-display class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
             </div>
             <h3 id=results-display>
-              Effectiveness:
+              Effectiveness:&nbsp;
               <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
               <span id=effectiveness-desc class=data></span>
               <!-- (<span id=effectiveness-result class=data></span>/10) -->

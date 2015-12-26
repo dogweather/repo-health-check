@@ -60,21 +60,26 @@ button#sign-out {
 }
 
 .fa-ambulance, .fa-frown-o {
+  color: orange;
+}
+
+.fa-stethoscope, .red-cross {
   color: #F01525;
 }
+
 
 .fa-smile-o {
   color: green;
 }
 
 .green-glow {
-  text-shadow: 0 0 30px #4f4;
+  text-shadow: 0 0 5px #7f7;
 }
 
 .icon {
   font-weight: bold;
-  font-size: 120%;
-  vertical-align:bottom;
+  font-size: 170%;
+  vertical-align: middle;
 }
 
 #error-alert {
