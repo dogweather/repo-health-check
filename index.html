@@ -44,7 +44,7 @@
           <div class="form-group">
             <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="account/repo" autofocus>
+              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="URL or account/repo" autofocus>
             </div>
           </div>
           <div class="form-group">
@@ -63,10 +63,12 @@
             <div id=progress-display class="progress">
               <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
             </div>
-            <div id=results-display>
+            <h3 id=results-display>
               Effectiveness:
-              <span id="effectiveness-result"></span> / 10
-            </div>
+              <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
+              <span id=effectiveness-desc class=data></span>
+              <!-- (<span id=effectiveness-result class=data></span>/10) -->
+            </h3>
           </div>
         </div>
 

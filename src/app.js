@@ -76,6 +76,8 @@
   function analyze(repo) {
     refreshRateInfo();
     $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
+    $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
+    $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
     window.setTimeout(App.UI.hideProgressBar, 700);
     window.setTimeout("$('#results-display').show();", 700);
   }

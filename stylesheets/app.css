@@ -21,6 +21,10 @@ footer {
   margin-top: 4em;
 }
 
+h3#results-display {
+  font-size: 150%;
+}
+
 #api-mode {
   font-weight: bold
 }
@@ -34,7 +38,6 @@ div.progress {
   font-weight: bold;
 }
 
-/* The default background color is #c00 */
 .github-fork-ribbon {
     background-color: #777;
 }
@@ -50,4 +53,12 @@ div.progress {
 
 button#sign-out {
   display: none
+}
+
+.data {
+  font-weight: 700;
+}
+
+.fa-ambulance, .fa-frown-o {
+  color: #F01525;
 }

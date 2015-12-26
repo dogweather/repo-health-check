@@ -14,19 +14,20 @@ describe "Metrics", ->
       expect(Metrics.ratio(9, 6)).toBe 1.5
 
 
-  describe ".effectiveness_desc()", ->
+  describe ".effectivenessDesc()", ->
 
     it "handles a range from 0 to 10", ->
-      expect(Metrics.effectiveness_desc(0)).toBe "In the weeds"
-      expect(Metrics.effectiveness_desc(5)).toBe "Doing fine"
-      expect(Metrics.effectiveness_desc(10)).toBe "Super effective"
+      expect(Metrics.effectivenessDesc(0)).toBe "In the weeds"
+      expect(Metrics.effectivenessDesc(3)).toBe "In the weeds"
+      expect(Metrics.effectivenessDesc(5)).toBe "Doing fine"
+      expect(Metrics.effectivenessDesc(10)).toBe "Super effective!"
 
     it "throws an error when outside 0 to 10", ->
       expect(->
-        Metrics.effectiveness_desc 15
+        Metrics.effectivenessDesc 15
       ).toThrowError RangeError
       expect(->
-        Metrics.effectiveness_desc -1
+        Metrics.effectivenessDesc -1
       ).toThrowError RangeError
 
 
