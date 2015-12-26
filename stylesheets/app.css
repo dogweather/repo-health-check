@@ -62,3 +62,13 @@ button#sign-out {
 .fa-ambulance, .fa-frown-o {
   color: #F01525;
 }
+
+.fa-smile-o {
+  color: green;
+}
+
+.icon {
+  font-weight: bold;
+  font-size: 120%;
+  vertical-align:bottom;
+}
