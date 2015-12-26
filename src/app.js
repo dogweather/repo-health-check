@@ -23,6 +23,9 @@
       }
     });
     $('button#analyze').click(startAnalysis);
+    $('#github-repo').keyup(function(e) {
+      $('button#analyze').prop('disabled', (e.target.value === ''));
+    });
     $('button#sign-in').click(signIn);
     $('button#sign-out').click(signOut);
   }

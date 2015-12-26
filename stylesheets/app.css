@@ -44,7 +44,8 @@ div.progress {
 }
 
 .dejected-copy {
-  font-family: 'Schoolbell', cursive; font-size: 110%;
+  font-family: 'Schoolbell', cursive;
+  font-size: 110%;
 }
 
 button#sign-out {
