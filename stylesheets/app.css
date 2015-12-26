@@ -8,6 +8,10 @@ footer {
   margin-top: 6em;
 }
 
+legend {
+  font-size: 110%;
+}
+
 #rate-info {
   font-size: 80%;
 }
