@@ -13,3 +13,4 @@ wiki](https://github.com/dogweather/ducking-octo-dangerzone/wiki).
 * https://github.com/gorillamania/repo-health
 * https://github.com/cfjedimaster/githubhealth
 * https://github.com/github/pages-health-check
+* https://github.com/hstove/issue_stats
