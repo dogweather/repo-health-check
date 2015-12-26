@@ -6,9 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Repo Health Check</title>
+  <link href="favicon.ico" rel="shortcut icon">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Schoolbell|Roboto+Condensed:400,300,700'>
   <link rel="stylesheet" href="stylesheets/app.css">
@@ -22,7 +23,7 @@
       <div class="col-sm-12">
         <div class="page-header">
           <h1>
-            <i class="fa fa-stethoscope"></i> Repo Health Check
+            <span class=red-cross>✚</span> Repo Health Check
             <br>
             <small>
               <span class="effective-copy">Super effective</span>, or
@@ -44,29 +45,35 @@
           <div class="form-group">
             <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="account/repo" autofocus>
+              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="URL or account/repo" autofocus>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-3">
-              <button id=analyze class="btn btn-primary">Analyze</button>
-            </div>
-            <div class="col-sm-7">
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
-              </div>
+              <button id=analyze class="btn btn-primary" disabled="disabled">Analyze</button>
             </div>
           </div>
+        </div>
+
+        <!-- Error display -->
+        <div id=error-alert class="alert alert-warning" role="alert">
+          <strong>Whoops!</strong> <span id=error-text></span>
         </div>
 
         <!-- Results display -->
         <div id=results class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">&nbsp;</h3>
+            <h2 class="panel-title">&nbsp;</h2>
           </div>
           <div class="panel-body">
-            Effectiveness:
-            <span id="effectiveness-result"></span> / 10
+            <div id=progress-display class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
+            </div>
+            <h3 id=results-display>
+              Effectiveness:&nbsp;
+              <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
+              <span id=effectiveness-desc class=data></span>
+            </h3>
           </div>
         </div>
 
@@ -101,10 +108,11 @@
             </div>
             <div class="form-group">
               <div class="col-sm-offset-3 col-sm-9">
-                <button id=sign-in  class="btn btn-default">Sign in</button>
+                <button id=sign-in  class="btn btn-default" disabled="disabled">Sign in</button>
                 <button id=sign-out class="btn btn-default">Sign out</button>
               </div>
             </div>
+
           </div>
         </div>
 

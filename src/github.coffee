@@ -1,6 +1,24 @@
 # Utility functions for working with the GitHub API
 class App.Github
 
+  @parseRepoInput: (text) ->
+    if @isRepoSpec(text)
+      text.split('/')
+    else if @isUrl(text)
+      matches = text.match(/^https:\/\/github.com\/([^/]+)\/([^/]+)/)
+      [matches[1], matches[2]]
+    else
+      null
+
+
+  @isUrl: (text) ->
+    /^https:\/\/github.com\/[^/]+\/[^/]+/.test(text)
+
+
+  @isRepoSpec: (text) ->
+    /^[^/]+\/[^/]+$/.test(text)
+
+
   @rateLimit: (callback) ->
     App.octo.rateLimit.fetch (err, data) ->
       if err

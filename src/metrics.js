@@ -3,6 +3,29 @@ var Metrics = Metrics || {};
 (function() {
   'use strict';
 
+
+  Metrics.repoEffectivenessIcon = function(repo) {
+    var rating = Metrics.repoEffectiveness(repo);
+    if (rating >= 0 && rating < 3) {
+      return 'fa-frown-o';
+    }
+    if (rating >= 3 && rating < 4.5) {
+      return 'fa-meh-o';
+    }
+    if (rating >= 4.5 && rating < 7) {
+      return 'fa-smile-o';
+    }
+    if (rating >= 7 && rating <= 10) {
+      return 'fa-smile-o green-glow';
+    }
+    throw new RangeError('Rating must be between 0 and 11');
+};
+
+
+  Metrics.repoEffectivenessDesc = function(repo) {
+    return Metrics.effectivenessDesc(Metrics.repoEffectiveness(repo));
+  };
+
   Metrics.repoEffectiveness = function(repo) {
     return Metrics.effectiveness(
       repo.closedPullRequestCount(),
@@ -26,7 +49,7 @@ var Metrics = Metrics || {};
     return Metrics.scaled(Metrics.ratio(closed_issues, new_issues));
   };
 
-  Metrics.effectiveness_desc = function(rating) {
+  Metrics.effectivenessDesc = function(rating) {
     if (rating >= 0 && rating <= 3) {
       return 'In the weeds';
     }
@@ -34,7 +57,7 @@ var Metrics = Metrics || {};
       return 'Doing fine';
     }
     if (rating >= 7 && rating <= 10) {
-      return 'Super effective';
+      return 'Super effective!';
     }
     throw new RangeError('Rating must be between 0 and 11');
   };

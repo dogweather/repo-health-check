@@ -21,6 +21,10 @@ footer {
   margin-top: 4em;
 }
 
+h3#results-display {
+  font-size: 150%;
+}
+
 #api-mode {
   font-weight: bold
 }
@@ -34,7 +38,6 @@ div.progress {
   font-weight: bold;
 }
 
-/* The default background color is #c00 */
 .github-fork-ribbon {
     background-color: #777;
 }
@@ -44,5 +47,41 @@ div.progress {
 }
 
 .dejected-copy {
-  font-family: 'Schoolbell', cursive; font-size: 110%;
+  font-family: 'Schoolbell', cursive;
+  font-size: 110%;
+}
+
+button#sign-out {
+  display: none
+}
+
+.data {
+  font-weight: 700;
+}
+
+.fa-ambulance, .fa-frown-o {
+  color: orange;
+}
+
+.fa-stethoscope, .red-cross {
+  color: #F01525;
+}
+
+
+.fa-smile-o {
+  color: green;
+}
+
+.green-glow {
+  text-shadow: 0 0 5px #7f7;
+}
+
+.icon {
+  font-weight: bold;
+  font-size: 170%;
+  vertical-align: middle;
+}
+
+#error-alert {
+  display: none;
 }

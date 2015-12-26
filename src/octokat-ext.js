@@ -5,12 +5,12 @@
 // syntax
 function octoFetchAll(fn, args) {
   let acc = []; // Accumulated results
-  let p = new Promise((resolve, reject) => {
-    fn(args).then((val) => {
+  let p = new Promise(function(resolve, reject) {
+    fn(args).then(function(val) {
       setProgress(App.Github.percentComplete(val));
       acc = acc.concat(val);
       if (val.nextPage) {
-        return octoFetchAll(val.nextPage).then((val2) => {
+        return octoFetchAll(val.nextPage).then(function(val2) {
           acc = acc.concat(val2);
           resolve(acc);
         }, reject);
