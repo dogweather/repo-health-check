@@ -1,7 +1,8 @@
 class App.Repo
-  # @param repo_spec should be a string like "facebook/react"
+  # @param repo_spec should be a string like "facebook/react" or a GitHub
+  # project URL.
   constructor: (repo_spec, @repoCallback, @issuesCallback, network = true) ->
-    [@acct, @name] = repo_spec.split('/')
+    [@acct, @name] = App.Github.parseRepoInput(repo_spec)
     @rawdata = {}
     @fetchData() if network
 

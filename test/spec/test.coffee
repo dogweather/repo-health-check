@@ -126,24 +126,28 @@ describe "App.Github", ->
 
   describe ".isRepoSpec()", ->
 
-    xit "recognizes a valid spec", ->
+    it "recognizes a valid spec", ->
       validSpec = 'dogweather/repo-health-check'
       expect( App.Github.isRepoSpec(validSpec) ).toBe true
 
-    xit "rejects a string with two /'s", ->
+    it "rejects a string with two /'s", ->
       inValidSpec = '/dogweather/repo-health-check'
       expect( App.Github.isRepoSpec(inValidSpec) ).toBe false
 
   describe ".parseRepoInput()", ->
 
-    xit "parses a project URL", ->
+    it "parses a project URL", ->
       validUrl = 'https://github.com/dogweather/repo-health-check'
       [acct, name] = App.Github.parseRepoInput(validUrl)
       expect( acct ).toEqual 'dogweather'
       expect( name ).toEqual 'repo-health-check'
 
-    xit "parses a repo spec", ->
+    it "parses a repo spec", ->
       validSpec = 'dogweather/repo-health-check'
       [acct, name] = App.Github.parseRepoInput(validSpec)
       expect( acct ).toEqual 'dogweather'
       expect( name ).toEqual 'repo-health-check'
+
+    it "returns null if input is neither a URL or repo spec", ->
+      inValidSpec = '/dogweather/repo-health-check'
+      expect( App.Github.parseRepoInput(inValidSpec) ).toBe null
