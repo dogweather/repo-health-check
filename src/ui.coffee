@@ -12,6 +12,7 @@ class App.UI
     $('#api-mode').text('authenticated')
     $('button#sign-in').hide()
     $('button#sign-out').show()
+    $('#github-repo').focus()
 
 
 
