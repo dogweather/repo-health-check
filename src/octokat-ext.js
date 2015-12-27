@@ -1,5 +1,3 @@
-// The following is ES6 but should just require changing the anonymous functions
-// syntax
 function octoFetchAll(fn, args) {
   var acc = []; // Accumulated results
   var p = new Promise(function(resolve, reject) {
