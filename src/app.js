@@ -57,8 +57,8 @@
 
 
   function startAnalysis() {
-    $('#results').hide();
-    $('#results-display').hide();
+    App.UI.hideResults();
+    App.UI.hideResultsDisplay();
     App.UI.progress(5);
     App.repo = new App.Repo($(REPO_INPUT).val(), showRepo, analyze, showError);
   }
@@ -69,18 +69,24 @@
     refreshRateInfo();
     App.UI.showProgressBar();
     $('#results').show();
-    $('#results .panel-title').text(repo.name);
+    $('#results h2').text(repo.name);
   }
 
 
   function analyze(repo) {
     App.UI.hideError();
     refreshRateInfo();
-    $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
-    $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
     $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
-    window.setTimeout(App.UI.hideProgressBar, 700);
-    window.setTimeout("$('#results-display').show();", 700);
+    $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
+    window.setTimeout(App.UI.hideProgressBar, 500);
+    window.setTimeout(App.UI.showResultsDisplay, 500);
+    addRepoToLog(repo);
+  }
+
+
+  function addRepoToLog(repo) {
+    App.log.push(repo);
+    App.UI.refreshLog(App.log);
   }
 
 
@@ -91,14 +97,8 @@
 
   function refreshRateInfo() {
     App.Github.rateLimit(function(rateData) {
-      showRateInfo(rateData);
+      App.UI.showRateInfo(rateData);
     });
-  }
-
-
-  function showRateInfo(rateData) {
-    $('#rate-limit').text(rateData.limit);
-    $('#rate-remaining').text(rateData.remaining);
   }
 
 

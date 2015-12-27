@@ -5,7 +5,15 @@
 footer {
   text-align: center;
   border-top: 1px solid #ddd;
-  margin-top: 6em;
+  margin-top: 8em;
+}
+
+label {
+  font-weight: normal;
+}
+
+legend {
+  font-size: 110%;
 }
 
 #rate-info {
@@ -21,6 +29,14 @@ footer {
   margin-top: 4em;
 }
 
+th {
+  font-weight: normal
+}
+
+#results td {
+  width: 100%;
+}
+
 h3#results-display {
   font-size: 150%;
 }
@@ -31,7 +47,7 @@ h3#results-display {
 
 div.progress {
   display: none;
-  margin: 0.5em 0 0 0;
+  width: 100%;
 }
 
 #effectiveness-result, .username {
@@ -67,7 +83,6 @@ button#sign-out {
   color: #F01525;
 }
 
-
 .fa-smile-o {
   color: green;
 }
@@ -80,8 +95,13 @@ button#sign-out {
   font-weight: bold;
   font-size: 170%;
   vertical-align: middle;
+  padding-right: 0.1em;
 }
 
 #error-alert {
   display: none;
+}
+
+table#log td:nth-child(2), table#log th:nth-child(2), table#log td:nth-child(3), table#log th:nth-child(3) {
+  text-align: center;
 }

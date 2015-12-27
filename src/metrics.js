@@ -19,7 +19,7 @@ var Metrics = Metrics || {};
       return 'fa-smile-o green-glow';
     }
     throw new RangeError('Rating must be between 0 and 11');
-};
+  };
 
 
   Metrics.repoEffectivenessDesc = function(repo) {
@@ -38,8 +38,7 @@ var Metrics = Metrics || {};
   Metrics.effectiveness = function(
     merged_prs, proposed_prs, closed_issues, new_issues) {
     var inputs = [merged_prs, proposed_prs, closed_issues, new_issues].join(', ');
-    console.log("effectiveness("+inputs+")");
-    var prs    = Metrics.pr_effectiveness(merged_prs, proposed_prs);
+    var prs = Metrics.pr_effectiveness(merged_prs, proposed_prs);
     var issues = Metrics.issue_effectiveness(closed_issues, new_issues);
     return Math.round((0.66 * prs) + (0.34 * issues));
   };

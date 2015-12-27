@@ -8,7 +8,7 @@ class App.Repo
                 network = true) ->
     repoInfo = App.Github.parseRepoInput(repoSpec)
     if not repoInfo?
-      @errorCallback("Couldn't parse the info in: " + repoSpec)
+      @errorCallback("Couldn't parse the info in: #{repoSpec}")
       return
     [@acct, @name] = repoInfo
     @rawdata = {}
@@ -29,32 +29,46 @@ class App.Repo
     # https://developer.github.com/v3/issues/#list-issues-for-a-repository
     # https://developer.github.com/guides/traversing-with-pagination/#basics-of-pagination
     options = {per_page: 100, state: 'all', since: App.Github.oneMonthAgo()}
-    octoFetchAll(repo.issues.fetch, options).then (issues) =>
+    App.octoFetchAll(repo.issues.fetch, options).then (issues) =>
       @rawdata.issues = issues
       @issuesCallback(this)
 
 
   openPullRequestCount: =>
-    @pullRequests().filter((pr) -> pr.state is 'open').length
+    @pullRequests()
+      .filter (pr) -> pr.state is 'open'
+      .length
 
 
   closedPullRequestCount: =>
-    @pullRequests().filter((pr) -> pr.state is 'closed').length
+    @pullRequests()
+      .filter (pr) -> pr.state is 'closed'
+      .length
 
 
   openIssueCount: =>
-    @issues().filter((i) -> i.state is 'open').length
+    @issues()
+      .filter (i) -> i.state is 'open'
+      .length
 
 
   closedIssueCount: =>
-    @issues().filter((i) -> i.state is 'closed').length
+    @issues()
+      .filter (i) -> i.state is 'closed'
+      .length
 
 
   pullRequests: =>
-    @rawdata.issues.filter (x) ->
-      typeof(x.pullRequest) is 'object'
+    @rawdata
+      .issues
+      .filter (x) -> typeof(x.pullRequest) is 'object'
 
 
   issues: =>
-    @rawdata.issues.filter (x) ->
-      typeof(x.pullRequest) is 'undefined'
+    @rawdata
+      .issues
+      .filter (x) -> typeof(x.pullRequest) is 'undefined'
+
+
+  effectiveness: =>
+    Metrics.repoEffectiveness(this)

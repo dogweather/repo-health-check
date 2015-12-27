@@ -1,11 +1,11 @@
-function octoFetchAll(fn, args) {
+App.octoFetchAll = function (fn, args) {
   var acc = []; // Accumulated results
   var p = new Promise(function(resolve, reject) {
     fn(args).then(function(val) {
-      setProgress(App.Github.percentComplete(val));
+      App.UI.progress(App.Github.percentComplete(val));
       acc = acc.concat(val);
       if (val.nextPage) {
-        return octoFetchAll(val.nextPage).then(function(val2) {
+        return App.octoFetchAll(val.nextPage).then(function(val2) {
           acc = acc.concat(val2);
           resolve(acc);
         }, reject);
@@ -15,8 +15,4 @@ function octoFetchAll(fn, args) {
     }, reject);
   });
   return p;
-}
-
-function setProgress(percent) {
-  $('.progress-bar').attr('style', 'width: ' + percent + '%');
-}
+};

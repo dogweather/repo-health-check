@@ -16,17 +16,22 @@
 </head>
 
 <body>
+  <a href="https://github.com/dogweather/repo-health-check">
+    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
+    alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+  </a>
   <div class=container>
 
     <!-- Page header -->
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <div class="page-header">
           <h1>
             <span class=red-cross>✚</span> Repo Health Check
             <br>
             <small>
-              <span class="effective-copy">Super effective</span>, or
+              Is it
+              <span class="effective-copy">super effective</span>&hellip; or
               <span class="dejected-copy">somewhat dejected?</span>
             </small>
           </h1>
@@ -38,18 +43,18 @@
     <div class="row">
 
       <!-- Left column -->
-      <div class="col-sm-6">
+      <div class="col-xs-6">
 
         <!-- Repo form -->
         <div class="form-horizontal">
           <div class="form-group">
-            <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
-            <div class="col-sm-10">
+            <label for="github-repo" class="col-xs-2 control-label">GitHub</label>
+            <div class="col-xs-10">
               <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="URL or account/repo" autofocus>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-3">
+            <div class="col-xs-offset-2 col-xs-3">
               <button id=analyze class="btn btn-primary" disabled="disabled">Analyze</button>
             </div>
           </div>
@@ -57,74 +62,109 @@
 
         <!-- Error display -->
         <div id=error-alert class="alert alert-warning" role="alert">
-          <strong>Whoops!</strong> <span id=error-text></span>
+          <strong>Whoops!</strong>
+          <span id=error-text></span>
         </div>
 
         <!-- Results display -->
-        <div id=results class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">&nbsp;</h2>
-          </div>
-          <div class="panel-body">
-            <div id=progress-display class="progress">
-              <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
-            </div>
-            <h3 id=results-display>
-              Effectiveness:&nbsp;
-              <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
-              <span id=effectiveness-desc class=data></span>
-            </h3>
-          </div>
-        </div>
+        <div id=results>
+
+          <!-- Summary -->
+          <h2></h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Effectiveness:</th>
+                <td>
+                  <div id=progress-display class=progress>
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
+                  </div>
+                  <span id=results-display>
+                    <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
+                    <span id=effectiveness-desc class=data></span>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+        </div> <!-- End of results display -->
 
       </div>
       <!-- End left column -->
 
 
       <!-- Right column -->
-      <div class="col-sm-5 col-sm-offset-1">
+      <div class="col-xs-5 col-xs-offset-1">
 
         <!-- Sign-in Form -->
         <div class="well">
           <div class="form-horizontal">
             <legend id=user-display>
-              API mode: <span id=api-mode>anonymous</span>
+              API mode:
+              <span id=api-mode>anonymous</span>
               <div id=rate-info>
-                Rate limit: <span id=rate-remaining></span> / <span id=rate-limit></span>
+                Rate limit:
+                <span id=rate-remaining></span> /
+                <span id=rate-limit></span>
               </div>
             </legend>
 
             <div class="form-group">
-              <label for="github-repo" class="col-sm-3 control-label">Username</label>
-              <div class="col-sm-9">
+              <label for="github-repo" class="col-xs-3 control-label">Username</label>
+              <div class="col-xs-9">
                 <input type="text" class="form-control" id="github-username" placeholder="(optional)" autofocus>
               </div>
             </div>
             <div class="form-group">
-              <label for="github-repo" class="col-sm-3 control-label">Password</label>
-              <div class="col-sm-9">
+              <label for="github-repo" class="col-xs-3 control-label">Password</label>
+              <div class="col-xs-9">
                 <input type="password" class="form-control" id="github-password" placeholder="(optional)" autofocus>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-sm-offset-3 col-sm-9">
-                <button id=sign-in  class="btn btn-default" disabled="disabled">Sign in</button>
+              <div class="col-xs-offset-3 col-xs-9">
+                <button id=sign-in class="btn btn-default" disabled="disabled">Sign in</button>
                 <button id=sign-out class="btn btn-default">Sign out</button>
               </div>
             </div>
 
           </div>
-        </div>
+        </div> <!-- End of the sign-in form -->
 
-      </div> <!-- End right column -->
+        <table id=log class=table>
+          <thead>
+            <th>
+              Repo
+            </th>
+            <th>
+              Effect.
+            </th>
+            <th>
+              Activity
+            </th>
+          </thead>
+
+          <tbody></tbody>
+
+          <tfoot>
+            <td>Average:</td>
+            <td id=avg-effectiveness class=data>
+              Nothing to see! Analyze a few repositories.
+            </td>
+            <td>(tbd)</td>
+          </tfoot>
+        </table>
+
+      </div>
+      <!-- End right column -->
 
 
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-xs-12">
           <footer>
-            <a href="https://github.com/dogweather/repo-health-check">
-              <i class="fa fa-github"></i> Source code
-            </a>
+            by Robb
           </footer>
         </div>
       </div>
@@ -133,8 +173,9 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
     <script src="bower_components/octokat/dist/octokat.js"></script>
-    <script src="src/octokat-ext.js"></script>
+    <script src="src/math-ext.js"></script>
     <script src="lib/core.js"></script>
+    <script src="src/octokat-ext.js"></script>
     <script src="src/metrics.js"></script>
     <script src="lib/github.js"></script>
     <script src="lib/repo.js"></script>
