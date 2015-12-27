@@ -1,3 +1,9 @@
+# Functions for interacting with the HTML page: changing visibility and content.
+#
+# The intention is for this file to be the only place where HTML elements and
+# CSS classes are referenced. And so, when the HTML structure changes, this is
+# the only code that should need to be modified. A CoffeeScript `class` is a
+# nice vehicle for easily creating namespaced functions.
 class App.UI
 
   @anonymousMode: ->
