@@ -23,11 +23,11 @@ class App.UI
 
   @progress: (percent) ->
     if percent > 0
-      @_changeProgress()
+      @_changeProgress(percent)
       @showProgressBar()
     else
       @hideProgressBar()
-      @_changeProgress()
+      @_changeProgress(percent)
 
 
   @showError: (message) ->

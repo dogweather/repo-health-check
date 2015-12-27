@@ -29,7 +29,7 @@ class App.Repo
     # https://developer.github.com/v3/issues/#list-issues-for-a-repository
     # https://developer.github.com/guides/traversing-with-pagination/#basics-of-pagination
     options = {per_page: 100, state: 'all', since: App.Github.oneMonthAgo()}
-    octoFetchAll(repo.issues.fetch, options).then (issues) =>
+    App.octoFetchAll(repo.issues.fetch, options).then (issues) =>
       @rawdata.issues = issues
       @issuesCallback(this)
 
