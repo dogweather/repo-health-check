@@ -8,6 +8,10 @@ footer {
   margin-top: 8em;
 }
 
+label {
+  font-weight: normal;
+}
+
 legend {
   font-size: 110%;
 }
@@ -25,7 +29,7 @@ legend {
   margin-top: 4em;
 }
 
-#results th {
+th {
   font-weight: normal
 }
 
