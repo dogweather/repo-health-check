@@ -5,7 +5,7 @@
 footer {
   text-align: center;
   border-top: 1px solid #ddd;
-  margin-top: 6em;
+  margin-top: 8em;
 }
 
 legend {
@@ -70,7 +70,6 @@ button#sign-out {
 .fa-stethoscope, .red-cross {
   color: #F01525;
 }
-
 
 .fa-smile-o {
   color: green;
