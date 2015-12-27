@@ -39,18 +39,12 @@ class App.UI
     $('#error-text').text(message)
     $('#error-alert').show()
 
-
   @hideError: ->
     $('#error-alert').hide()
 
 
-  @hideProgressBar: ->
-    $('#progress-display').hide()
-
-
-  @showProgressBar: ->
-    $('#progress-display').show()
-
+  @showProgressBar: -> $('#progress-display').show()
+  @hideProgressBar: -> $('#progress-display').hide()
 
   @showResultsDisplay: -> $('#results-display').show()
   @hideResultsDisplay: -> $('#results-display').hide()
