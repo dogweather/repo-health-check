@@ -4,8 +4,8 @@
 // The following is ES6 but should just require changing the anonymous functions
 // syntax
 function octoFetchAll(fn, args) {
-  let acc = []; // Accumulated results
-  let p = new Promise(function(resolve, reject) {
+  var acc = []; // Accumulated results
+  var p = new Promise(function(resolve, reject) {
     fn(args).then(function(val) {
       setProgress(App.Github.percentComplete(val));
       acc = acc.concat(val);
