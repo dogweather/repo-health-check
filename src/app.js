@@ -80,6 +80,13 @@
     $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
     window.setTimeout(App.UI.hideProgressBar, 500);
     window.setTimeout(App.UI.showResultsDisplay, 500);
+    addRepoToLog(repo);
+  }
+
+
+  function addRepoToLog(repo) {
+    App.log.push(repo);
+    App.UI.refreshLog(App.log);
   }
 
 

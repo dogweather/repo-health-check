@@ -41,6 +41,22 @@ class App.UI
       @_changeProgress(percent)
 
 
+  @refreshLog: (repos) ->
+    rows = (@tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)')) for r in repos)
+    $('table#log tbody').replaceWith('<tbody>' + rows.join("") + '</tbody>')
+
+    sumEffectiveness = repos.reduce(((acc, r) -> acc + r.effectiveness()), 0)
+    avgEffectiveness = Math.round10(sumEffectiveness / repos.length, -1)
+    $('#average-effectiveness').text(avgEffectiveness)
+
+
+  @td: (text) ->
+    "<td class=data>" + text + "</td>"
+
+  @tr: (cells...) ->
+    "<tr>" + cells.join("") + "</tr>"
+
+
   @showError: (message) ->
     $('#error-text').text(message)
     $('#error-alert').show()

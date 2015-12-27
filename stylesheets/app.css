@@ -101,3 +101,7 @@ button#sign-out {
 #error-alert {
   display: none;
 }
+
+table#log td:nth-child(2), table#log th:nth-child(2), table#log td:nth-child(3), table#log th:nth-child(3) {
+  text-align: center;
+}

@@ -58,3 +58,7 @@ class App.Repo
   issues: =>
     @rawdata.issues.filter (x) ->
       typeof(x.pullRequest) is 'undefined'
+
+
+  effectiveness: =>
+    Metrics.repoEffectiveness(this)
