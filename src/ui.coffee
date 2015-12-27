@@ -40,11 +40,11 @@ class App.UI
 
 
   @hideProgressBar: ->
-    $('div.progress').hide('fast')
+    $('#progress-display').hide()
 
 
   @showProgressBar: ->
-    $('div.progress').show('fast')
+    $('#progress-display').show()
 
 
 

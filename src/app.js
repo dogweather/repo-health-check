@@ -69,16 +69,15 @@
     refreshRateInfo();
     App.UI.showProgressBar();
     $('#results').show();
-    $('#results .panel-title').text(repo.name);
+    $('#results h2').text(repo.name);
   }
 
 
   function analyze(repo) {
     App.UI.hideError();
     refreshRateInfo();
-    $('#effectiveness-result').text(Metrics.repoEffectiveness(repo));
-    $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
     $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
+    $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
     window.setTimeout(App.UI.hideProgressBar, 700);
     window.setTimeout("$('#results-display').show();", 700);
   }
