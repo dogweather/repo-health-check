@@ -57,8 +57,8 @@
 
 
   function startAnalysis() {
-    $('#results').hide();
-    $('#results-display').hide();
+    App.UI.hideResults();
+    App.UI.hideResultsDisplay();
     App.UI.progress(5);
     App.repo = new App.Repo($(REPO_INPUT).val(), showRepo, analyze, showError);
   }
@@ -79,7 +79,7 @@
     $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
     $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
     window.setTimeout(App.UI.hideProgressBar, 700);
-    window.setTimeout("$('#results-display').show();", 700);
+    window.setTimeout(App.UI.showResultsDisplay, 700);
   }
 
 

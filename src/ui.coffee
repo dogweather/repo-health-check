@@ -47,6 +47,12 @@ class App.UI
     $('#progress-display').show()
 
 
+  @showResultsDisplay: -> $('#results-display').show()
+  @hideResultsDisplay: -> $('#results-display').hide()
+
+  @showResults: -> $('#results').show()
+  @hideResults: -> $('#results').hide()
+
 
   @_changeProgress: (percent) ->
     $('.progress-bar').attr('style', 'width: ' + percent + '%')
