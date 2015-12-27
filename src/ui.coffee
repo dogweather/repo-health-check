@@ -28,33 +28,35 @@ class App.UI
 
 
   @showRateInfo: (rateData) ->
-    $('#rate-limit').text(rateData.limit)
-    $('#rate-remaining').text(rateData.remaining)
+    $('#rate-limit').text rateData.limit
+    $('#rate-remaining').text rateData.remaining
 
 
   @progress: (percent) ->
     if percent > 0
-      @_changeProgress(percent)
+      @_changeProgress percent
       @showProgressBar()
     else
       @hideProgressBar()
-      @_changeProgress(percent)
+      @_changeProgress percent
 
 
   @refreshLog: (repos) ->
-    rows = (@tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)')) for r in repos)
-    $('table#log tbody').replaceWith('<tbody>' + rows.join("") + '</tbody>')
+    rows = (@tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)')) \
+             for r in repos)
+    tbody = "<tbody>#{rows.join('')}</tbody>"
+    $('table#log tbody').replaceWith(tbody)
+    $('#avg-effectiveness').text @average(repos, ((r) -> r.effectiveness()))
 
-    sumEffectiveness = repos.reduce(((acc, r) -> acc + r.effectiveness()), 0)
-    avgEffectiveness = Math.round10(sumEffectiveness / repos.length, -1)
-    $('#average-effectiveness').text(avgEffectiveness)
+
+  @average: (items, f) ->
+    sum = items.reduce ((acc, i) -> acc + f(i)), 0
+    Math.round10 sum / items.length, -1
 
 
-  @td: (text) ->
-    "<td class=data>" + text + "</td>"
+  @td: (text) -> "<td class=data>#{text}</td>"
 
-  @tr: (cells...) ->
-    "<tr>" + cells.join("") + "</tr>"
+  @tr: (cells...) -> "<tr>#{cells.join('')}</tr>"
 
 
   @showError: (message) ->
