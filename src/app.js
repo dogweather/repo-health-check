@@ -78,8 +78,8 @@
     refreshRateInfo();
     $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
     $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
-    window.setTimeout(App.UI.hideProgressBar, 700);
-    window.setTimeout(App.UI.showResultsDisplay, 700);
+    window.setTimeout(App.UI.hideProgressBar, 500);
+    window.setTimeout(App.UI.showResultsDisplay, 500);
   }
 
 
@@ -90,14 +90,8 @@
 
   function refreshRateInfo() {
     App.Github.rateLimit(function(rateData) {
-      showRateInfo(rateData);
+      App.UI.showRateInfo(rateData);
     });
-  }
-
-
-  function showRateInfo(rateData) {
-    $('#rate-limit').text(rateData.limit);
-    $('#rate-remaining').text(rateData.remaining);
   }
 
 

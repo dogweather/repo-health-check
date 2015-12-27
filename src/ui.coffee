@@ -21,6 +21,11 @@ class App.UI
     $('#github-repo').focus()
 
 
+  @showRateInfo: (rateData) ->
+    $('#rate-limit').text(rateData.limit)
+    $('#rate-remaining').text(rateData.remaining)
+
+
   @progress: (percent) ->
     if percent > 0
       @_changeProgress(percent)
