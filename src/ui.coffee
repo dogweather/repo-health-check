@@ -7,23 +7,23 @@
 class App.UI
 
   @anonymousMode: ->
-    $('#api-mode').text('anonymous')
+    $('#api-mode').text 'anonymous'
     $('#github-username').val('')
     $('#github-password').val('')
     $('button#sign-out').hide()
     $('button#sign-in').show()
-    $('#github-username').prop('disabled', false)
-    $('#github-password').prop('disabled', false)
-    $('button#sign-in').prop('disabled', true)
+    $('#github-username').prop 'disabled', false
+    $('#github-password').prop 'disabled', false
+    $('button#sign-in').prop 'disabled', true
     $('#github-repo').focus()
 
 
   @signedInMode: (username) ->
-    $('#api-mode').text('authenticated')
+    $('#api-mode').text 'authenticated'
     $('button#sign-in').hide()
     $('button#sign-out').show()
-    $('#github-username').prop('disabled', true)
-    $('#github-password').prop('disabled', true)
+    $('#github-username').prop 'disabled', true
+    $('#github-password').prop 'disabled', true
     $('#github-repo').focus()
 
 
@@ -44,7 +44,7 @@ class App.UI
   @refreshLog: (repos) ->
     rows = (@tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)')) \
              for r in repos)
-    tbody = "<tbody>#{rows.join('')}</tbody>"
+    tbody = "<tbody>#{rows.join ''}</tbody>"
     $('table#log tbody').replaceWith(tbody)
     $('#avg-effectiveness').text @average(repos, ((r) -> r.effectiveness()))
 
@@ -56,11 +56,11 @@ class App.UI
 
   @td: (text) -> "<td class=data>#{text}</td>"
 
-  @tr: (cells...) -> "<tr>#{cells.join('')}</tr>"
+  @tr: (cells...) -> "<tr>#{cells.join ''}</tr>"
 
 
   @showError: (message) ->
-    $('#error-text').text(message)
+    $('#error-text').text message
     $('#error-alert').show()
 
   @hideError: ->
@@ -78,4 +78,4 @@ class App.UI
 
 
   @_changeProgress: (percent) ->
-    $('.progress-bar').attr('style', 'width: ' + percent + '%')
+    $('.progress-bar').attr 'style', "width: #{percent}%"
