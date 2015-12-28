@@ -1,4 +1,4 @@
-// Closure
+// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil
 (function() {
   /**
    * Decimal adjustment of a number.
