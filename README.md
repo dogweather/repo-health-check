@@ -1,7 +1,7 @@
 # Repo Health Check
-Analyze the project and its management
+Analyze a project and its management
 
-[Live app](http://repocheck.com/)
+[Live app](http://repocheck.com/) ![icon](https://raw.githubusercontent.com/dogweather/repo-health-check/master/external_link_icon.png)
 
 This is a fully client-side GitHub/BitBucket repo analyzer. It finds out: Is a
 project well managed? Does it _accept_ help? How does it compare to other
