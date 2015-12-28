@@ -9,8 +9,7 @@ options? And then: what should you do to take your repo from **in the weeds** to
 **_super effective_**?
 
 It performs the hard work entirely in the browser so that each user's own API
-rate limits are in effect. The allows faster and more varied results than
-similar projects.
+rate limits are in effect. This avoids [problems similar projects](https://github.com/hstove/issue_stats/issues/10#issuecomment-58444422) have had, and means faster and more varied results.
 
 
 ## Use Cases
