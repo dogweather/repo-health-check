@@ -67,6 +67,13 @@ describe "App.Repo", ->
       expect(repo.name).toBe 'naturally'
       expect(repo.acct).toBe 'dogweather'
 
+  describe '.url()', ->
+
+    it "forms a standard https url", ->
+      nop = ->
+      repo = new App.Repo('dogweather/naturally', nop, nop, false)
+      expect(repo.url()).toBe 'https://github.com/dogweather/naturally'
+
 
 describe "App.Github", ->
   describe ".dateFormat()", ->

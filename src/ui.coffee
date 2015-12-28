@@ -49,8 +49,12 @@ class App.UI
 
   @logRows: (repos) =>
     rows = repos.reduce (acc, r) =>
-      acc + @tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)'))
+      acc + @tr(@td(@repoNameHTML(r)), @td(r.effectiveness()), @td('(tbd)'))
     , ''
+
+
+  @repoNameHTML: (repo) ->
+    "<a href=#{repo.url}>#{repo.name}</a>"
 
 
   @average: (items, f) ->
