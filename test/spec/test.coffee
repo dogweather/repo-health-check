@@ -59,13 +59,20 @@ describe "Metrics", ->
 
 
 describe "App.Repo", ->
-  describe "constructor", ->
+  beforeAll =>
+    nop = ->
+    @naturally = new App.Repo('dogweather/naturally', nop, nop, false)
 
-    it "parses a repo spec in acct/name form", ->
-      nop = ->
-      repo = new App.Repo('dogweather/naturally', nop, nop, false)
-      expect(repo.name).toBe 'naturally'
-      expect(repo.acct).toBe 'dogweather'
+  describe "constructor", =>
+
+    it "parses a repo spec in acct/name form", =>
+      expect(@naturally.name).toBe 'naturally'
+      expect(@naturally.acct).toBe 'dogweather'
+
+  describe '.url()', =>
+
+    it "forms a standard https url", =>
+      expect(@naturally.url()).toBe 'https://github.com/dogweather/naturally'
 
 
 describe "App.Github", ->
@@ -151,4 +158,4 @@ describe "App.Github", ->
 
     it "returns null if input is neither a URL or repo spec", ->
       inValidSpec = '/dogweather/repo-health-check'
-      expect( App.Github.parseRepoInput(inValidSpec) ).toBe null
+      expect( App.Github.parseRepoInput(inValidSpec) ).toBeNull()

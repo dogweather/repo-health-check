@@ -41,12 +41,20 @@ class App.UI
       @_changeProgress percent
 
 
-  @refreshLog: (repos) ->
-    rows = (@tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)')) \
-             for r in repos)
-    tbody = "<tbody>#{rows.join ''}</tbody>"
+  @refreshLog: (repos) =>
+    tbody = "<tbody>#{@logRows(repos)}</tbody>"
     $('table#log tbody').replaceWith(tbody)
     $('#avg-effectiveness').text @average(repos, ((r) -> r.effectiveness()))
+
+
+  @logRows: (repos) =>
+    rows = repos.reduce (acc, r) =>
+      acc + @tr(@td(@linkedRepoName(r)), @td(r.effectiveness()), @td('(tbd)'))
+    , ''
+
+
+  @linkedRepoName: (repo) ->
+    "<a href=#{repo.url()} target=_blank>#{repo.name} <img src=external_link_icon.png></a>"
 
 
   @average: (items, f) ->

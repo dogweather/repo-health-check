@@ -15,6 +15,10 @@ class App.Repo
     @fetchData() if network
 
 
+  url: =>
+    "https://github.com/#{@acct}/#{@name}"
+
+
   fetchData: =>
     App.octo.repos(@acct, @name).fetch (err, repodata) =>
       if err
