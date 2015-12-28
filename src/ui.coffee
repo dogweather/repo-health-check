@@ -42,9 +42,13 @@ class App.UI
 
 
   @refreshLog: (repos) ->
-    rows = (@tr(@td(r.name), @td(r.effectiveness()), @td('(tbd)')) \
-             for r in repos)
-    tbody = "<tbody>#{rows.join ''}</tbody>"
+    rows = (@tr(
+      @td(r.name),
+      @td(r.effectiveness()),
+      @td('(tbd)')
+      ) for r in repos)
+      .join('')
+    tbody = "<tbody>#{rows}</tbody>"
     $('table#log tbody').replaceWith(tbody)
     $('#avg-effectiveness').text @average(repos, ((r) -> r.effectiveness()))
 
