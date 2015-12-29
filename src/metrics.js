@@ -72,7 +72,23 @@ var Metrics = Metrics || {};
     }
   };
 
-  // Scale a ratio to the range 0–10.
+  // Scale a ratio (a real number between 0 and infinity) to the range 0–10.
+  // This will be used heavily by the algorithms for normalizing data such as "a
+  // ratio of 6 merged PR's in the past month to 4 new ones" to a scale of 0–10.
+  // This is a component of the app's first metric: Effectiveness.
+  //
+  // The function below is a curve which has these points:
+  //
+  // f(0)   ->  0
+  // f(0.1) ->  1.0  # a 1:10 ratio
+  // f(1)   ->  5.0  # a 1:1  ratio
+  // f(10)  ->  9.0  # a 10:1 ratio
+  // f(inf) -> 10.0
+  //
+  // So in the example above, the 6:4 ratio would become 6 on the scale of 1-10.
+  // And then this 6 would be translated to an textual description like, "doing
+  // fine".
+  //
   // See http://math.stackexchange.com/questions/1582722/how-to-scale-a-ratio-to-a-limited-range
   Metrics.scaled = function(ratio) {
     if (ratio === Infinity) return 10;
