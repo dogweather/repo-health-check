@@ -77,7 +77,8 @@ var Metrics = Metrics || {};
   // ratio of 6 merged PR's in the past month to 4 new ones" to a scale of 0–10.
   // This is a component of the app's first metric: Effectiveness.
   //
-  // The function below is a curve which has these points:
+  // The function below is a curve which pretty much passes through these
+  // points:
   //
   // f(0)   ->  0
   // f(0.1) ->  1.0  # a 1:10 ratio
