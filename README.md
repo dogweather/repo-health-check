@@ -1,6 +1,8 @@
 # Repo Health Check
 Analyze a project and its management
 
+![screenshot](https://raw.githubusercontent.com/dogweather/repo-health-check/master/docs/screenshot.jpg)
+
 [Live app →](http://repocheck.com/)
 
 This is a fully client-side GitHub/BitBucket repo analyzer. It finds out: Is a
@@ -57,7 +59,7 @@ Quantitative measurements which can determine _qualitative_ assessments.
 By using the raw signals listed above, we can calculate useful metrics. These metrics, then, will be the pieces that can form a judgement for the big questions.
 
 E.g.:
-* How are the maintainers keeping up with the queue of incoming PR's?
+* How well do the maintainers keep up with the queue of incoming PR's?
 
 
 ### Other sources
