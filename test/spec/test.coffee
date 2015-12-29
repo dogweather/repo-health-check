@@ -1,61 +1,47 @@
 describe "Metrics", ->
+  M = Metrics
+
   describe ".ratio()", ->
 
-    it "handles a 1:1 ratio", ->
-      expect(Metrics.ratio(5, 5)).toBe 1
-
-    it "treats 0/0 as 1:1", ->
-      expect(Metrics.ratio(0, 0)).toBe 1
-
-    it "handles a 1:2 ratio", ->
-      expect(Metrics.ratio(3, 6)).toBe 0.5
-
-    it "handles a 3:2 ratio", ->
-      expect(Metrics.ratio(9, 6)).toBe 1.5
+    it "handles a 1:1 ratio", -> expect( M.ratio 5, 5 ).toBe 1
+    it "treats 0/0 as 1:1",   -> expect( M.ratio 0, 0 ).toBe 1
+    it "handles a 1:2 ratio", -> expect( M.ratio 3, 6 ).toBe 0.5
+    it "handles a 3:2 ratio", -> expect( M.ratio 9, 6 ).toBe 1.5
 
 
   describe ".effectivenessDesc()", ->
 
     it "handles a range from 0 to 10", ->
-      expect(Metrics.effectivenessDesc(0)).toBe "In the weeds"
-      expect(Metrics.effectivenessDesc(3)).toBe "In the weeds"
-      expect(Metrics.effectivenessDesc(5)).toBe "Doing fine"
-      expect(Metrics.effectivenessDesc(10)).toBe "Super effective!"
+      expect( M.effectivenessDesc 0 ).toBe "In the weeds"
+      expect( M.effectivenessDesc 3 ).toBe "In the weeds"
+      expect( M.effectivenessDesc 5 ).toBe "Doing fine"
+      expect( M.effectivenessDesc 10 ).toBe "Super effective!"
 
     it "throws an error when outside 0 to 10", ->
       expect(->
-        Metrics.effectivenessDesc 15
+        M.effectivenessDesc 15
       ).toThrowError RangeError
       expect(->
-        Metrics.effectivenessDesc -1
+        M.effectivenessDesc -1
       ).toThrowError RangeError
 
 
   describe ".effectiveness()", ->
 
     it "accepts four parameters & returns a number", ->
-      expect(Metrics.effectiveness(1, 2, 3, 4)).toEqual jasmine.any(Number)
+      expect( M.effectiveness 1, 2, 3, 4 ).toEqual jasmine.any(Number)
 
     it "gives travel-project a 10", ->
-      expect(Metrics.effectiveness(49, 0, 32, 0)).toBe 10
+      expect( M.effectiveness 49, 0, 32, 0 ).toBe 10
 
 
   describe ".scaled()", ->
 
-    it "converts 0 to 0", ->
-      expect(Metrics.scaled(0)).toBe 0
-
-    it "converts 0.1 to ~1", ->
-      expect(Metrics.scaled(0.1)).toBeCloseTo 0.9, 1
-
-    it "converts 1 to 5", ->
-      expect(Metrics.scaled(1)).toBe 5
-
-    it "converts 10 to 9", ->
-      expect(Metrics.scaled(10)).toBeCloseTo 9, 0
-
-    it "converts infinity to 10", ->
-      expect(Metrics.scaled(Infinity)).toBe 10
+    it "converts 0 to 0",     -> expect( M.scaled 0 ).toBe 0
+    it "converts 0.1 to ~1",  -> expect( M.scaled 0.1 ).toBeCloseTo 0.9, 1
+    it "converts 1 to 5",     -> expect( M.scaled 1 ).toBe 5
+    it "converts 10 to 9",    -> expect( M.scaled 10 ).toBeCloseTo 9, 0
+    it "converts inf. to 10", -> expect( M.scaled Infinity ).toBe 10
 
 
 describe "App.Repo", ->

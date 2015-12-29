@@ -18,7 +18,7 @@ var Metrics = Metrics || {};
     if (rating >= 7 && rating <= 10) {
       return 'fa-smile-o green-glow';
     }
-    throw new RangeError('Rating must be between 0 and 11');
+    throw new RangeError('Rating must be between 0 and 10');
   };
 
 
@@ -61,7 +61,7 @@ var Metrics = Metrics || {};
     if (rating >= 7 && rating <= 10) {
       return 'Super effective!';
     }
-    throw new RangeError('Rating must be between 0 and 11');
+    throw new RangeError('Rating must be between 0 and 10');
   };
 
   Metrics.ratio = function(x, y) {
