@@ -86,7 +86,7 @@ var Metrics = Metrics || {};
   // f(inf) -> 10.0
   //
   // So in the example above, the 6:4 ratio would become 6 on the scale of 1-10.
-  // And then this 6 would be translated to an textual description like, "doing
+  // And then this 6 would be translated to a textual description like, "doing
   // fine".
   //
   // See http://math.stackexchange.com/questions/1582722/how-to-scale-a-ratio-to-a-limited-range
