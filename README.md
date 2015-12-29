@@ -1,6 +1,8 @@
 # Repo Health Check
 Analyze a project and its management
 
+![screenshot](https://raw.githubusercontent.com/dogweather/repo-health-check/master/docs/screenshot.jpg)
+
 [Live app →](http://repocheck.com/)
 
 This is a fully client-side GitHub/BitBucket repo analyzer. It finds out: Is a
