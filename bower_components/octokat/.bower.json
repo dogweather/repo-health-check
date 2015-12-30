@@ -23,6 +23,5 @@
   },
   "_source": "git://github.com/philschatz/octokat.js.git",
   "_target": "~0.4.15",
-  "_originalSource": "octokat",
-  "_direct": true
+  "_originalSource": "octokat"
 }
