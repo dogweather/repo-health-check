@@ -1,0 +1,24 @@
+{
+  "name": "repo-health-check",
+  "homepage": "https://github.com/dogweather/repo-health-check",
+  "authors": [
+    "Robb Shecter <robb@weblaws.org>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "octokat": "~0.4.15",
+    "jasmine-core": "jasmine#~2.4.1",
+    "jquery": "~2.1.4"
+  }
+}
