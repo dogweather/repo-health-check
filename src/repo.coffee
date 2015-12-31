@@ -8,7 +8,7 @@ class App.Repo
                 network = true) ->
     repoInfo = App.Github.parseRepoInput(repoSpec)
     if not repoInfo?
-      @errorCallback("Couldn't parse the info in: #{repoSpec}")
+      @errorCallback("Couldn't parse #{repoSpec}")
       return
     [@acct, @name] = repoInfo
     @rawdata = {}
@@ -75,4 +75,12 @@ class App.Repo
 
 
   effectiveness: =>
-    Metrics.repoEffectiveness(this)
+    Metrics.repoEffectiveness this
+
+
+  prEffectiveness: =>
+    Metrics.prEffectiveness this
+
+
+  issueEffectiveness: =>
+    Metrics.issueEffectiveness this

@@ -19,6 +19,7 @@
   "dependencies": {
     "octokat": "~0.4.15",
     "jasmine-core": "jasmine#~2.4.1",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "sprintf": "~1.0.3"
   }
 }

@@ -49,7 +49,7 @@ class App.UI
 
   @logRows: (repos) =>
     rows = repos.reduce (acc, r) =>
-      acc + @tr(@td(@linkedRepoName(r)), @td(r.effectiveness()), @td('(tbd)'))
+      acc + @tr(@td(@linkedRepoName(r)), @td(sprintf '%.1f', r.effectiveness()), @td('(tbd)'))
     , ''
 
 
@@ -59,7 +59,7 @@ class App.UI
 
   @average: (items, f) ->
     sum = items.reduce ((acc, i) -> acc + f(i)), 0
-    Math.round10 sum / items.length, -1
+    sprintf '%.1f', sum / items.length
 
 
   @td: (text) -> "<td class=data>#{text}</td>"
