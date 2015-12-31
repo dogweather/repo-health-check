@@ -84,25 +84,41 @@
                     <!-- Effectiveness Summary -->
                     <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
                     <span id=effectiveness-desc class=data></span>
-                    (<span class=data id=effectiveness></span>/10)
+                    (<span class='data effectiveness'></span>/10)
 
                     <br>&nbsp;<br>
 
                     <!-- Effectiveness Breakdown -->
-                    <h4>Break-down:</h4>
+                    <h4>Break-down</h4>
                     <p>
-                      PR Effectiveness <span class=data id=pr-effectiveness>
-                      </span>/10 (weighted 66%), Issue Effectiveness
-                      <span class=data id=issue-effectiveness></span>/10
-                      (weighted 34%).
+                      In the past month, the repo maintainers closed
+                      <span class=data id=closed-prs></span>
+                      pull requests, and
+                      <span class=data id=open-prs></span> new PR's remain open.
+                      This yields a scaled PR Effectiveness of
+                      <span class='data pr-effectiveness'></span>/10.
+                    </p>
+                    <p>
+                      In the same time period, there were
+                      <span class=data id=closed-issues></span>
+                      issues closed vs.
+                      <span class=data id=open-issues></span> new ones submitted.
+                      This results in a scaled Issue Effectiveness of
+                      <span class='data issue-effectiveness'></span>/10.
+                    </p>
+                    <p>
+                      The Total Effectiveness
+                      (<span class='data effectiveness'></span>) is calculated
+                      from a weighted average of PR Effectiveness
+                      (<span class='data pr-effectiveness'></span>) @ 66%
+                       + Issue Effectiveness
+                      (<span class='data issue-effectiveness'></span>) @ 34%.
                     </p>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-
-
         </div> <!-- End of results display -->
 
       </div>
