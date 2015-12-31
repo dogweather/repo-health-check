@@ -24,7 +24,7 @@
 
     <!-- Page header -->
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-sm-12">
         <div class="page-header">
           <h1>
             <span class=red-cross>✚</span> Repo Health Check
@@ -43,18 +43,18 @@
     <div class="row">
 
       <!-- Left column -->
-      <div class="col-xs-6">
+      <div class="col-sm-6">
 
         <!-- Repo form -->
         <div class="form-horizontal">
           <div class="form-group">
-            <label for="github-repo" class="col-xs-2 control-label">GitHub</label>
-            <div class="col-xs-10">
+            <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
+            <div class="col-sm-10">
               <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="URL or account/repo" autofocus>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-3">
+            <div class="col-sm-offset-2 col-sm-3">
               <button id=analyze class="btn btn-primary" disabled="disabled">Analyze</button>
             </div>
           </div>
@@ -79,10 +79,17 @@
                   <div id=progress-display class=progress>
                     <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
                   </div>
-                  <span id=results-display>
+
+                  <div id=results-display>
+                    <!-- Effectiveness Summary -->
                     <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
                     <span id=effectiveness-desc class=data></span>
-                  </span>
+
+                    <br>&nbsp;<br>
+
+                    <!-- Effectiveness Details -->
+                    PR Effectiveness:
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -96,7 +103,7 @@
 
 
       <!-- Right column -->
-      <div class="col-xs-5 col-xs-offset-1">
+      <div class="col-sm-5 col-sm-offset-1">
 
         <!-- Sign-in Form -->
         <div class="well">
@@ -112,19 +119,19 @@
             </legend>
 
             <div class="form-group">
-              <label for="github-repo" class="col-xs-3 control-label">Username</label>
-              <div class="col-xs-9">
+              <label for="github-repo" class="col-sm-3 control-label">Username</label>
+              <div class="col-sm-9">
                 <input type="text" class="form-control" id="github-username" placeholder="(optional)" autofocus>
               </div>
             </div>
             <div class="form-group">
-              <label for="github-repo" class="col-xs-3 control-label">Password</label>
-              <div class="col-xs-9">
+              <label for="github-repo" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
                 <input type="password" class="form-control" id="github-password" placeholder="(optional)" autofocus>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-xs-offset-3 col-xs-9">
+              <div class="col-sm-offset-3 col-sm-9">
                 <button id=sign-in class="btn btn-default" disabled="disabled">Sign in</button>
                 <button id=sign-out class="btn btn-default">Sign out</button>
               </div>
@@ -162,7 +169,7 @@
 
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-sm-12">
           <footer>
             by Robb
           </footer>
