@@ -1,0 +1,10 @@
+engines:
+  csslint:
+    enabled: true
+  coffeelint:
+    enabled: true
+  duplication:
+    enabled: true
+exclude_paths:
+- bower_components/**/*
+- lib/**/*
