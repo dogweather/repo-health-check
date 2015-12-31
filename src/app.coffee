@@ -59,11 +59,16 @@ showRepo = (repo) ->
 analyze = (repo) ->
   App.UI.hideError()
   refreshRateInfo()
-  $("#effectiveness-icon").attr "class", "icon fa " + Metrics.repoEffectivenessIcon(repo)
+  icon_class = "icon fa " + Metrics.repoEffectivenessIcon(repo)
+  $("#effectiveness-icon").attr "class", icon_class
   $("#effectiveness-desc").text Metrics.repoEffectivenessDesc(repo)
-  $("#effectiveness").text sprintf '%.1f', repo.effectiveness()
-  $("#pr-effectiveness").text sprintf '%.1f', repo.prEffectiveness()
-  $("#issue-effectiveness").text sprintf '%.1f', repo.issueEffectiveness()
+  $(".effectiveness").text sprintf '%.1f', repo.effectiveness()
+  $(".pr-effectiveness").text sprintf '%.1f', repo.prEffectiveness()
+  $(".issue-effectiveness").text sprintf '%.1f', repo.issueEffectiveness()
+  $('#open-prs').text repo.openPullRequestCount()
+  $('#closed-prs').text repo.closedPullRequestCount()
+  $('#open-issues').text repo.openIssueCount()
+  $('#closed-issues').text repo.closedIssueCount()
   window.setTimeout App.UI.hideProgressBar, 500
   window.setTimeout App.UI.showResultsDisplay, 500
   addRepoToLog repo

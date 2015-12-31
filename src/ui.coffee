@@ -54,7 +54,7 @@ class App.UI
 
 
   @linkedRepoName: (repo) ->
-    "<a href=#{repo.url()} target=_blank>#{repo.name} <img src=external_link_icon.png></a>"
+    "<a href=#{repo.url()} target=_blank>#{repo.name}<img class=external-link-icon src=external_link_icon.png></a>"
 
 
   @average: (items, f) ->

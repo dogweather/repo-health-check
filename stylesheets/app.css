@@ -105,3 +105,8 @@ button#sign-out {
 table#log td:nth-child(2), table#log th:nth-child(2), table#log td:nth-child(3), table#log th:nth-child(3) {
   text-align: center;
 }
+
+.external-link-icon {
+  padding-left: 4px;
+  opacity: 0.5;
+}
