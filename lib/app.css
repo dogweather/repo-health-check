@@ -3,9 +3,8 @@
 
 ol {
   padding: 0 0 0 1.3em; }
-
-ol li {
-  margin: 1em 0; }
+  ol li {
+    margin: 1em 0; }
 
 footer {
   text-align: center;
@@ -20,9 +19,6 @@ legend {
 
 #rate-info {
   font-size: 80%; }
-
-#rate-limit, #rate-remaining {
-  font-weight: bold; }
 
 #results {
   display: none;
