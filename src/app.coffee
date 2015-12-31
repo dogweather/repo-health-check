@@ -11,7 +11,7 @@ setupEvents = ->
     startAnalysis()  if enterWasHit(e)
 
   $("#github-password").keyup (e) ->
-    signIn()  if enterWasHit(e)
+    signIn() if enterWasHit(e)
 
   $("button#analyze").click startAnalysis
   $("button#sign-in").click signIn
@@ -61,9 +61,9 @@ analyze = (repo) ->
   refreshRateInfo()
   $("#effectiveness-icon").attr "class", "icon fa " + Metrics.repoEffectivenessIcon(repo)
   $("#effectiveness-desc").text Metrics.repoEffectivenessDesc(repo)
-  $("#effectiveness").text repo.effectiveness()
-  $("#pr-effectiveness").text repo.prEffectiveness()
-  $("#issue-effectiveness").text repo.issueEffectiveness()
+  $("#effectiveness").text sprintf '%.1f', repo.effectiveness()
+  $("#pr-effectiveness").text sprintf '%.1f', repo.prEffectiveness()
+  $("#issue-effectiveness").text sprintf '%.1f', repo.issueEffectiveness()
   window.setTimeout App.UI.hideProgressBar, 500
   window.setTimeout App.UI.showResultsDisplay, 500
   addRepoToLog repo
