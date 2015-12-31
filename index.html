@@ -90,30 +90,34 @@
 
                     <!-- Effectiveness Breakdown -->
                     <h4>Break-down</h4>
-                    <p>
-                      In the past month, the repo maintainers closed
-                      <span class=data id=closed-prs></span>
-                      pull requests, and
-                      <span class=data id=open-prs></span> new PR's remain open.
-                      This yields a scaled PR Effectiveness of
-                      <span class='data pr-effectiveness'></span>/10.
-                    </p>
-                    <p>
-                      In the same time period, there were
-                      <span class=data id=closed-issues></span>
-                      issues closed vs.
-                      <span class=data id=open-issues></span> new ones submitted.
-                      This results in a scaled Issue Effectiveness of
-                      <span class='data issue-effectiveness'></span>/10.
-                    </p>
-                    <p>
-                      The Total Effectiveness
-                      (<span class='data effectiveness'></span>) is calculated
-                      from a weighted average of PR Effectiveness
-                      (<span class='data pr-effectiveness'></span>) @ 66%
-                       + Issue Effectiveness
-                      (<span class='data issue-effectiveness'></span>) @ 34%.
-                    </p>
+                    <ol>
+                      <li>
+                        In the past month, the repo maintainers closed
+                        <span class="data closed-prs"></span>
+                        pull requests, while
+                        <span class="data open-prs"></span> new PR's remain open.
+                        We then normalize the ratio
+                        <span class="data closed-prs"></span>:<span class="data open-prs"></span>
+                        to a scale of 0–10 to arrive at PR Effectiveness
+                        <span class='data pr-effectiveness'></span>.
+                      </li>
+                      <li>
+                        In the same time period, there were
+                        <span class="data closed-issues"></span>
+                        issues closed vs.
+                        <span class='data open-issues'></span> new ones submitted.
+                        This results in a scaled Issue Effectiveness of
+                        <span class='data issue-effectiveness'></span>/10.
+                      </li>
+                      <li>
+                        Finally, we calculate Total Effectiveness
+                        (<span class='data effectiveness'></span>)
+                        from a weighted average of PR Effectiveness
+                        (<span class='data pr-effectiveness'></span>) @ 66%
+                         + Issue Effectiveness
+                        (<span class='data issue-effectiveness'></span>) @ 34%.
+                      </li>
+                    </ol>
                   </div>
                 </td>
               </tr>
@@ -169,7 +173,7 @@
               Repo
             </th>
             <th>
-              Effect.
+              Effectiveness
             </th>
             <th>
               Activity

@@ -65,10 +65,10 @@ analyze = (repo) ->
   $(".effectiveness").text sprintf '%.1f', repo.effectiveness()
   $(".pr-effectiveness").text sprintf '%.1f', repo.prEffectiveness()
   $(".issue-effectiveness").text sprintf '%.1f', repo.issueEffectiveness()
-  $('#open-prs').text repo.openPullRequestCount()
-  $('#closed-prs').text repo.closedPullRequestCount()
-  $('#open-issues').text repo.openIssueCount()
-  $('#closed-issues').text repo.closedIssueCount()
+  $('.open-prs').text repo.openPullRequestCount()
+  $('.closed-prs').text repo.closedPullRequestCount()
+  $('.open-issues').text repo.openIssueCount()
+  $('.closed-issues').text repo.closedIssueCount()
   window.setTimeout App.UI.hideProgressBar, 500
   window.setTimeout App.UI.showResultsDisplay, 500
   addRepoToLog repo

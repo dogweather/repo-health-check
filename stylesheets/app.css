@@ -2,6 +2,14 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+ol {
+  padding: 0 0 0 1.3em;
+}
+
+ol li {
+  margin: 1em 0;
+}
+
 footer {
   text-align: center;
   border-top: 1px solid #ddd;
