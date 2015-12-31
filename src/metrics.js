@@ -40,15 +40,15 @@ var Metrics = Metrics || {};
     var inputs = [merged_prs, proposed_prs, closed_issues, new_issues].join(', ');
     var prs = Metrics.pr_effectiveness(merged_prs, proposed_prs);
     var issues = Metrics.issue_effectiveness(closed_issues, new_issues);
-    return Math.round10((0.66 * prs) + (0.34 * issues), -1);
+    return (0.66 * prs) + (0.34 * issues);
   };
 
   Metrics.prEffectiveness = function(repo) {
-    return Math.round10(Metrics.pr_effectiveness(repo.closedPullRequestCount(), repo.openPullRequestCount()), -1);
+    return Metrics.pr_effectiveness(repo.closedPullRequestCount(), repo.openPullRequestCount());
   };
 
   Metrics.issueEffectiveness = function(repo) {
-    return Math.round10(Metrics.issue_effectiveness(repo.closedIssueCount(), repo.openIssueCount()), -1);
+    return Metrics.issue_effectiveness(repo.closedIssueCount(), repo.openIssueCount());
   };
 
   Metrics.pr_effectiveness = function(merged_prs, proposed_prs) {
