@@ -78,6 +78,9 @@
     refreshRateInfo();
     $('#effectiveness-icon').attr('class', 'icon fa ' + Metrics.repoEffectivenessIcon(repo));
     $('#effectiveness-desc').text(Metrics.repoEffectivenessDesc(repo));
+    $('#effectiveness').text(repo.effectiveness());
+    $('#pr-effectiveness').text(repo.prEffectiveness());
+    $('#issue-effectiveness').text(repo.issueEffectiveness());
     window.setTimeout(App.UI.hideProgressBar, 500);
     window.setTimeout(App.UI.showResultsDisplay, 500);
     addRepoToLog(repo);

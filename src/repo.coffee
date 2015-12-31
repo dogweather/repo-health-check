@@ -75,4 +75,12 @@ class App.Repo
 
 
   effectiveness: =>
-    Metrics.repoEffectiveness(this)
+    Metrics.repoEffectiveness this
+
+
+  prEffectiveness: =>
+    Metrics.prEffectiveness this
+
+
+  issueEffectiveness: =>
+    Metrics.issueEffectiveness this

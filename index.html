@@ -74,7 +74,7 @@
           <table class="table">
             <tbody>
               <tr>
-                <th>Effectiveness:</th>
+                <th><strong>Effectiveness:</strong></th>
                 <td>
                   <div id=progress-display class=progress>
                     <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
@@ -84,11 +84,18 @@
                     <!-- Effectiveness Summary -->
                     <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
                     <span id=effectiveness-desc class=data></span>
+                    (<span class=data id=effectiveness></span>/10)
 
                     <br>&nbsp;<br>
 
-                    <!-- Effectiveness Details -->
-                    PR Effectiveness:
+                    <!-- Effectiveness Breakdown -->
+                    <h4>Break-down:</h4>
+                    <p>
+                      PR Effectiveness <span class=data id=pr-effectiveness>
+                      </span>/10 (weighted 66%), Issue Effectiveness
+                      <span class=data id=issue-effectiveness></span>/10
+                      (weighted 34%).
+                    </p>
                   </div>
                 </td>
               </tr>
@@ -178,6 +185,7 @@
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="bower_components/sprintf/src/sprintf.js"></script> -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
     <script src="bower_components/octokat/dist/octokat.js"></script>
     <script src="src/math-ext.js"></script>
