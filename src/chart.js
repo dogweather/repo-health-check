@@ -12,6 +12,7 @@ function drawChart() {
   var options = {
     title: 'Trends',
     curveType: 'function',
+    theme: 'material'
     // legend: {
     //   position: 'bottom'
     // }
