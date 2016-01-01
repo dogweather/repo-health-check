@@ -27,6 +27,10 @@ App.UI.drawChart = ->
   ]
 
   options =
+    vAxis: {
+      minValue: 0
+      maxValue: 10
+    }
     title: 'Trend'
     curveType: 'function'
     theme: 'material'
@@ -38,6 +42,6 @@ App.UI.drawChart = ->
       '#e2431e'
       '#d3362d'
     ]
-    
+
   chart = new (google.visualization.LineChart)(document.getElementById(id))
   chart.draw dataTable, options
