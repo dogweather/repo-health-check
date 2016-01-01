@@ -79,7 +79,7 @@ class App.UI
   @hideProgressBar: -> $('#progress-display').hide()
 
   @showResultsDisplay: -> $('.results-display').show()
-  @hideResultsDisplay: -> $('.results-display').hide()
+  @hideResultsDisplay: -> $('.results-display, #trend-chart').hide()
 
   @showResults: -> $('#results').show()
   @hideResults: -> $('#results').hide()
