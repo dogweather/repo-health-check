@@ -1,6 +1,8 @@
-google.setOnLoadCallback(drawChart);
+// google.setOnLoadCallback(drawChart);
 
-function drawChart() {
+App.UI.drawChart = function () {
+  $('#trend-chart').show()
+
   var data = google.visualization.arrayToDataTable([
     ['Week', 'Effectiveness', 'Activity'],
     ['12/1', 4.3, 5],
@@ -10,9 +12,9 @@ function drawChart() {
   ]);
 
   var options = {
-    title: 'Trends',
+    title: 'Trend',
     curveType: 'function',
-    lineWidth: 3,
+    // lineWidth: 3,
     theme: 'material',
     legend: {
       position: 'bottom'
@@ -26,7 +28,6 @@ function drawChart() {
     ],
   };
 
-  var chart = new google.visualization.LineChart(document.getElementById('trend_chart'));
-
+  var chart = new google.visualization.LineChart(document.getElementById('trend-chart'));
   chart.draw(data, options);
-}
+};

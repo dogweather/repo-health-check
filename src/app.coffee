@@ -69,6 +69,7 @@ analyze = (repo) ->
   $('.closed-prs').text repo.closedPullRequestCount()
   $('.open-issues').text repo.openIssueCount()
   $('.closed-issues').text repo.closedIssueCount()
+  App.UI.drawChart()
   window.setTimeout App.UI.hideProgressBar, 500
   window.setTimeout App.UI.showResultsDisplay, 500
   addRepoToLog repo
