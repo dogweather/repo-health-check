@@ -12,10 +12,18 @@ function drawChart() {
   var options = {
     title: 'Trends',
     curveType: 'function',
-    theme: 'material'
-    // legend: {
-    //   position: 'bottom'
-    // }
+    lineWidth: 3,
+    theme: 'material',
+    legend: {
+      position: 'bottom'
+    },
+    colors: [
+      '#b9c246',
+      '#e7711b',
+      '#e49307',
+      '#e2431e',
+      '#d3362d',
+    ],
   };
 
   var chart = new google.visualization.LineChart(document.getElementById('trend_chart'));
