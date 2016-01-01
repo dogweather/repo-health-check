@@ -84,3 +84,23 @@ class App.Repo
 
   issueEffectiveness: =>
     Metrics.issueEffectiveness this
+
+  trendData: ->
+    [
+      [
+        '12/1'
+        4.3
+      ]
+      [
+        '12/8'
+        4.9
+      ]
+      [
+        '12/15'
+        6.7
+      ]
+      [
+        '12/22'
+        2.3
+      ]
+    ]
