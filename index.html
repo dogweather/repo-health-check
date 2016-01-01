@@ -8,6 +8,14 @@
   <title>Repo Health Check</title>
   <link href="favicon.ico" rel="shortcut icon">
 
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={
+          'modules':[{
+            'name':'visualization',
+            'version':'1',
+            'packages':['corechart']
+          }]
+        }"></script>
+
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
   <!--[if lt IE 9]>
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
@@ -23,7 +31,7 @@
 <body>
   <div class="github-fork-ribbon-wrapper right">
     <div class="github-fork-ribbon">
-        <a href="https://github.com/dogweather/repo-health-check">Fork me on GitHub</a>
+      <a href="https://github.com/dogweather/repo-health-check">Fork me on GitHub</a>
     </div>
   </div>
 
@@ -51,7 +59,7 @@
     <div class="row">
 
       <!-- Left column -->
-      <div class="col-sm-6">
+      <div class="col-sm-7">
 
         <!-- Repo form -->
         <div class="form-horizontal">
@@ -78,67 +86,59 @@
         <div id=results>
 
           <!-- Summary -->
-          <h2></h2>
-          <table class="table">
-            <tbody>
-              <tr>
-                <th><strong>Effectiveness:</strong></th>
-                <td>
-                  <div id=progress-display class=progress>
-                    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
-                  </div>
+          <h2><!-- Repo Name --></h2>
 
-                  <div id=results-display>
-                    <!-- Effectiveness Summary -->
-                    <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
-                    <span id=effectiveness-desc class=data></span>
-                    (<span class='data effectiveness'></span>/10)
+          <h3>Effectiveness:</h3>
 
-                    <br>&nbsp;<br>
+          <div id=progress-display class=progress>
+            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
+          </div>
 
-                    <!-- Effectiveness Breakdown -->
-                    <h4>Break-down</h4>
-                    <ol>
-                      <li>
-                        In the past month, the repo maintainers closed
-                        <span class="data closed-prs"></span>
-                        pull requests, while
-                        <span class="data open-prs"></span> new PR's remain open.
-                        We then normalize the ratio
-                        <span class="data closed-prs"></span>:<span class="data open-prs"></span>
-                        to a scale of 0–10 to arrive at PR Effectiveness
-                        <span class='data pr-effectiveness'></span>.
-                      </li>
-                      <li>
-                        In the same time period, there were
-                        <span class="data closed-issues"></span>
-                        issues closed vs.
-                        <span class='data open-issues'></span> new ones submitted.
-                        This results in a scaled Issue Effectiveness of
-                        <span class='data issue-effectiveness'></span>/10.
-                      </li>
-                      <li>
-                        Finally, we calculate Total Effectiveness
-                        (<span class='data effectiveness'></span>)
-                        from a weighted average of PR Effectiveness
-                        (<span class='data pr-effectiveness'></span>) @ 66%
-                         + Issue Effectiveness
-                        (<span class='data issue-effectiveness'></span>) @ 34%.
-                      </li>
-                    </ol>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> <!-- End of results display -->
+          <div id=results-display>
+            <!-- Effectiveness Summary -->
+            <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
+            <span id=effectiveness-desc class=data></span>
+            (<span class='data effectiveness'></span>/10)
+
+            <div id="trend_chart"></div>
+
+            <!-- Effectiveness Breakdown -->
+            <h4>Break-down</h4>
+            <ol>
+              <li>
+                In the past month, the repo maintainers closed
+                <span class="data closed-prs"></span>
+                pull requests, while
+                <span class="data open-prs"></span> new PR's remain open. We then normalize the ratio
+                <span class="data closed-prs"></span>:
+                <span class="data open-prs"></span>
+                to a scale of 0–10 to arrive at PR Effectiveness
+                <span class='data pr-effectiveness'></span>.
+              </li>
+              <li>
+                In the same time period, there were
+                <span class="data closed-issues"></span>
+                issues closed vs.
+                <span class='data open-issues'></span> new ones submitted. This results in a scaled Issue Effectiveness of
+                <span class='data issue-effectiveness'></span>/10.
+              </li>
+              <li>
+                Finally, we calculate Total Effectiveness (
+                <span class='data effectiveness'></span>) from a weighted average of PR Effectiveness (
+                <span class='data pr-effectiveness'></span>) @ 66% + Issue Effectiveness (
+                <span class='data issue-effectiveness'></span>) @ 34%.
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!-- End of results display -->
 
       </div>
       <!-- End left column -->
 
 
       <!-- Right column -->
-      <div class="col-sm-5 col-sm-offset-1">
+      <div class="col-sm-5">
 
         <!-- Sign-in Form -->
         <div class="well">
@@ -173,7 +173,8 @@
             </div>
 
           </div>
-        </div> <!-- End of the sign-in form -->
+        </div>
+        <!-- End of the sign-in form -->
 
         <table id=log class=table>
           <thead>
@@ -222,6 +223,7 @@
     <script src="lib/github.js"></script>
     <script src="lib/repo.js"></script>
     <script src="lib/ui.js"></script>
+    <script src="src/chart.js"></script>
     <script src="lib/app.js"></script>
 </body>
 
