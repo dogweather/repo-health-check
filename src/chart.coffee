@@ -1,35 +1,31 @@
 App.UI.drawChart = ->
-  id = 'trend-chart'
-
   # First show the element so that it's correctly sized.
+  id = 'trend-chart'
   $("##{id}").show()
-  data = google.visualization.arrayToDataTable([
-    [
-      'Week'
-      'Effectiveness'
-      'Activity'
-    ]
+
+  dataTable = new google.visualization.DataTable()
+  dataTable.addColumn 'string', 'Week'
+  dataTable.addColumn 'number', 'Effectiveness'
+
+  dataTable.addRows [
     [
       '12/1'
       4.3
-      5
     ]
     [
       '12/8'
       4.9
-      6
     ]
     [
       '12/15'
       6.7
-      3
     ]
     [
       '12/22'
       2.3
-      8
     ]
-  ])
+  ]
+
   options =
     title: 'Trend'
     curveType: 'function'
@@ -42,5 +38,6 @@ App.UI.drawChart = ->
       '#e2431e'
       '#d3362d'
     ]
+    
   chart = new (google.visualization.LineChart)(document.getElementById(id))
-  chart.draw data, options
+  chart.draw dataTable, options
