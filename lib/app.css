@@ -32,7 +32,10 @@ legend {
 #trend-chart {
   display: none; }
 
-h3#results-display {
+.results-display {
+  margin: 2em 0; }
+
+h3 {
   font-size: 150%; }
 
 #api-mode {

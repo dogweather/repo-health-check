@@ -1,7 +1,7 @@
 // google.setOnLoadCallback(drawChart);
 
 App.UI.drawChart = function () {
-  $('#trend-chart').show()
+  $('#trend-chart').show();
 
   var data = google.visualization.arrayToDataTable([
     ['Week', 'Effectiveness', 'Activity'],
