@@ -92,6 +92,10 @@ class App.Repo
       .map (weekOfIssues) -> _chartDataPoint(weekOfIssues)
 
 
+  equals: (other) =>
+    (other.name is @name) and (other.acct is @acct)
+
+
   _chartDataPoint = (issues) ->
     [
       _earliestDate(issues),

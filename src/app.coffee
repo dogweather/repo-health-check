@@ -74,8 +74,9 @@ analyze = (repo) ->
 
 
 addRepoToLog = (repo) ->
-  App.log.push repo
-  App.UI.refreshLog App.log
+  if not _repoInList(repo, App.log)
+    App.log.push repo
+    App.UI.refreshLog App.log
 
 
 showError = (message) ->
@@ -89,3 +90,7 @@ refreshRateInfo = ->
 
 enterWasHit = (event) ->
   event.keyCode is 13
+
+
+_repoInList = (repo, repos) ->
+  _.some repos, (r) -> r.equals(repo)
