@@ -113,13 +113,12 @@ var Metrics = Metrics || {};
     var weekEndingDate =   _.last(items)[attribute];
     var weekStartingDate = sixDaysBefore(weekEndingDate);
 
-    var splitResult =      _.partition(items, function(i) { return i[attribute] >= weekStartingDate;});
-    var thisWeek =         _.first(splitResult);
-    var previousDays =     _.last(splitResult);
+    var partitionResult =  _.partition(items, function(i) { return i[attribute] >= weekStartingDate;});
+    var thisWeek =         _.first(partitionResult);
+    var previousDays =     _.last(partitionResult);
 
-    var result = Metrics.groupByWeek(previousDays, attribute);
-    result.push(thisWeek);
-    return result;
+    return Metrics.groupByWeek(previousDays, attribute)
+      .concat( [thisWeek] );
   };
 
 
