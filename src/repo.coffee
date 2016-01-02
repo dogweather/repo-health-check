@@ -90,7 +90,10 @@ class App.Repo
   trendData: =>
     result = App.Metrics.groupByWeek(@rawdata.issues, 'updatedAt')
       .map (weekOfIssues) ->
-        [format(_.first(weekOfIssues).updatedAt), App.Metrics.effectivenessForIssues(weekOfIssues)]
+        [
+          format(_.first(weekOfIssues).updatedAt),
+          Number(sprintf('%.1f', App.Metrics.effectivenessForIssues(weekOfIssues)))
+        ]
     console.log result
     result
 
