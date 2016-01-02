@@ -6,7 +6,7 @@ class App.Metrics
     return "fa-meh-o"  if rating >= 3 and rating < 4.5
     return "fa-smile-o"  if rating >= 4.5 and rating < 7
     return "fa-smile-o green-glow"  if rating >= 7 and rating <= 10
-    throw new RangeError "Rating must be between 0 and 10"
+    throw new RangeError "Rating was #{rating}, but must be between 0 and 10"
 
 
   @repoEffectivenessDesc = (repo) ->
@@ -51,10 +51,10 @@ class App.Metrics
 
 
   @effectivenessDesc = (rating) ->
-    return "In the weeds"  if rating >= 0 and rating <= 3
-    return "Doing fine"  if rating >= 4 and rating <= 6
+    return "In the weeds"  if rating >= 0 and rating < 4
+    return "Doing fine"  if rating >= 4 and rating < 7
     return "Super effective!"  if rating >= 7 and rating <= 10
-    throw new RangeError "Rating must be between 0 and 10"
+    throw new RangeError "Rating was #{rating}, but must be between 0 and 10"
 
 
   # Convert a ratio of two Reals into a floating point.

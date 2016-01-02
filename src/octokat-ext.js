@@ -20,6 +20,7 @@ App.octoFetchAll = function (fn, args) {
 
 // URL Query params
 // http://stackoverflow.com/a/3855394/106906
+// TODO: Move to a better location
 App.query = {};
 location.search.substr(1).split("&").forEach(function(item) {
     var s = item.split("="),
