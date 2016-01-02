@@ -27,10 +27,7 @@ signIn = ->
   username = $("#github-username").val()
   password = $("#github-password").val()
   if username and password
-    App.octo = new Octokat(
-      username: username
-      password: password
-    )
+    App.octo = new Octokat username: username, password: password
     App.UI.signedInMode()
     refreshRateInfo()
 
