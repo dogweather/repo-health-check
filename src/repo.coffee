@@ -85,6 +85,7 @@ class App.Repo
   issueEffectiveness: =>
     Metrics.issueEffectiveness this
 
+
   trendData: ->
     [
       [

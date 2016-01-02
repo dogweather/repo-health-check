@@ -44,6 +44,44 @@ describe "Metrics", ->
     it "converts inf. to 10", -> expect( M.scaled Infinity ).toBe 10
 
 
+  describe ".groupByWeek()", ->
+
+    it 'handles []', ->
+      expect( M.groupByWeek [], 'updatedAt' ).toEqual []
+
+    it 'handles one item', ->
+      oneItem = { updatedAt: new Date }
+      expect( M.groupByWeek [oneItem], 'updatedAt' ).toEqual [[oneItem]]
+
+    it 'handles two items in one week', ->
+      today = new Date
+      yesterday = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() - 1
+      )
+      item1 = { updatedAt: yesterday}
+      item2 = { updatedAt: today }
+      expect( M.groupByWeek [item1, item2], 'updatedAt' ).toEqual [[item1, item2]]
+
+    it 'handles two items in one week and one from the previous week', ->
+      today = new Date
+      yesterday = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() - 1
+      )
+      lastWeek = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() - 10
+      )
+      item1 = { updatedAt: yesterday}
+      item2 = { updatedAt: today }
+      item3 = { updatedAt: lastWeek }
+      expect( M.groupByWeek [item1, item2, item3], 'updatedAt' ).toEqual [[item3], [item1, item2]]
+
+
 describe "App.Repo", ->
   beforeAll =>
     nop = ->

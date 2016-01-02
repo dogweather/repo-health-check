@@ -104,4 +104,30 @@ var Metrics = Metrics || {};
     return 10 * (ratio / (1 + ratio));
   };
 
+
+  Metrics.groupByWeek = function(anArray, attribute) {
+    if (_.isUndefined(attribute)) {throw new RangeError('required param "attribute" not supplied');}
+    if (_.isEmpty(anArray)) {return [];}
+
+    var items =            _.sortBy(anArray, attribute);
+    var weekEndingDate =   _.last(items)[attribute];
+    var weekStartingDate = sixDaysBefore(weekEndingDate);
+
+    var splitResult =      _.partition(items, function(i) { return i[attribute] >= weekStartingDate;});
+    var thisWeek =         _.first(splitResult);
+    var previousDays =     _.last(splitResult);
+
+    var result = Metrics.groupByWeek(previousDays, attribute);
+    result.push(thisWeek);
+    return result;
+  };
+
+
+function sixDaysBefore(aDate) {
+    return new Date(
+      aDate.getFullYear(),
+      aDate.getMonth(),
+      aDate.getDate() - 6
+    );
+  }
 }());
