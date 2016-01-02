@@ -1,5 +1,5 @@
 describe "Metrics", ->
-  M = Metrics
+  M = App.Metrics
 
   describe ".ratio()", ->
 
@@ -62,7 +62,8 @@ describe "Metrics", ->
       )
       item1 = { updatedAt: yesterday}
       item2 = { updatedAt: today }
-      expect( M.groupByWeek [item1, item2], 'updatedAt' ).toEqual [[item1, item2]]
+      expect( M.groupByWeek [item1, item2], 'updatedAt' )
+        .toEqual [[item1, item2]]
 
     it 'handles two items in one week and one from the previous week', ->
       today = new Date
@@ -79,7 +80,8 @@ describe "Metrics", ->
       item1 = { updatedAt: yesterday}
       item2 = { updatedAt: today }
       item3 = { updatedAt: lastWeek }
-      expect( M.groupByWeek [item1, item2, item3], 'updatedAt' ).toEqual [[item3], [item1, item2]]
+      expect( M.groupByWeek [item1, item2, item3], 'updatedAt' )
+        .toEqual [[item3], [item1, item2]]
 
 
 describe "App.Repo", ->
