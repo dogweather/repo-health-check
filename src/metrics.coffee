@@ -22,16 +22,14 @@ class App.Metrics
 
 
   @effectiveness = (merged_prs, proposed_prs, closed_issues, new_issues) ->
-    inputs = [ merged_prs, proposed_prs, closed_issues, new_issues ].join(", ")
-    prs = @pr_effectiveness(merged_prs, proposed_prs)
-    issues = @issue_effectiveness(closed_issues, new_issues)
+    inputs = [ merged_prs, proposed_prs, closed_issues, new_issues ].join ", "
+    prs = @pr_effectiveness merged_prs, proposed_prs
+    issues = @issue_effectiveness closed_issues, new_issues
     (0.66 * prs) + (0.34 * issues)
 
 
   @prEffectiveness = (repo) ->
-    @pr_effectiveness(
-      repo.closedPullRequestCount(),
-      repo.openPullRequestCount())
+    @pr_effectiveness repo.closedPullRequestCount(), repo.openPullRequestCount()
 
 
   @issueEffectiveness = (repo) ->
@@ -39,18 +37,18 @@ class App.Metrics
 
 
   @pr_effectiveness = (merged_prs, proposed_prs) ->
-    @scaled @ratio(merged_prs, proposed_prs)
+    @scaled @ratio merged_prs, proposed_prs
 
 
   @issue_effectiveness = (closed_issues, new_issues) ->
-    @scaled @ratio(closed_issues, new_issues)
+    @scaled @ratio closed_issues, new_issues
 
 
   @effectivenessDesc = (rating) ->
     return "In the weeds"  if rating >= 0 and rating <= 3
     return "Doing fine"  if rating >= 4 and rating <= 6
     return "Super effective!"  if rating >= 7 and rating <= 10
-    throw new RangeError("Rating must be between 0 and 10")
+    throw new RangeError "Rating must be between 0 and 10"
 
 
   # Convert a ratio of two Reals into a floating point.
@@ -88,8 +86,8 @@ class App.Metrics
 
   @groupByWeek = (anArray, attribute) ->
     if _.isUndefined(attribute)
-      throw new RangeError("required param \"attribute\" not supplied")
-    return [] if _.isEmpty(anArray)
+      throw new RangeError "required param \"attribute\" not supplied"
+    return [] if _.isEmpty anArray
 
     items = _.sortBy(anArray, attribute)
     weekEndingDate = _.last(items)[attribute]
@@ -102,4 +100,4 @@ class App.Metrics
 
 
 sixDaysBefore = (aDate) ->
-  new Date(aDate.getFullYear(), aDate.getMonth(), aDate.getDate() - 6)
+  new Date aDate.getFullYear(), aDate.getMonth(), aDate.getDate() - 6
