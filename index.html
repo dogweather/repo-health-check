@@ -8,23 +8,40 @@
   <title>Repo Health Check</title>
   <link href="favicon.ico" rel="shortcut icon">
 
+  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={
+          'modules':[{
+            'name':'visualization',
+            'version':'1.1',
+            'packages':['corechart']
+          }]
+        }"></script>
+
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+  <!--[if lt IE 9]>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+  <![endif]-->
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Schoolbell|Roboto+Condensed:400,300,700'>
-  <link rel="stylesheet" href="stylesheets/app.css">
+  <link rel="stylesheet" href="lib/app.css">
 </head>
 
 <body>
-  <a href="https://github.com/dogweather/repo-health-check">
-    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
-    alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
-  </a>
+  <div class="github-fork-ribbon-wrapper right">
+    <div class="github-fork-ribbon">
+      <a href="https://github.com/dogweather/repo-health-check">Fork me on GitHub</a>
+    </div>
+  </div>
+
+
   <div class=container>
 
     <!-- Page header -->
     <div class="row">
       <div class="col-sm-12">
+
         <div class="page-header">
           <h1>
             <span class=red-cross>✚</span> Repo Health Check
@@ -43,7 +60,7 @@
     <div class="row">
 
       <!-- Left column -->
-      <div class="col-sm-6">
+      <div class="col-sm-7">
 
         <!-- Repo form -->
         <div class="form-horizontal">
@@ -66,78 +83,78 @@
           <span id=error-text></span>
         </div>
 
+
         <!-- Results display -->
         <div id=results>
 
+          <h2><!-- Repo Name --></h2>
+
           <!-- Summary -->
-          <h2></h2>
-          <table class="table">
-            <tbody>
-              <tr>
-                <th><strong>Effectiveness:</strong></th>
-                <td>
-                  <div id=progress-display class=progress>
-                    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 0%"></div>
-                  </div>
+          <div id=progress-display class=progress>
+            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 5%"></div>
+          </div>
 
-                  <div id=results-display>
-                    <!-- Effectiveness Summary -->
-                    <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
-                    <span id=effectiveness-desc class=data></span>
-                    (<span class='data effectiveness'></span>/10)
+          <div class=results-display>
+            <h3>
+              Effectiveness:
+              &nbsp;&nbsp;
+              <!-- Effectiveness Summary -->
+              <i id=effectiveness-icon class="fa fa-ambulance icon"></i>
+              <span id=effectiveness-desc class=data></span>
+              (<span class='data effectiveness'></span>/10)
+            </h3>
+          </div>
 
-                    <br>&nbsp;<br>
+          <div id="trend-chart"></div>
 
-                    <!-- Effectiveness Breakdown -->
-                    <h4>Break-down</h4>
-                    <p>
-                      In the past month, the repo maintainers closed
-                      <span class=data id=closed-prs></span>
-                      pull requests, and
-                      <span class=data id=open-prs></span> new PR's remain open.
-                      This yields a scaled PR Effectiveness of
-                      <span class='data pr-effectiveness'></span>/10.
-                    </p>
-                    <p>
-                      In the same time period, there were
-                      <span class=data id=closed-issues></span>
-                      issues closed vs.
-                      <span class=data id=open-issues></span> new ones submitted.
-                      This results in a scaled Issue Effectiveness of
-                      <span class='data issue-effectiveness'></span>/10.
-                    </p>
-                    <p>
-                      The Total Effectiveness
-                      (<span class='data effectiveness'></span>) is calculated
-                      from a weighted average of PR Effectiveness
-                      (<span class='data pr-effectiveness'></span>) @ 66%
-                       + Issue Effectiveness
-                      (<span class='data issue-effectiveness'></span>) @ 34%.
-                    </p>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> <!-- End of results display -->
+          <div class=results-display>
+            <!-- Effectiveness Breakdown -->
+            <h4>Break-down</h4>
+            <ol>
+              <li>
+                In the past month, the repo maintainers closed
+                <span class="data closed-prs"></span>
+                pull requests, while
+                <span class="data open-prs"></span> new PR's remain open. We then normalize the ratio
+                <span class="data closed-prs"></span>:<span class="data open-prs"></span>
+                to a scale of 0–10 to arrive at PR Effectiveness
+                <span class='data pr-effectiveness'></span>.
+              </li>
+              <li>
+                In the same time period, there were
+                <span class="data closed-issues"></span>
+                issues closed vs.
+                <span class='data open-issues'></span> new ones submitted. This results in a scaled Issue Effectiveness of
+                <span class='data issue-effectiveness'></span>/10.
+              </li>
+              <li>
+                Finally, we calculate Total Effectiveness
+                (<span class='data effectiveness'></span>) from a weighted average of PR Effectiveness
+                (<span class='data pr-effectiveness'></span>) @ 66% + Issue Effectiveness
+                (<span class='data issue-effectiveness'></span>) @ 34%.
+              </li>
+            </ol>
+          </div>
+        </div>
+        <!-- End of results display -->
 
       </div>
       <!-- End left column -->
 
 
       <!-- Right column -->
-      <div class="col-sm-5 col-sm-offset-1">
+      <div class="col-sm-5">
 
         <!-- Sign-in Form -->
         <div class="well">
           <div class="form-horizontal">
             <legend id=user-display>
               API mode:
-              <span id=api-mode>anonymous</span>
+              <span class=data id=api-mode>anonymous</span>
               <div id=rate-info>
                 Rate limit:
-                <span id=rate-remaining></span> /
-                <span id=rate-limit></span>
+                <span class=data id=rate-remaining></span> /
+                <span class=data id=rate-limit></span>
               </div>
             </legend>
 
@@ -161,7 +178,8 @@
             </div>
 
           </div>
-        </div> <!-- End of the sign-in form -->
+        </div>
+        <!-- End of the sign-in form -->
 
         <table id=log class=table>
           <thead>
@@ -169,7 +187,7 @@
               Repo
             </th>
             <th>
-              Effect.
+              Effectiveness
             </th>
             <th>
               Activity
@@ -201,15 +219,17 @@
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src='bower_components/underscore/underscore.js'></script>
     <script src="bower_components/sprintf/src/sprintf.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
     <script src="bower_components/octokat/dist/octokat.js"></script>
     <script src="lib/core.js"></script>
     <script src="src/octokat-ext.js"></script>
-    <script src="src/metrics.js"></script>
+    <script src="lib/metrics.js"></script>
     <script src="lib/github.js"></script>
     <script src="lib/repo.js"></script>
     <script src="lib/ui.js"></script>
+    <script src="lib/chart.js"></script>
     <script src="lib/app.js"></script>
 </body>
 

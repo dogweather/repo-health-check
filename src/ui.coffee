@@ -1,4 +1,4 @@
-# Functions for interacting with the HTML page: changing visibility and content.
+# Functions for interacting with the HTML page, changing visibility and content.
 #
 # The intention is for this file to be the only place where HTML elements and
 # CSS classes are referenced. And so, when the HTML structure changes, this is
@@ -6,7 +6,7 @@
 # nice vehicle for easily creating namespaced functions.
 class App.UI
 
-  @anonymousMode: ->
+  @anonymousMode = ->
     $('#api-mode').text 'anonymous'
     $('#github-username').val('')
     $('#github-password').val('')
@@ -18,7 +18,7 @@ class App.UI
     $('#github-repo').focus()
 
 
-  @signedInMode: (username) ->
+  @signedInMode = (username) ->
     $('#api-mode').text 'authenticated'
     $('button#sign-in').hide()
     $('button#sign-out').show()
@@ -27,12 +27,12 @@ class App.UI
     $('#github-repo').focus()
 
 
-  @showRateInfo: (rateData) ->
+  @showRateInfo = (rateData) ->
     $('#rate-limit').text rateData.limit
     $('#rate-remaining').text rateData.remaining
 
 
-  @progress: (percent) ->
+  @progress = (percent) ->
     if percent > 0
       @_changeProgress percent
       @showProgressBar()
@@ -41,49 +41,53 @@ class App.UI
       @_changeProgress percent
 
 
-  @refreshLog: (repos) =>
+  @refreshLog = (repos) ->
     tbody = "<tbody>#{@logRows(repos)}</tbody>"
     $('table#log tbody').replaceWith(tbody)
     $('#avg-effectiveness').text @average(repos, ((r) -> r.effectiveness()))
 
 
-  @logRows: (repos) =>
+  @logRows = (repos) ->
     rows = repos.reduce (acc, r) =>
-      acc + @tr(@td(@linkedRepoName(r)), @td(sprintf '%.1f', r.effectiveness()), @td('(tbd)'))
+      acc + @tr(@td(@linkedRepoName(r)),
+      @td(sprintf '%.1f',
+      r.effectiveness()),
+      @td('(tbd)'))
     , ''
 
 
-  @linkedRepoName: (repo) ->
-    "<a href=#{repo.url()} target=_blank>#{repo.name}<img class=external-link-icon src=external_link_icon.png></a>"
+  @linkedRepoName = (repo) ->
+    "<a href=#{repo.url()} target=_blank>" +
+    "#{repo.name}<img class=external-link-icon src=external_link_icon.png></a>"
 
 
-  @average: (items, f) ->
+  @average = (items, f) ->
     sum = items.reduce ((acc, i) -> acc + f(i)), 0
     sprintf '%.1f', sum / items.length
 
 
-  @td: (text) -> "<td class=data>#{text}</td>"
+  @td = (text) -> "<td class=data>#{text}</td>"
 
-  @tr: (cells...) -> "<tr>#{cells.join ''}</tr>"
+  @tr = (cells...) -> "<tr>#{cells.join ''}</tr>"
 
 
-  @showError: (message) ->
+  @showError = (message) ->
     $('#error-text').text message
     $('#error-alert').show()
 
-  @hideError: ->
+  @hideError = ->
     $('#error-alert').hide()
 
 
-  @showProgressBar: -> $('#progress-display').show()
-  @hideProgressBar: -> $('#progress-display').hide()
+  @showProgressBar = -> $('#progress-display').show()
+  @hideProgressBar = -> $('#progress-display').hide()
 
-  @showResultsDisplay: -> $('#results-display').show()
-  @hideResultsDisplay: -> $('#results-display').hide()
+  @showResultsDisplay = -> $('.results-display').show()
+  @hideResultsDisplay = -> $('.results-display, #trend-chart').hide()
 
-  @showResults: -> $('#results').show()
-  @hideResults: -> $('#results').hide()
+  @showResults = -> $('#results').show()
+  @hideResults = -> $('#results').hide()
 
 
-  @_changeProgress: (percent) ->
+  @_changeProgress = (percent) ->
     $('.progress-bar').attr 'style', "width: #{percent}%"

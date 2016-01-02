@@ -1,10 +1,25 @@
+$borderColor: #eee;
+
+
 * {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+ol {
+  padding: 0 0 0 1.3em;
+
+  li {
+    margin: 1em 0;
+  }
+}
+
+th {
+  font-weight: normal
+}
+
 footer {
   text-align: center;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid $borderColor;
   margin-top: 8em;
 }
 
@@ -20,42 +35,30 @@ legend {
   font-size: 80%;
 }
 
-#rate-limit, #rate-remaining {
-  font-weight: bold;
-}
-
 #results {
   display: none;
-  margin-top: 4em;
+  margin-top: 5em;
+
+  h2 {
+    border-bottom: 1px solid $borderColor;
+  }
 }
 
-th {
-  font-weight: normal
+#trend-chart {
+  display: none;
+  height: 18em;
 }
 
-#results td {
-  width: 100%;
+.results-display {
+  margin: 2em 0;
 }
 
-h3#results-display {
+h3 {
   font-size: 150%;
 }
 
-#api-mode {
-  font-weight: bold
-}
-
-div.progress {
-  display: none;
-  width: 100%;
-}
-
-#effectiveness-result, .username {
-  font-weight: bold;
-}
-
 .github-fork-ribbon {
-    background-color: #777;
+    background-color: #bbb;
 }
 
 .effective-copy {
@@ -73,22 +76,6 @@ button#sign-out {
 
 .data {
   font-weight: 700;
-}
-
-.fa-ambulance, .fa-frown-o {
-  color: orange;
-}
-
-.fa-stethoscope, .red-cross {
-  color: #F01525;
-}
-
-.fa-smile-o {
-  color: green;
-}
-
-.green-glow {
-  text-shadow: 0 0 5px #7f7;
 }
 
 .icon {
@@ -110,3 +97,5 @@ table#log td:nth-child(2), table#log th:nth-child(2), table#log td:nth-child(3),
   padding-left: 4px;
   opacity: 0.5;
 }
+
+@import 'icon_colors';

@@ -1,4 +1,5 @@
 class App.Repo
+
   # @param repoSpec should be a string like "facebook/react" or a GitHub
   # project URL.
   constructor: (repoSpec,
@@ -75,12 +76,43 @@ class App.Repo
 
 
   effectiveness: =>
-    Metrics.repoEffectiveness this
+    App.Metrics.repoEffectiveness this
 
 
   prEffectiveness: =>
-    Metrics.prEffectiveness this
+    App.Metrics.prEffectiveness this
 
 
   issueEffectiveness: =>
-    Metrics.issueEffectiveness this
+    App.Metrics.issueEffectiveness this
+
+
+  trendData: =>
+    App.Metrics.groupByWeek(@rawdata.issues, 'updatedAt')
+      .map (weekOfIssues) -> _chartDataPoint(weekOfIssues)
+
+
+  equals: (other) =>
+    (other.name is @name) and (other.acct is @acct)
+
+
+  _chartDataPoint = (issues) ->
+    [
+      _earliestDate(issues),
+      _effectiveness(issues)
+    ]
+
+
+  _earliestDate = (issues) ->
+    _dateFormat _.first(issues).updatedAt
+
+
+  _effectiveness = (issues) ->
+    Number sprintf('%.1f', App.Metrics.effectivenessForIssues(issues))
+
+
+  _dateFormat = (aDate) ->
+    # A date format that looks nice in the chart, e.g. 12/23.
+    month = aDate.getMonth() + 1
+    day   = aDate.getDate()
+    [month, day].join '/'

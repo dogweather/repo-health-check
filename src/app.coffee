@@ -27,10 +27,7 @@ signIn = ->
   username = $("#github-username").val()
   password = $("#github-password").val()
   if username and password
-    App.octo = new Octokat(
-      username: username
-      password: password
-    )
+    App.octo = new Octokat username: username, password: password
     App.UI.signedInMode()
     refreshRateInfo()
 
@@ -59,24 +56,27 @@ showRepo = (repo) ->
 analyze = (repo) ->
   App.UI.hideError()
   refreshRateInfo()
-  icon_class = "icon fa " + Metrics.repoEffectivenessIcon(repo)
+  icon_class = "icon fa " + App.Metrics.repoEffectivenessIcon(repo)
+  # Show effectiveness
   $("#effectiveness-icon").attr "class", icon_class
-  $("#effectiveness-desc").text Metrics.repoEffectivenessDesc(repo)
+  $("#effectiveness-desc").text App.Metrics.repoEffectivenessDesc(repo)
   $(".effectiveness").text sprintf '%.1f', repo.effectiveness()
   $(".pr-effectiveness").text sprintf '%.1f', repo.prEffectiveness()
   $(".issue-effectiveness").text sprintf '%.1f', repo.issueEffectiveness()
-  $('#open-prs').text repo.openPullRequestCount()
-  $('#closed-prs').text repo.closedPullRequestCount()
-  $('#open-issues').text repo.openIssueCount()
-  $('#closed-issues').text repo.closedIssueCount()
+  $('.open-prs').text repo.openPullRequestCount()
+  $('.closed-prs').text repo.closedPullRequestCount()
+  $('.open-issues').text repo.openIssueCount()
+  $('.closed-issues').text repo.closedIssueCount()
+  addRepoToLog repo
   window.setTimeout App.UI.hideProgressBar, 500
   window.setTimeout App.UI.showResultsDisplay, 500
-  addRepoToLog repo
+  window.setTimeout App.UI.drawChart, 500
 
 
 addRepoToLog = (repo) ->
-  App.log.push repo
-  App.UI.refreshLog App.log
+  if not _repoInList(repo, App.log)
+    App.log.push repo
+    App.UI.refreshLog App.log
 
 
 showError = (message) ->
@@ -90,3 +90,7 @@ refreshRateInfo = ->
 
 enterWasHit = (event) ->
   event.keyCode is 13
+
+
+_repoInList = (repo, repos) ->
+  _.some repos, (r) -> r.equals(repo)

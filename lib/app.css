@@ -1,0 +1,86 @@
+* {
+  font-family: 'Roboto Condensed', sans-serif; }
+
+ol {
+  padding: 0 0 0 1.3em; }
+  ol li {
+    margin: 1em 0; }
+
+th {
+  font-weight: normal; }
+
+footer {
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: 8em; }
+
+label {
+  font-weight: normal; }
+
+legend {
+  font-size: 110%; }
+
+#rate-info {
+  font-size: 80%; }
+
+#results {
+  display: none;
+  margin-top: 5em; }
+  #results h2 {
+    border-bottom: 1px solid #eee; }
+
+#trend-chart {
+  display: none;
+  height: 18em; }
+
+.results-display {
+  margin: 2em 0; }
+
+h3 {
+  font-size: 150%; }
+
+.github-fork-ribbon {
+  background-color: #bbb; }
+
+.effective-copy {
+  font-weight: bold; }
+
+.dejected-copy {
+  font-family: 'Schoolbell', cursive;
+  font-size: 110%; }
+
+button#sign-out {
+  display: none; }
+
+.data {
+  font-weight: 700; }
+
+.icon {
+  font-weight: bold;
+  font-size: 170%;
+  vertical-align: middle;
+  padding-right: 0.1em; }
+
+#error-alert {
+  display: none; }
+
+table#log td:nth-child(2), table#log th:nth-child(2), table#log td:nth-child(3), table#log th:nth-child(3) {
+  text-align: center; }
+
+.external-link-icon {
+  padding-left: 4px;
+  opacity: 0.5; }
+
+.fa-ambulance, .fa-frown-o {
+  color: orange; }
+
+.fa-stethoscope, .red-cross {
+  color: #F01525; }
+
+.fa-smile-o {
+  color: green; }
+
+.green-glow {
+  text-shadow: 0 0 5px #7f7; }
+
+/*# sourceMappingURL=app.css.map */
