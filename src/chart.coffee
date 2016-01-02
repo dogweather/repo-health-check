@@ -21,8 +21,10 @@ dataTable = (repo) ->
 
 options = ->
   vAxis: {
-    minValue: 0
-    maxValue: 10
+    viewWindow: {
+      min: 0
+      max: 10
+    }
   }
   lineWidth: 3
   title: 'Trend'
