@@ -58,7 +58,8 @@ By using the raw signals listed above, we can calculate useful metrics. These me
 
 E.g.:
 * How well do the maintainers keep up with the queue of incoming PR's?
-
+* How quick do the maintainers respond to new issues and PR's?
+* How does the activity level affect the other metrics?
 
 ### Other sources
 
