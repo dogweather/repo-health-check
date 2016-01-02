@@ -91,6 +91,8 @@ analyze = (repo) ->
   $('.open-issues').text repo.openIssueCount()
   $('.closed-issues').text repo.closedIssueCount()
   addRepoToLog repo
+  # TODO: Clean this up. The delay is here because the
+  # progress bar takes a little time to update
   window.setTimeout App.UI.hideProgressBar, 500
   window.setTimeout App.UI.showResultsDisplay, 500
   window.setTimeout App.UI.drawChart, 500
@@ -103,7 +105,9 @@ addRepoToLog = (repo) ->
 
 
 showError = (message) ->
+  App.UI.hideProgressBar()
   App.UI.showError message
+  refreshRateInfo()
 
 
 enterWasHit = (event) ->

@@ -91,16 +91,14 @@ class App.Metrics
 
 
   @groupByWeek = (anArray, attribute) ->
-    if _.isUndefined(attribute)
+    if not attribute?
       throw new RangeError "required param \"attribute\" not supplied"
     return [] if _.isEmpty anArray
 
     items = _.sortBy(anArray, attribute)
     weekEndingDate = _.last(items)[attribute]
     weekStartingDate = sixDaysBefore(weekEndingDate)
-    partitionResult = _.partition(items, (i) -> i[attribute] >= weekStartingDate)
-    thisWeek = _.first(partitionResult)
-    previousDays = _.last(partitionResult)
+    [thisWeek, previousDays] = _.partition(items, (i) -> i[attribute] >= weekStartingDate)
     @groupByWeek(previousDays, attribute).concat [ thisWeek ]
 
   @randomIntFromInterval = (min, max) ->
