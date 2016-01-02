@@ -33,10 +33,10 @@ class App.UI
 
 
   @progress = (percent) ->
-    console.log "progress: #{percent}"
+    console.log "setting progress: #{percent}"
     if percent > 0
       @_changeProgress percent
-      @showProgressBar()
+      # @showProgressBar()
     else
       @hideProgressBar()
       @_changeProgress percent
@@ -91,4 +91,4 @@ class App.UI
 
 
   @_changeProgress = (percent) ->
-    $('.progress-bar').attr 'style', "width = #{percent}%"
+    $('.progress-bar').attr 'style', "width: #{percent}%"
