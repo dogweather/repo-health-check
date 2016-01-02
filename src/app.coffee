@@ -59,10 +59,10 @@ showRepo = (repo) ->
 analyze = (repo) ->
   App.UI.hideError()
   refreshRateInfo()
-  icon_class = "icon fa " + Metrics.repoEffectivenessIcon(repo)
+  icon_class = "icon fa " + App.Metrics.repoEffectivenessIcon(repo)
   # Show effectiveness
   $("#effectiveness-icon").attr "class", icon_class
-  $("#effectiveness-desc").text Metrics.repoEffectivenessDesc(repo)
+  $("#effectiveness-desc").text App.Metrics.repoEffectivenessDesc(repo)
   $(".effectiveness").text sprintf '%.1f', repo.effectiveness()
   $(".pr-effectiveness").text sprintf '%.1f', repo.prEffectiveness()
   $(".issue-effectiveness").text sprintf '%.1f', repo.issueEffectiveness()

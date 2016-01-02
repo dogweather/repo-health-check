@@ -75,15 +75,15 @@ class App.Repo
 
 
   effectiveness: =>
-    Metrics.repoEffectiveness this
+    App.Metrics.repoEffectiveness this
 
 
   prEffectiveness: =>
-    Metrics.prEffectiveness this
+    App.Metrics.prEffectiveness this
 
 
   issueEffectiveness: =>
-    Metrics.issueEffectiveness this
+    App.Metrics.issueEffectiveness this
 
 
   trendData: ->
