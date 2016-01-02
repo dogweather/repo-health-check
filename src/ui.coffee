@@ -33,6 +33,7 @@ class App.UI
 
 
   @progress = (percent) ->
+    console.log "progress: #{percent}"
     if percent > 0
       @_changeProgress percent
       @showProgressBar()

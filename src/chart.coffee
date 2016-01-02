@@ -12,11 +12,11 @@ App.UI.drawChart = ->
 
 
 dataTable = (repo) ->
-  dataTable = new google.visualization.DataTable()
-  dataTable.addColumn 'string', 'Week'
-  dataTable.addColumn 'number', 'Effectiveness'
-  dataTable.addRows repo.trendData()
-  dataTable
+  dt = new google.visualization.DataTable()
+  dt.addColumn 'string', 'Week'
+  dt.addColumn 'number', 'Effectiveness'
+  dt.addRows repo.trendData()
+  dt
 
 
 options = ->

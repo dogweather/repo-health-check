@@ -1,4 +1,5 @@
 class App.Repo
+
   # @param repoSpec should be a string like "facebook/react" or a GitHub
   # project URL.
   constructor: (repoSpec,
@@ -86,22 +87,16 @@ class App.Repo
     App.Metrics.issueEffectiveness this
 
 
-  trendData: ->
-    [
-      [
-        '12/1'
-        4.3
-      ]
-      [
-        '12/8'
-        4.9
-      ]
-      [
-        '12/15'
-        6.7
-      ]
-      [
-        '12/22'
-        2.3
-      ]
-    ]
+  trendData: =>
+    result = App.Metrics.groupByWeek(@rawdata.issues, 'updatedAt')
+      .map (weekOfIssues) ->
+        [format(_.first(weekOfIssues).updatedAt), App.Metrics.effectivenessForIssues(weekOfIssues)]
+    console.log result
+    result
+
+
+  format = (aDate) ->
+    # A date format that looks nice in the chart, e.g. 12/23.
+    month = aDate.getMonth() + 1
+    day   = aDate.getDate()
+    [month, day].join '/'

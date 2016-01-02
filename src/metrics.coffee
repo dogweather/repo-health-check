@@ -21,6 +21,12 @@ class App.Metrics
       repo.openIssueCount())
 
 
+  @effectivenessForIssues = (weekOfIssues) ->
+    repo = new App.Repo 'none/none', null, null, null, false
+    repo.rawdata.issues = weekOfIssues
+    @repoEffectiveness repo
+
+
   @effectiveness = (merged_prs, proposed_prs, closed_issues, new_issues) ->
     inputs = [ merged_prs, proposed_prs, closed_issues, new_issues ].join ", "
     prs = @pr_effectiveness merged_prs, proposed_prs
@@ -92,12 +98,13 @@ class App.Metrics
     items = _.sortBy(anArray, attribute)
     weekEndingDate = _.last(items)[attribute]
     weekStartingDate = sixDaysBefore(weekEndingDate)
-    partitionResult = _.partition(items, (i) ->
-      i[attribute] >= weekStartingDate)
+    partitionResult = _.partition(items, (i) -> i[attribute] >= weekStartingDate)
     thisWeek = _.first(partitionResult)
     previousDays = _.last(partitionResult)
     @groupByWeek(previousDays, attribute).concat [ thisWeek ]
 
+  @randomIntFromInterval = (min, max) ->
+    Math.floor Math.random() * (max - min + 1 ) + min
 
 sixDaysBefore = (aDate) ->
   new Date aDate.getFullYear(), aDate.getMonth(), aDate.getDate() - 6
