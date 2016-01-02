@@ -35,10 +35,6 @@ legend {
 #results {
   display: none;
   margin-top: 4em;
-
-  td {
-    width: 100%;
-  }
 }
 
 #trend-chart {
@@ -51,15 +47,6 @@ legend {
 
 h3 {
   font-size: 150%;
-}
-
-#api-mode {
-  font-weight: bold
-}
-
-div.progress {
-  display: none;
-  width: 100%;
 }
 
 .github-fork-ribbon {

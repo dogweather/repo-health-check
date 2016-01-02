@@ -88,17 +88,26 @@ class App.Repo
 
 
   trendData: =>
-    result = App.Metrics.groupByWeek(@rawdata.issues, 'updatedAt')
-      .map (weekOfIssues) ->
-        [
-          format(_.first(weekOfIssues).updatedAt),
-          Number(sprintf('%.1f', App.Metrics.effectivenessForIssues(weekOfIssues)))
-        ]
-    console.log result
-    result
+    App.Metrics.groupByWeek(@rawdata.issues, 'updatedAt')
+      .map (weekOfIssues) -> _chartDataPoint(weekOfIssues)
 
 
-  format = (aDate) ->
+  _chartDataPoint = (issues) ->
+    [
+      _earliestDate(issues),
+      _effectiveness(issues)
+    ]
+
+
+  _earliestDate = (issues) ->
+    _dateFormat _.first(issues).updatedAt
+
+
+  _effectiveness = (issues) ->
+    Number sprintf('%.1f', App.Metrics.effectivenessForIssues(issues))
+
+
+  _dateFormat = (aDate) ->
     # A date format that looks nice in the chart, e.g. 12/23.
     month = aDate.getMonth() + 1
     day   = aDate.getDate()
