@@ -24,7 +24,11 @@ rate limits are in effect. This avoids [problems similar projects](https://githu
 
 ## Development Status
 
-One metric is implemented (**effectiveness**) and now we're brainstorming about next steps:
+One metric is implemented (**effectiveness**) and now we're brainstorming about next steps: 
+
+* More metrics
+* Advice for improving the issues found
+* New visualizations, and better UX
 
 
 ## Automated Signals
