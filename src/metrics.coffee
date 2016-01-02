@@ -106,5 +106,6 @@ class App.Metrics
   @randomIntFromInterval = (min, max) ->
     Math.floor Math.random() * (max - min + 1 ) + min
 
+
 sixDaysBefore = (aDate) ->
   new Date aDate.getFullYear(), aDate.getMonth(), aDate.getDate() - 6

@@ -30,9 +30,10 @@ refreshRateInfo = ->
 
 
 checkForPermalink = ->
-  if not _.isUndefined(window.location.hash)
-    repoSpec = decodeURIComponent window.location.hash.slice(1)
-    console.log repoSpec
+  if window.location.hash
+    repoSpec = decodeURIComponent window.location.hash.slice 1
+    $(REPO_INPUT).val(repoSpec)
+    startAnalysis()
 
 
 signIn = ->
