@@ -24,7 +24,7 @@ options = ->
     minValue: 0
     maxValue: 10
   }
-  lineWidth: 4
+  lineWidth: 3
   title: 'Trend'
   curveType: 'function'
   theme: 'material'

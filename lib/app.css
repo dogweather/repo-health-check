@@ -11,7 +11,7 @@ th {
 
 footer {
   text-align: center;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #eee;
   margin-top: 8em; }
 
 label {
@@ -25,10 +25,13 @@ legend {
 
 #results {
   display: none;
-  margin-top: 4em; }
+  margin-top: 5em; }
+  #results h2 {
+    border-bottom: 1px solid #eee; }
 
 #trend-chart {
-  display: none; }
+  display: none;
+  height: 18em; }
 
 .results-display {
   margin: 2em 0; }
