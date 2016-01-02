@@ -52,7 +52,7 @@ class App.UI
       acc + @tr(@td(@linkedRepoName(r)),
       @td(sprintf '%.1f',
       r.effectiveness()),
-      @td('(tbd)'))
+      @td('(tbd)', ''))
     , ''
 
 
@@ -66,7 +66,7 @@ class App.UI
     sprintf '%.1f', sum / items.length
 
 
-  @td = (text) -> "<td class=data>#{text}</td>"
+  @td = (text, htmlClass='data') -> "<td class='#{htmlClass}'>#{text}</td>"
 
   @tr = (cells...) -> "<tr>#{cells.join ''}</tr>"
 
