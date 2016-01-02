@@ -16,3 +16,15 @@ App.octoFetchAll = function (fn, args) {
   });
   return p;
 };
+
+
+// URL Query params
+// http://stackoverflow.com/a/3855394/106906
+// TODO: Move to a better location
+App.query = {};
+location.search.substr(1).split("&").forEach(function(item) {
+    var s = item.split("="),
+        k = s[0],
+        v = s[1] && decodeURIComponent(s[1]);
+    (k in App.query) ? App.query[k].push(v) : App.query[k] = [v];
+});

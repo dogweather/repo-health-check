@@ -4,6 +4,7 @@ REPO_INPUT = "#github-repo"
 $ ->
   setupEvents()
   refreshRateInfo()
+  checkForPermalink()
 
 
 setupEvents = ->
@@ -23,6 +24,18 @@ setupEvents = ->
     $("button#sign-in").prop "disabled", (e.target.value is "")
 
 
+refreshRateInfo = ->
+  App.Github.rateLimit (rateData) ->
+    App.UI.showRateInfo rateData
+
+
+checkForPermalink = ->
+  if window.location.hash
+    repoSpec = decodeURIComponent window.location.hash.slice 1
+    $(REPO_INPUT).val(repoSpec)
+    startAnalysis()
+
+
 signIn = ->
   username = $("#github-username").val()
   password = $("#github-password").val()
@@ -39,10 +52,20 @@ signOut = ->
 
 
 startAnalysis = ->
+  userInput = $(REPO_INPUT).val()
+  setNewUrl(userInput)
   App.UI.hideResults()
   App.UI.hideResultsDisplay()
   App.UI.progress 5
-  App.repo = new App.Repo($(REPO_INPUT).val(), showRepo, analyze, showError)
+  App.repo = new App.Repo userInput, showRepo, analyze, showError
+
+
+setNewUrl = (userInput) ->
+  try
+    slug = '#' + encodeURIComponent(userInput)
+    history.pushState(null, null, slug)
+  catch error
+    console.log error
 
 
 showRepo = (repo) ->
@@ -81,11 +104,6 @@ addRepoToLog = (repo) ->
 
 showError = (message) ->
   App.UI.showError message
-
-
-refreshRateInfo = ->
-  App.Github.rateLimit (rateData) ->
-    App.UI.showRateInfo rateData
 
 
 enterWasHit = (event) ->
