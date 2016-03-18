@@ -1,4 +1,8 @@
 # Repo Health Check
+
+[![QA Status](https://nonstop.qa/projects/275/badges/default.svg)](https://nonstop.qa/projects/275-repo-health-check)
+
+
 Analyze a project and its management
 
 ![screenshot](https://raw.githubusercontent.com/dogweather/repo-health-check/master/docs/screenshot.jpg)
