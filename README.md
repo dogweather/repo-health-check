@@ -4,7 +4,7 @@ Analyze a project and its management
 
 [![QA Status](https://nonstop.qa/projects/275/badges/default.svg)](https://nonstop.qa/projects/275-repo-health-check)
 
-<img width="80" height="20" src="http://localhost:4000/projects/3/badges/default.svg" />
+<img src="http://localhost:4000/projects/3/badges/default.svg" />
 
 
 
