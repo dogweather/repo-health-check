@@ -6,7 +6,7 @@ Analyze a project and its management
 
 
 
-![screenshot](https://raw.githubusercontent.com/dogweather/ketobit/master/docs/screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/dogweather/repo-health-check/master/docs/screenshot-medium.jpg)
 
 [Live app →](http://repocheck.com/)
 
