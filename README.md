@@ -2,9 +2,6 @@
 
 Analyze a project and its management
 
-<a href="https://nonstop.qa/projects/275-repo-health-check"><img alt="QA Status" src="https://nonstop.qa/projects/275/badges/default.svg" width=80 height=20 /></a>
-
-
 
 ![screenshot](https://raw.githubusercontent.com/dogweather/repo-health-check/master/docs/screenshot-medium.jpg)
 
