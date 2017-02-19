@@ -81,6 +81,7 @@ E.g.:
 
 ## Similar Projects
 
+* https://repohealth.info / https://github.com/pelson/repohealth.info
 * https://github.com/gorillamania/repo-health
 * https://github.com/cfjedimaster/githubhealth
 * https://github.com/github/pages-health-check
