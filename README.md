@@ -5,7 +5,7 @@ Analyze a project and its management
 
 ![screenshot](https://raw.githubusercontent.com/dogweather/repo-health-check/master/docs/screenshot-medium.jpg)
 
-[Live app →](http://repocheck.com/)
+[Live app →](https://repocheck.com/)
 
 A fully client-side GitHub/BitBucket repo analyzer. It finds out: Is a
 project well managed? Does it _accept help_? How does it compare to other
