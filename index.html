@@ -8,20 +8,19 @@
   <title>Repo Health Check</title>
   <link href="favicon.ico" rel="shortcut icon">
 
-  <script type="text/javascript" src="https://www.google.com/jsapi?autoload={
-          'modules':[{
-            'name':'visualization',
-            'version':'1.1',
-            'packages':['corechart']
-          }]
-        }"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] })
+  </script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
   <!--[if lt IE 9]>
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
   <![endif]-->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Schoolbell|Roboto+Condensed:400,300,700'>
@@ -67,7 +66,8 @@
           <div class="form-group">
             <label for="github-repo" class="col-sm-2 control-label">GitHub</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="github-repo" id="github-repo" placeholder="URL or account/repo" autofocus>
+              <input type="text" class="form-control" name="github-repo" id="github-repo"
+                placeholder="URL or account/repo" autofocus>
             </div>
           </div>
           <div class="form-group">
@@ -87,7 +87,9 @@
         <!-- Results display -->
         <div id=results>
 
-          <h2><!-- Repo Name --></h2>
+          <h2>
+            <!-- Repo Name -->
+          </h2>
 
           <!-- Summary -->
           <div id=progress-display class=progress>
@@ -124,7 +126,8 @@
                 In the same time period, there were
                 <span class="data closed-issues"></span>
                 issues closed vs.
-                <span class='data open-issues'></span> new ones submitted. This results in a scaled Issue Effectiveness of
+                <span class='data open-issues'></span> new ones submitted. This results in a scaled Issue Effectiveness
+                of
                 <span class='data issue-effectiveness'></span>/10.
               </li>
               <li>
