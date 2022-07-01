@@ -86,3 +86,4 @@ E.g.:
 * https://github.com/cfjedimaster/githubhealth
 * https://github.com/github/pages-health-check
 * https://github.com/hstove/issue_stats
+* https://github.com/ryo-ma/github-profile-trophy
